@@ -1,0 +1,920 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Passive Components &#8212; Dr.Hadi Sadoghi Yazdi</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Circuit_Electronics/StudentEffort/PassiveComponents/Passive Components';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Linear approximation" href="../Linearization/LinearizationProject.html" />
+    <link rel="prev" title="Average power" href="../AveragePower.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../Introduction_CircuitElectronics.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/Hadi_Sadoghi_Yazdi.png" class="logo__image only-light" alt="Dr.Hadi Sadoghi Yazdi - Home"/>
+    <img src="../../../_static/Hadi_Sadoghi_Yazdi.png" class="logo__image only-dark pst-js-only" alt="Dr.Hadi Sadoghi Yazdi - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../Introduction_CircuitElectronics.html">
+                    Introduction to Circuit and Electronics
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Sections of Circuit and Electronics course</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../BasicElements.html">Basic component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../KVL_KCL.html">Voltage , Current</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NodalMeshAnalysis.html">Basic Nodal and Mesh Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../RC_RL_RLC.html">R-C, R-L circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Diode_chapter.html">Diode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../DiodeApplication.html">Diode Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../BJT1.html">Bipolar junction transistor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../FET.html">Field Effect Transistor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../OpAmp.html">Operational Amplifier</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Teaching assistant</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../PySpice_Installation_Manual.html">PySpice Installation Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../PySpice_circuit_example1.html">Example 1: RESISTIVE DIVIDER</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../PySpice_circuit_example2.html">Example 2: DIODE CIRCUIT</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Students effort</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../DiodeCharacteristicCurve.html">Diode Characteristic Curve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../SchemdrawGuide1.html">Schemdraw Guide book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../independentcurrentandvoltagesources/miniProject.html">Independent current/voltage sources</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../AveragePower.html"><strong>Average power</strong></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Passive Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Linearization/LinearizationProject.html"><strong>Linear approximation</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../batteryModel/battery_model.html">Battery Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Sensitivity_analysis1.html">Sensitivity analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../WhatBias/bias1.html"><strong>Bias:</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Supermesh/Supermesh.html">Supermesh</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contact</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../Contact_Me.html">Contact Me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../About_Me.html">About Me</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/h-sadoghi/dr-sadoghi.git" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/h-sadoghi/dr-sadoghi.git/issues/new?title=Issue%20on%20page%20%2FCircuit_Electronics/StudentEffort/PassiveComponents/Passive Components.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/Circuit_Electronics/StudentEffort/PassiveComponents/Passive Components.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Passive Components</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-passive-component">What Is a Passive Component ?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resistors">Resistors</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#electronic-symbols-and-notation">Electronic symbols and notation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#series-and-parallel-resistors">Series and parallel resistors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-usage-patterns">Common usage patterns</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#current-limiting">Current limiting</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#voltage-divider">Voltage divider</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pull-down-and-pull-up-resistors">Pull-down and pull-up resistors</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resistor-value">Resistor value</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#capacitors">Capacitors</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#structure">Structure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#function">Function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Electronic symbols and notation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Common usage patterns</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#energy-storage">Energy Storage</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering">Filtering</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#timing-circuits">Timing Circuits</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#capacitor-value">Capacitor value</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inductors-coil">Inductors (Coil)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#right-hand-rule">Right-Hand Rule</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Electronic symbols and notation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Common usage patterns</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Energy Storage</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#filters">Filters</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sources">Sources</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="passive-components">
+<h1>Passive Components<a class="headerlink" href="#passive-components" title="Link to this heading">#</a></h1>
+<p>Author : Emad Etehadi</p>
+<section id="what-is-a-passive-component">
+<h2>What Is a Passive Component ?<a class="headerlink" href="#what-is-a-passive-component" title="Link to this heading">#</a></h2>
+<p>A passive element is an electrical component that does not generate power, but instead dissipates, stores, and/or releases it.They can only absorb electrical energy and dissipate it in the form of heat or store it in a magnetic or electric field. They cannot provide electric power or power amplification in an electric circuit. Common passive components include resistors, capacitors, and coils (also called inductors).These components are labeled in circuit diagrams as Rs, Cs and Ls, respectively. In most circuits, they are connected to active elements, typically semiconductor devices such as amplifiers and digital logic chips.</p>
+</section>
+<section id="resistors">
+<h2>Resistors<a class="headerlink" href="#resistors" title="Link to this heading">#</a></h2>
+<p>A resistor is a primary type of physical component that is used in electronic circuits. Resistors maintain or change electric current that flows in the circuit by consuming supplied electric power. For example, a simple circuit could consist of a power supply and a resistor. While maintaining a constant power supply, if the resistor value is increased, the current in the circuit will get smaller. If the resistor value is decreased, the current gets larger. In actual circuits, resistors are used to suppress current to avoid allowing more flow than the rated value into other components. They can also be used to obtain the required current or voltage by dividing voltage or current flow, or for measuring the flow in the circuit , this rule is called Ohm’s law :
+<span class="math notranslate nohighlight">\( R = \frac{V}{I} \)</span>
+where V is the voltage across the resistor, R is the resistance of the resistor, and I is the current flowing through the resistor.</p>
+<section id="electronic-symbols-and-notation">
+<h3>Electronic symbols and notation<a class="headerlink" href="#electronic-symbols-and-notation" title="Link to this heading">#</a></h3>
+<p>resistor :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">schemdraw</span>
+<span class="kn">from</span> <span class="nn">schemdraw</span> <span class="kn">import</span> <span class="n">elements</span> <span class="k">as</span> <span class="n">elm</span>
+
+<span class="k">with</span> <span class="n">schemdraw</span><span class="o">.</span><span class="n">Drawing</span><span class="p">():</span>
+    <span class="n">elm</span><span class="o">.</span><span class="n">Resistor</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/17413fa109c8894d4a8c5d294c558d6406978d6526ffc3cf29f673a41576f102.svg" src="../../../_images/17413fa109c8894d4a8c5d294c558d6406978d6526ffc3cf29f673a41576f102.svg" />
+</div>
+</div>
+<p>variable resistor :
+A variable resistor works by changing the length of its resistive track, allowing the resistance to be adjusted between zero and a maximum value. By moving a wiper contact along the track, the effective resistance changes.
+The basic formula related to resistance is :
+<span class="math notranslate nohighlight">\( R = ρ \frac{L}{A} \)</span>
+where R is the resistance, ρ is the resistivity, L is the length, and A is the cross-sectional area.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">schemdraw</span>
+<span class="kn">from</span> <span class="nn">schemdraw</span> <span class="kn">import</span> <span class="n">elements</span> <span class="k">as</span> <span class="n">elm</span>
+
+<span class="k">with</span> <span class="n">schemdraw</span><span class="o">.</span><span class="n">Drawing</span><span class="p">()</span> <span class="k">as</span> <span class="n">d</span><span class="p">:</span>
+    <span class="n">elm</span><span class="o">.</span><span class="n">ResistorVar</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/f58421b3756e5b6bc71cc632a0065da2e609bddbfe0a51db2f986c6ab1bda71d.svg" src="../../../_images/f58421b3756e5b6bc71cc632a0065da2e609bddbfe0a51db2f986c6ab1bda71d.svg" />
+</div>
+</div>
+</section>
+<section id="series-and-parallel-resistors">
+<h3>Series and parallel resistors<a class="headerlink" href="#series-and-parallel-resistors" title="Link to this heading">#</a></h3>
+<p>The total resistance of resistors connected in series is the sum of their individual resistance values :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">schemdraw</span>
+<span class="kn">from</span> <span class="nn">schemdraw</span> <span class="kn">import</span> <span class="n">elements</span> <span class="k">as</span> <span class="n">elm</span>
+
+<span class="k">with</span> <span class="n">schemdraw</span><span class="o">.</span><span class="n">Drawing</span><span class="p">():</span>
+    <span class="n">elm</span><span class="o">.</span><span class="n">Dot</span><span class="p">()</span>
+    <span class="n">elm</span><span class="o">.</span><span class="n">Resistor</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;R1&#39;</span><span class="p">)</span>
+    <span class="n">elm</span><span class="o">.</span><span class="n">Resistor</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;R2&#39;</span><span class="p">)</span>
+    <span class="n">elm</span><span class="o">.</span><span class="n">DotDotDot</span><span class="p">()</span>
+    <span class="n">elm</span><span class="o">.</span><span class="n">Resistor</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;Rn&#39;</span><span class="p">)</span>
+    <span class="n">elm</span><span class="o">.</span><span class="n">Dot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/c2b9d35c8c015ab088f6911798f13853af643be002487de9c378df292497cf5c.svg" src="../../../_images/c2b9d35c8c015ab088f6911798f13853af643be002487de9c378df292497cf5c.svg" />
+</div>
+</div>
+<p><span class="math notranslate nohighlight">\( R_{eq} = \sum_{i=1}^{n} R_i = R_1 + R_2 + \cdots + R_n \)</span></p>
+<p>The total resistance of resistors connected in parallel is the reciprocal of the sum of the reciprocals of the individual resistors :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">schemdraw</span>
+<span class="kn">from</span> <span class="nn">schemdraw</span> <span class="kn">import</span> <span class="n">elements</span> <span class="k">as</span> <span class="n">elm</span>
+
+<span class="k">with</span> <span class="n">schemdraw</span><span class="o">.</span><span class="n">Drawing</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="k">as</span> <span class="n">d1</span><span class="p">:</span>
+    <span class="n">d1</span> <span class="o">+=</span> <span class="n">elm</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span>
+    <span class="n">d1</span><span class="o">.</span><span class="n">push</span><span class="p">()</span>
+    <span class="n">d1</span> <span class="o">+=</span> <span class="n">elm</span><span class="o">.</span><span class="n">Resistor</span><span class="p">()</span><span class="o">.</span><span class="n">down</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">)</span>
+    <span class="n">d1</span> <span class="o">+=</span> <span class="n">elm</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">left</span><span class="p">()</span>
+    <span class="n">d1</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="k">with</span> <span class="n">schemdraw</span><span class="o">.</span><span class="n">Drawing</span><span class="p">()</span> <span class="k">as</span> <span class="n">d2</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+        <span class="n">d2</span> <span class="o">+=</span> <span class="n">elm</span><span class="o">.</span><span class="n">ElementDrawing</span><span class="p">(</span><span class="n">d1</span><span class="p">)</span>
+    <span class="n">d2</span><span class="o">.</span><span class="n">push</span><span class="p">()</span>
+    <span class="n">elm</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="n">d2</span><span class="o">.</span><span class="n">unit</span><span class="o">/</span><span class="mi">6</span><span class="p">)</span>
+    <span class="n">elm</span><span class="o">.</span><span class="n">DotDotDot</span><span class="p">()</span>
+    <span class="n">elm</span><span class="o">.</span><span class="n">ElementDrawing</span><span class="p">(</span><span class="n">d1</span><span class="p">)</span>
+    <span class="n">d2</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+    <span class="n">d2</span><span class="o">.</span><span class="n">here</span> <span class="o">=</span> <span class="p">(</span><span class="n">d2</span><span class="o">.</span><span class="n">here</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">d2</span><span class="o">.</span><span class="n">here</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">d2</span><span class="o">.</span><span class="n">unit</span><span class="p">)</span>
+    <span class="n">elm</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="n">d2</span><span class="o">.</span><span class="n">unit</span><span class="o">/</span><span class="mi">6</span><span class="p">)</span>
+    <span class="n">elm</span><span class="o">.</span><span class="n">DotDotDot</span><span class="p">()</span>
+    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/b06707087c72c6ae29b8d15198db2d72e3877baf334c4939d6fd174a4f36b87e.svg" src="../../../_images/b06707087c72c6ae29b8d15198db2d72e3877baf334c4939d6fd174a4f36b87e.svg" />
+</div>
+</div>
+<p><span class="math notranslate nohighlight">\( R_{eq} = \left( \sum_{i=1}^{n} \frac{1}{R_i} \right)^{-1} = \left( \frac{1}{R_1} + \frac{1}{R_2} + \frac{1}{R_3} + \cdots + \frac{1}{R_n} \right)^{-1} \)</span></p>
+</section>
+<section id="common-usage-patterns">
+<h3>Common usage patterns<a class="headerlink" href="#common-usage-patterns" title="Link to this heading">#</a></h3>
+<section id="current-limiting">
+<h4>Current limiting<a class="headerlink" href="#current-limiting" title="Link to this heading">#</a></h4>
+<p>Resistors are commonly used to limit the amount of current flowing through a circuit. Many circuit components (such as LEDs) require the current flowing through them to be limited, but do not themselves limit the amount of current. Therefore, oftentimes resistors will be added to prevent overcurrent situations. Additionally, oftentimes circuits do not need the amount of current that would be otherwise flowing through them, so resistors can be added to limit the power consumption of such circuits.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">schemdraw</span>
+<span class="kn">from</span> <span class="nn">schemdraw</span> <span class="kn">import</span> <span class="n">elements</span> <span class="k">as</span> <span class="n">elm</span>
+
+<span class="k">with</span> <span class="n">schemdraw</span><span class="o">.</span><span class="n">Drawing</span><span class="p">():</span>
+    <span class="n">R</span> <span class="o">=</span> <span class="n">elm</span><span class="o">.</span><span class="n">Resistor</span><span class="p">()</span>
+    <span class="n">elm</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">down</span><span class="p">()</span>
+    <span class="n">elm</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">left</span><span class="p">()</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="n">elm</span><span class="o">.</span><span class="n">SourceV</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/e191024c9282b12584722d2bad305acb3b9a051396597648a220868ebb7716e0.svg" src="../../../_images/e191024c9282b12584722d2bad305acb3b9a051396597648a220868ebb7716e0.svg" />
+</div>
+</div>
+</section>
+<section id="voltage-divider">
+<h4>Voltage divider<a class="headerlink" href="#voltage-divider" title="Link to this heading">#</a></h4>
+<p>Oftentimes circuits need to provide various reference voltages for other circuits (such as voltage comparators). A fixed voltage can be obtained by taking two resistors in series between two other fixed voltages (such as the source voltage and ground). The terminal between the two resistors will be at a voltage that is between the two voltages, at a linear distance based on the relative resistances of the two resistors. For instance, if a 200 ohm resistor and a 400 ohm resistor are placed in series between 6 V and 0 V, the terminal between them will be at 4 V.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">schemdraw</span>
+<span class="kn">from</span> <span class="nn">schemdraw</span> <span class="kn">import</span> <span class="n">elements</span> <span class="k">as</span> <span class="n">elm</span>
+
+<span class="k">with</span> <span class="n">schemdraw</span><span class="o">.</span><span class="n">Drawing</span><span class="p">():</span>
+    <span class="n">elm</span><span class="o">.</span><span class="n">Resistor</span><span class="p">()</span>
+    <span class="n">elm</span><span class="o">.</span><span class="n">Resistor</span><span class="p">()</span><span class="o">.</span><span class="n">down</span><span class="p">()</span>
+    <span class="n">elm</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">left</span><span class="p">()</span>
+    <span class="n">elm</span><span class="o">.</span><span class="n">SourceV</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/701f6d72ff10119a0304b1367cd550074a060429a98f0528931e5ca7654999db.svg" src="../../../_images/701f6d72ff10119a0304b1367cd550074a060429a98f0528931e5ca7654999db.svg" />
+</div>
+</div>
+<p>A voltage divider circuit, in its simplest form, is a circuit made from two resistors and a voltage supply. The output voltage is measured from between the two resistors. This results in a lower voltage than the input voltage supply.</p>
+</section>
+<section id="pull-down-and-pull-up-resistors">
+<h4>Pull-down and pull-up resistors<a class="headerlink" href="#pull-down-and-pull-up-resistors" title="Link to this heading">#</a></h4>
+<p>When a circuit is not connected to power, the voltage of that circuit is not zero but undefined (it can be influenced by previous voltages or the environment). A pull-up or pull-down resistor provides a voltage for a circuit when it is otherwise disconnected (such as when a button is not pushed down or a transistor is not active). A pull-up resistor connects the circuit to a high positive voltage (if the circuit requires a high positive default voltage) and a pull-down resistor connects the circuit to a low voltage or ground (if the circuit requires a low default voltage). The resistor value must be high enough so that, when the circuit is active, the voltage source it is attached to does not over influence the function of the circuit, but low enough so that it “pulls” quickly enough when the circuit is deactivated, and does not significantly alter the voltage from the source value.</p>
+</section>
+</section>
+<section id="resistor-value">
+<h3>Resistor value<a class="headerlink" href="#resistor-value" title="Link to this heading">#</a></h3>
+<p>Many resistors are so small that it would be difficult to print their value and % tolerance on their body in digits. To overcome this, a coding system based on bands of distinctive colours was developed to assist in identification. Learning this colour code is not as necessary as it used to be (thanks to accurate, low cost digital multimeters!), but its not hard to learn and its quite useful knowledge anyway.
+The first thing to know is that there are two different resistor colour coding systems in use: one using a total of 4 colour bands, and the other 5. The 5-band system is generally used for 2% and closer tolerance resistors, even though the 4-band system is quite capable of handling any resistors with E12 or E24 values. Both systems use the same band colours to represent the various digits; the main difference is that 5-band resistors have an additional third band, which is almost always BLACK to represent a third digit of 0. Heres how both systems work in practice:</p>
+<p><img alt="Alt text" src="../../../_images/img.png" /></p>
+</section>
+</section>
+<section id="capacitors">
+<h2>Capacitors<a class="headerlink" href="#capacitors" title="Link to this heading">#</a></h2>
+<p>A capacitor is another primary type of physical component used in electronic circuits. It has two leads and is used to store and release electric charge. A capacitor’s ability to store charge is referred to as its capacitance, measured in farads (F).</p>
+<section id="structure">
+<h3>Structure<a class="headerlink" href="#structure" title="Link to this heading">#</a></h3>
+<p>A typical capacitor takes the form of two conductive plates separated by an insulator (dielectric). This type of circuit element cannot pass direct current (DC) because electrons cannot flow through the dielectric. However, a capacitor does pass alternating current (AC) because an alternating voltage causes the capacitor to repeatedly charge and discharge, storing and releasing energy. Indeed, one of the major uses of capacitors is to pass alternating current while blocking direct current, a function called ‘AC coupling’.</p>
+</section>
+<section id="function">
+<h3>Function<a class="headerlink" href="#function" title="Link to this heading">#</a></h3>
+<p>When a direct current flows into a capacitor, a positive charge rapidly builds up on the positive plate and a corresponding negative charge fills the negative plate. The buildup continues until the capacitor is fully charged, when the plates have accumulated as much charge (Q) as they can hold. This amount is determined by the capacitance value (C) and the voltage applied across the component: (Q = CV). At that point, current stops flowing.</p>
+<p><img alt="Alt text" src="../../../_images/capacitor.jpg" /></p>
+<p>When an alternating current flows through the circuit, the result is quite different, though. Because the AC current is continuously changing, the capacitor is repeatedly charging and discharging (see Figure 3). Despite the fact that the dielectric in the capacitor does not pass any electrons, a current—which in this case is called a displacement current—effectively moves through the capacitor. The capacitor’s opposition to alternating current is called its capacitive reactance, which, like resistance, is measured in ohms (Ω).</p>
+<p><img alt="Alt text" src="../../../_images/capacitor1.jpg" /></p>
+</section>
+<section id="id1">
+<h3>Electronic symbols and notation<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>capacitor :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">schemdraw</span>
+<span class="kn">from</span> <span class="nn">schemdraw</span> <span class="kn">import</span> <span class="n">elements</span> <span class="k">as</span> <span class="n">elm</span>
+
+<span class="k">with</span> <span class="n">schemdraw</span><span class="o">.</span><span class="n">Drawing</span><span class="p">():</span>
+    <span class="n">elm</span><span class="o">.</span><span class="n">Capacitor</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/3789221836cbe499b39aa5d5410d5e6da9d100931234f304e1e688eb84a273c3.svg" src="../../../_images/3789221836cbe499b39aa5d5410d5e6da9d100931234f304e1e688eb84a273c3.svg" />
+</div>
+</div>
+<p>variable capacitor :
+Variable capacitors work by allowing the capacitance to be adjusted mechanically or electronically. Unlike fixed capacitors, which have a set capacitance value, variable capacitors can change their capacitance within a certain range to optimize performance in various electronic applications.
+The basic formula related to capacitance is :
+<span class="math notranslate nohighlight">\( C = \varepsilon \frac{A}{D} \)</span>
+where C is the capacitance , ε is the dielectric coefficient , A is area of the plate, and D is the distance between two plates.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">schemdraw</span>
+<span class="kn">from</span> <span class="nn">schemdraw</span> <span class="kn">import</span> <span class="n">elements</span> <span class="k">as</span> <span class="n">elm</span>
+
+<span class="k">with</span> <span class="n">schemdraw</span><span class="o">.</span><span class="n">Drawing</span><span class="p">():</span>
+    <span class="n">elm</span><span class="o">.</span><span class="n">CapacitorVar</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/9e71855f1d77c6eca3569ca76a39aaa375dfa9535fad40b4b2afdf3b6bf37e5f.svg" src="../../../_images/9e71855f1d77c6eca3569ca76a39aaa375dfa9535fad40b4b2afdf3b6bf37e5f.svg" />
+</div>
+</div>
+</section>
+<section id="id2">
+<h3>Common usage patterns<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<section id="energy-storage">
+<h4>Energy Storage<a class="headerlink" href="#energy-storage" title="Link to this heading">#</a></h4>
+<p>The primary application of a capacitor is to store electric energy when it is connected to an electric circuit.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">schemdraw</span>
+<span class="kn">from</span> <span class="nn">schemdraw</span> <span class="kn">import</span> <span class="n">elements</span> <span class="k">as</span> <span class="n">elm</span>
+
+<span class="k">with</span> <span class="n">schemdraw</span><span class="o">.</span><span class="n">Drawing</span><span class="p">()</span> <span class="k">as</span> <span class="n">d</span><span class="p">:</span>
+    <span class="n">V1</span> <span class="o">=</span> <span class="n">elm</span><span class="o">.</span><span class="n">SourceV</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;5V&#39;</span><span class="p">)</span>
+    <span class="n">elm</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">unit</span><span class="o">*</span><span class="mf">.75</span><span class="p">)</span>
+    <span class="n">S1</span> <span class="o">=</span> <span class="n">elm</span><span class="o">.</span><span class="n">SwitchSpdt2</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;close&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">up</span><span class="p">()</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;$t=0$&#39;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;rgt&#39;</span><span class="p">)</span>
+    <span class="n">elm</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">unit</span><span class="o">*</span><span class="mf">.75</span><span class="p">)</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">S1</span><span class="o">.</span><span class="n">c</span><span class="p">)</span>
+    <span class="n">elm</span><span class="o">.</span><span class="n">Resistor</span><span class="p">()</span><span class="o">.</span><span class="n">down</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$100\Omega$&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">([</span><span class="s1">&#39;+&#39;</span><span class="p">,</span><span class="s1">&#39;$v_o$&#39;</span><span class="p">,</span><span class="s1">&#39;-&#39;</span><span class="p">],</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;bot&#39;</span><span class="p">)</span>
+    <span class="n">elm</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">V1</span><span class="o">.</span><span class="n">start</span><span class="p">)</span>
+    <span class="n">elm</span><span class="o">.</span><span class="n">Capacitor</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">S1</span><span class="o">.</span><span class="n">a</span><span class="p">)</span><span class="o">.</span><span class="n">toy</span><span class="p">(</span><span class="n">V1</span><span class="o">.</span><span class="n">start</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;1$\mu$F&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/75aa027f2965a6d05a1a616e4ce65a38e166efb59d3e9d4c3e7890cd62e212cd.svg" src="../../../_images/75aa027f2965a6d05a1a616e4ce65a38e166efb59d3e9d4c3e7890cd62e212cd.svg" />
+</div>
+</div>
+</section>
+<section id="filtering">
+<h4>Filtering<a class="headerlink" href="#filtering" title="Link to this heading">#</a></h4>
+<p>Filtering of Signals. A different use for capacitors is in signal filtering. Smoothing out voltage fluctuations in power supplies and signal processing.</p>
+</section>
+<section id="timing-circuits">
+<h4>Timing Circuits<a class="headerlink" href="#timing-circuits" title="Link to this heading">#</a></h4>
+<p>Creating delays or setting the timing in oscillators and pulse generators.</p>
+</section>
+</section>
+<section id="capacitor-value">
+<h3>Capacitor value<a class="headerlink" href="#capacitor-value" title="Link to this heading">#</a></h3>
+<p>Virtually all of the capacitors stocked by Jaycar have their electrical values printed directly on their body, in digits and letters. However theres often still a coding system, which can make it a bit tricky to work out the capacitance, voltage rating, tolerance and so on until you know how it works. This is explained below.
+Incidentally, so-called greencaps (which can actually be brown, dark red or even blue!) are one type of metallised polyester film capacitor, like the MKT type which tends to be smaller, and in a more tightly controlled rectangular package. Similarly the monolithic type is a type of multilayer ceramic capacitor, designed to combine high capacitance with very low self-inductance.</p>
+<p><img alt="Alt text" src="../../../_images/img1.png" /></p>
+</section>
+</section>
+<section id="inductors-coil">
+<h2>Inductors (Coil)<a class="headerlink" href="#inductors-coil" title="Link to this heading">#</a></h2>
+<p>A coil, also called an inductor, is yet another primary type of physical component that is used in electronic circuits. It has two leads and is typically implemented as one or more windings (loops) of conductive wire. That wire is often but not necessarily formed around a core of iron or steel or some other magnetic material. Current through the coil induces a magnetic field that serves as a store of energy. Inductance is measured in henries (H).
+<span class="math notranslate nohighlight">\( V(t) = L \frac{dI}{dt} \)</span>
+where V is the voltage across the inductor, L is the inductance and <span class="math notranslate nohighlight">\(\frac{dI}{dt}\)</span> is the rate of change of current.</p>
+<section id="id3">
+<h3>Function<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>More specifically, a current flowing through a wire generates a magnetic field, the direction of which is to the right relative to the flow of the current, as described by the ‘right-hand rule’. If the wire is coiled, the fluxes are in alignment. According to Lenz’s law, changes in the coil’s magnetic field generate a counter-electromotive force (and an induced current) that opposes those changes. Thus, coils can be used in electronic circuits to restrict the flow of alternating current while allowing direct current to pass.</p>
+</section>
+<section id="right-hand-rule">
+<h3>Right-Hand Rule<a class="headerlink" href="#right-hand-rule" title="Link to this heading">#</a></h3>
+<p>Current (I) flowing through a conductor produces a magnetic field (B) that circles to the right around the conductor.</p>
+<p><img alt="Alt text" src="../../../_images/lenz.jpg" /></p>
+</section>
+<section id="id4">
+<h3>Electronic symbols and notation<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>Inductor:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">schemdraw</span>
+<span class="kn">from</span> <span class="nn">schemdraw</span> <span class="kn">import</span> <span class="n">elements</span> <span class="k">as</span> <span class="n">elm</span>
+
+<span class="k">with</span> <span class="n">schemdraw</span><span class="o">.</span><span class="n">Drawing</span><span class="p">():</span>
+    <span class="n">elm</span><span class="o">.</span><span class="n">Inductor2</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/e3a7e7473b2cf46e38624fc27403ddd65be96b683df6eb6de3a958b9e409bcdf.svg" src="../../../_images/e3a7e7473b2cf46e38624fc27403ddd65be96b683df6eb6de3a958b9e409bcdf.svg" />
+</div>
+</div>
+</section>
+<section id="id5">
+<h3>Common usage patterns<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<section id="id6">
+<h4>Energy Storage<a class="headerlink" href="#id6" title="Link to this heading">#</a></h4>
+<p>Like capacitors, inductors store energy. Unlike capacitors, inductors are limited on how long they can store energy because the energy is stored in a magnetic field, which collapses when power is removed.he main use for inductors as energy storage is in switch-mode power supplies, like the power supply in a PC. In the simpler, non-isolated switch-mode power supplies, a single inductor is used in place of a transformer and an energy storage component. In these circuits, the ratio of the time the inductor is powered to the time it is unpowered determines the input to output voltage ratio.</p>
+</section>
+<section id="filters">
+<h4>Filters<a class="headerlink" href="#filters" title="Link to this heading">#</a></h4>
+<p>nductors are used extensively with capacitors and resistors to create filters for analog circuits and in signal processing. Alone, an inductor functions as a low-pass filter, since the impedance of an inductor increases as the frequency of a signal increases.</p>
+</section>
+</section>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<p>In this article, we learned about passive elements, their types, structure and application in electric circuits.Passive elements are fundamental components in electric circuits that do not amplify or generate power but instead store or dissipate energy. The primary types of passive elements include resistors, capacitors, and inductors. Each of these components plays a crucial role in shaping the behavior of electric circuits, influencing parameters such as voltage, current, and frequency response.</p>
+</section>
+<section id="sources">
+<h2>Sources<a class="headerlink" href="#sources" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://www.renesas.com/en/support/engineer-school/electronic-circuits-01-passive-elements">https://www.renesas.com/en/support/engineer-school/electronic-circuits-01-passive-elements</a>
+<a class="reference external" href="https://erieit.edu/introduction-active-vs-passive-electronic-components/">https://erieit.edu/introduction-active-vs-passive-electronic-components/</a>
+<a class="reference external" href="https://www.electronics-tutorials.ws/accircuits/passive-components.html">https://www.electronics-tutorials.ws/accircuits/passive-components.html</a>
+<a class="reference external" href="https://www.lifewire.com/applications-of-inductors-818816">https://www.lifewire.com/applications-of-inductors-818816</a>
+<a class="reference external" href="https://study.com/academy/lesson/voltage-divider-circuit-rule-bias-formula.html">https://study.com/academy/lesson/voltage-divider-circuit-rule-bias-formula.html</a>
+<a class="reference external" href="https://www.sciencedirect.com/topics/materials-science/capacitor">https://www.sciencedirect.com/topics/materials-science/capacitor</a></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Circuit_Electronics\StudentEffort\PassiveComponents"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../AveragePower.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><strong>Average power</strong></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Linearization/LinearizationProject.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><strong>Linear approximation</strong></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-passive-component">What Is a Passive Component ?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resistors">Resistors</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#electronic-symbols-and-notation">Electronic symbols and notation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#series-and-parallel-resistors">Series and parallel resistors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-usage-patterns">Common usage patterns</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#current-limiting">Current limiting</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#voltage-divider">Voltage divider</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pull-down-and-pull-up-resistors">Pull-down and pull-up resistors</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resistor-value">Resistor value</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#capacitors">Capacitors</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#structure">Structure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#function">Function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Electronic symbols and notation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Common usage patterns</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#energy-storage">Energy Storage</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering">Filtering</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#timing-circuits">Timing Circuits</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#capacitor-value">Capacitor value</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inductors-coil">Inductors (Coil)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#right-hand-rule">Right-Hand Rule</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Electronic symbols and notation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Common usage patterns</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Energy Storage</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#filters">Filters</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sources">Sources</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Dr.Hadi Sadoghi Yazdi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024 Pattern Recognition Lab.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

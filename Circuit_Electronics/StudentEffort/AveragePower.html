@@ -1,0 +1,1283 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Average power &#8212; Dr.Hadi Sadoghi Yazdi</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Circuit_Electronics/StudentEffort/AveragePower';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Passive Components" href="PassiveComponents/Passive%20Components.html" />
+    <link rel="prev" title="Independent current/voltage sources" href="independentcurrentandvoltagesources/miniProject.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../Introduction_CircuitElectronics.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/Hadi_Sadoghi_Yazdi.png" class="logo__image only-light" alt="Dr.Hadi Sadoghi Yazdi - Home"/>
+    <img src="../../_static/Hadi_Sadoghi_Yazdi.png" class="logo__image only-dark pst-js-only" alt="Dr.Hadi Sadoghi Yazdi - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../Introduction_CircuitElectronics.html">
+                    Introduction to Circuit and Electronics
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Sections of Circuit and Electronics course</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../BasicElements.html">Basic component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../KVL_KCL.html">Voltage , Current</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NodalMeshAnalysis.html">Basic Nodal and Mesh Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../RC_RL_RLC.html">R-C, R-L circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Diode_chapter.html">Diode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DiodeApplication.html">Diode Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../BJT1.html">Bipolar junction transistor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FET.html">Field Effect Transistor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../OpAmp.html">Operational Amplifier</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Teaching assistant</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../PySpice_Installation_Manual.html">PySpice Installation Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PySpice_circuit_example1.html">Example 1: RESISTIVE DIVIDER</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PySpice_circuit_example2.html">Example 2: DIODE CIRCUIT</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Students effort</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../DiodeCharacteristicCurve.html">Diode Characteristic Curve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SchemdrawGuide1.html">Schemdraw Guide book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="independentcurrentandvoltagesources/miniProject.html">Independent current/voltage sources</a></li>
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Average power</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="PassiveComponents/Passive%20Components.html">Passive Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Linearization/LinearizationProject.html"><strong>Linear approximation</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="batteryModel/battery_model.html">Battery Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sensitivity_analysis1.html">Sensitivity analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WhatBias/bias1.html"><strong>Bias:</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Supermesh/Supermesh.html">Supermesh</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contact</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Contact_Me.html">Contact Me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../About_Me.html">About Me</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/h-sadoghi/dr-sadoghi.git" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/h-sadoghi/dr-sadoghi.git/issues/new?title=Issue%20on%20page%20%2FCircuit_Electronics/StudentEffort/AveragePower.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/Circuit_Electronics/StudentEffort/AveragePower.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Average power</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outline"><strong>Outline :</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description"><strong>Description</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-the-average-power"><strong>Calculate the average power</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-average-power-with-simple-mathematics"><strong>calculate average power with simple mathematics:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draw-the-circuit-with-schemdraw"><strong>Draw the circuit with schemdraw:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-average-power-with-pyspice"><strong>Calculate average power with PySpice</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-with-pyspice"><strong>Plot with PySpice</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rc-circuit"><strong>RC circuit</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-resistor"><strong>Add Resistor:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-capacior"><strong>Add Capacior :</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-a-capacitor-affects-the-circuit"><strong>How a Capacitor Affects the Circuit</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diagram-of-power"><strong>Diagram of power</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draw-power-as-a-function-of-time-for-resistor"><strong>Draw power as a function of time for resistor :</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzing-the-resistance-power"><strong>Analyzing the resistance power:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draw-power-as-a-function-of-time-for-capacitor"><strong>Draw power as a function of time for capacitor :</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze-power-as-a-function-of-time-for-capacitor"><strong>Analyze power as a function of time for capacitor:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze-power-as-a-function-of-time-for-current-source"><strong>Analyze power as a function of time for current source :</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#average-power-in-window-of-length-w"><strong>Average power in window of length W</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-average-power-for-the-circuit-including-resistor-and-current-source"><strong>Plot average power for the circuit including resistor and current source</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze-the-diagram-of-average-power-in-window-of-length-t-10"><strong>Analyze the diagram of average power in window of length T/10 :</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion"><strong>Conclusion :</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sources"><strong>Sources:</strong></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="average-power">
+<h1><strong>Average power</strong><a class="headerlink" href="#average-power" title="Link to this heading">#</a></h1>
+<p><strong>Author :</strong> <strong>Mitra Peivandi</strong></p>
+<p><strong>Gmail :</strong> <a class="reference external" href="mailto:miti1383&#37;&#52;&#48;gmail&#46;com">miti1383<span>&#64;</span>gmail<span>&#46;</span>com</a></p>
+<p><strong>Fall 2024</strong></p>
+<section id="outline">
+<h2><strong>Outline :</strong><a class="headerlink" href="#outline" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Description</p></li>
+<li><p>Calculate the average power</p>
+<ol class="arabic simple">
+<li><p>calculate average power with simple mathematics</p></li>
+<li><p>Draw the circuit with schemdraw</p></li>
+<li><p>Calculate average power with PySpice</p></li>
+</ol>
+</li>
+<li><p>Plot with PySpice</p></li>
+<li><p>RC circuit</p>
+<ol class="arabic simple">
+<li><p>Add resistor</p>
+<ol class="arabic simple">
+<li><p>Analysis the effect of changing the resistance in current as a function of time diagram</p></li>
+</ol>
+</li>
+<li><p>Add capacitor</p>
+<ol class="arabic simple">
+<li><p>Plot the effect of capacitor on current as a function of time</p></li>
+<li><p>How a Capacitor Affects the Circuit</p></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>Diagram of power</p>
+<ol class="arabic simple">
+<li><p>Draw power as a function of time for resistor</p></li>
+<li><p>Analyzing the resistance power</p></li>
+<li><p>Draw power as a function of time for capacitor</p></li>
+<li><p>Analyze power as a function of time for capacitor</p></li>
+<li><p>Analyze power as a function of time for current source</p></li>
+</ol>
+</li>
+<li><p>Average power in window of length W</p>
+<ol class="arabic simple">
+<li><p>Plot average power for the circuit including resistor and current source</p></li>
+<li><p>Analyze the diagram of average power in window of length T/10</p></li>
+</ol>
+</li>
+<li><p>Conclusion</p></li>
+<li><p>Sources</p></li>
+</ol>
+</section>
+<section id="description">
+<h2><strong>Description</strong><a class="headerlink" href="#description" title="Link to this heading">#</a></h2>
+<p><strong>Average power</strong> definition states the ratio of <strong>total work done</strong> and <strong>total time</strong> taken. It is denoted by <strong>P</strong>. The SI unit of measurement for average power is <strong>Watt</strong>.</p>
+<p>The average power is obtained from the following formula:</p>
+<div class="math notranslate nohighlight">
+\[P_{avg} =\frac{1}{T} \int_0^T P (t)  dt=\frac{1}{T} \int_0^T i(t) \cdot v(t)  dt\]</div>
+<p>Instantaneous power is obtained from the formula below :</p>
+<div class="math notranslate nohighlight">
+\[ P = V \cdot I \]</div>
+<p>Now, let’s calculate the average power for the requested chart:</p>
+</section>
+<section id="calculate-the-average-power">
+<h2><strong>Calculate the average power</strong><a class="headerlink" href="#calculate-the-average-power" title="Link to this heading">#</a></h2>
+<section id="calculate-average-power-with-simple-mathematics">
+<h3><strong>calculate average power with simple mathematics:</strong><a class="headerlink" href="#calculate-average-power-with-simple-mathematics" title="Link to this heading">#</a></h3>
+<p><strong>step1 : find the piecewise function</strong></p>
+<p>The current ( i(t) ) is defined as follows:</p>
+<ol class="arabic simple">
+<li><p>From 0 to 6 seconds: ( i(t) = t )</p></li>
+<li><p>From 6 to 8 seconds: ( i(t) = 0 )</p></li>
+<li><p>From 8 to 14 seconds: ( i(t) = (t - 8) )</p></li>
+<li><p>From 14 to 15 seconds: ( i(t) = 0 )</p></li>
+</ol>
+<p>This piecewise function describes how the current varies over time.Let’s calculate the integral for each segment:</p>
+<p><strong>step2 : find each section integral</strong></p>
+<p>we know that :
+$<span class="math notranslate nohighlight">\(
+P = R.I^2
+\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(
+P_{avg} =\frac{1}{T} \int_0^T P (t)  dt
+\)</span>$
+so :</p>
+<ol class="arabic simple">
+<li><p>From 0 to 6 seconds</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\int_{0}^{6}R.t^2.dt = R\times \frac{t^3}{3} = R\times72
+\]</div>
+<ol class="arabic simple" start="2">
+<li><p>From 6 to 8 seconds</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\int_{6}^{8}R.0.dt = 0
+\]</div>
+<ol class="arabic simple" start="3">
+<li><p>From 8 to 14 seconds</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\int_{8}^{14}R.(t-8)^2 dt = 72\times R
+\]</div>
+<ol class="arabic simple" start="4">
+<li><p>From 14 to 15 seconds</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\int_{14}^{15}R.0.dt = 0
+\]</div>
+<p><strong>step3 : summing Up and Averaging</strong></p>
+<div class="math notranslate nohighlight">
+\[
+P_{avg} =\frac{1}{T} \int_0^T P (t)  dt =  \frac{1}{15}\times (72\times R+0+72\times R+0)=9.6\times R 
+\]</div>
+<p>So, the average power delivered by the current in the circuit is <strong>(<span class="math notranslate nohighlight">\( 9.6 \times R \)</span>)</strong> watts.</p>
+</section>
+<section id="draw-the-circuit-with-schemdraw">
+<h3><strong>Draw the circuit with schemdraw:</strong><a class="headerlink" href="#draw-the-circuit-with-schemdraw" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">schemdraw</span>
+<span class="kn">import</span> <span class="nn">schemdraw.elements</span> <span class="k">as</span> <span class="nn">elm</span>
+
+<span class="c1"># Create a new drawing</span>
+<span class="k">with</span> <span class="n">schemdraw</span><span class="o">.</span><span class="n">Drawing</span><span class="p">()</span> <span class="k">as</span> <span class="n">d</span><span class="p">:</span>
+
+    <span class="c1"># Add the pulse current source</span>
+    <span class="n">S</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">elm</span><span class="o">.</span><span class="n">SourcePulse</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;Pulse Current Source&#39;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">))</span>
+
+    <span class="c1"># Add a resistor in series</span>
+    <span class="n">R</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">elm</span><span class="o">.</span><span class="n">Resistor</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;1Ω&#39;</span><span class="p">))</span>
+
+    <span class="c1"># Add a line to separate elements</span>
+    <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">elm</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">down</span><span class="p">())</span>
+
+    <span class="c1"># Add a capacitor in parallel</span>
+    <span class="n">d</span><span class="o">.</span><span class="n">push</span><span class="p">()</span>  <span class="c1"># Push to a new drawing level</span>
+    <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">elm</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">left</span><span class="p">())</span>
+    <span class="n">d</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>  <span class="c1"># Pop back to the original level</span>
+
+    <span class="c1"># Add ground</span>
+    <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">elm</span><span class="o">.</span><span class="n">Ground</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/ef5612ac3c1b5e6b729ee168f06298ad29cf420f7fd83a23b28e1d7f868371e2.svg" src="../../_images/ef5612ac3c1b5e6b729ee168f06298ad29cf420f7fd83a23b28e1d7f868371e2.svg" />
+</div>
+</div>
+</section>
+<section id="calculate-average-power-with-pyspice">
+<h3><strong>Calculate average power with PySpice</strong><a class="headerlink" href="#calculate-average-power-with-pyspice" title="Link to this heading">#</a></h3>
+<p>We will see that the result for average power would be around 9.6 watt for 1 ohm resistor.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">PySpice.Spice.Netlist</span> <span class="kn">import</span> <span class="n">Circuit</span>
+<span class="kn">from</span> <span class="nn">PySpice.Unit</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Create a new circuit</span>
+<span class="n">circuit</span> <span class="o">=</span> <span class="n">Circuit</span><span class="p">(</span><span class="s1">&#39;Pulse Current Waveform&#39;</span><span class="p">)</span>
+
+<span class="c1"># Define the pulse current source</span>
+<span class="n">pulse_current</span> <span class="o">=</span> <span class="n">circuit</span><span class="o">.</span><span class="n">PulseCurrentSource</span><span class="p">(</span><span class="s1">&#39;pulse&#39;</span><span class="p">,</span> <span class="s1">&#39;n1&#39;</span><span class="p">,</span> <span class="n">circuit</span><span class="o">.</span><span class="n">gnd</span><span class="p">,</span> 
+                                            <span class="n">initial_value</span><span class="o">=</span><span class="mi">0</span><span class="nd">@u_A</span><span class="p">,</span>       <span class="c1"># Start at 0A</span>
+                                            <span class="n">pulsed_value</span><span class="o">=-</span><span class="mi">7</span><span class="nd">@u_A</span><span class="p">,</span>       <span class="c1"># Peak at -7A</span>
+                                            <span class="n">delay_time</span><span class="o">=</span><span class="mi">0</span><span class="nd">@u_s</span><span class="p">,</span>          <span class="c1"># No delay</span>
+                                            <span class="n">rise_time</span><span class="o">=</span><span class="mi">7</span><span class="nd">@u_s</span><span class="p">,</span>           <span class="c1"># Rise time to peak (create slope)</span>
+                                            <span class="n">fall_time</span><span class="o">=</span><span class="mi">0</span><span class="nd">@u_s</span><span class="p">,</span>           <span class="c1"># Sharp fall after peak</span>
+                                            <span class="n">pulse_width</span><span class="o">=-</span><span class="mi">1</span><span class="nd">@u_s</span><span class="p">,</span>        <span class="c1"># Width of the top of the pulse</span>
+                                            <span class="n">period</span><span class="o">=</span><span class="mi">8</span><span class="nd">@u_s</span><span class="p">)</span>              <span class="c1"># Repeat after 8 seconds</span>
+
+<span class="c1"># Define a resistor to complete the circuit</span>
+<span class="n">circuit</span><span class="o">.</span><span class="n">R</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;n1&#39;</span><span class="p">,</span> <span class="n">circuit</span><span class="o">.</span><span class="n">gnd</span><span class="p">,</span> <span class="mi">1</span><span class="nd">@u_Ω</span><span class="p">)</span>
+
+<span class="c1"># Simulate the circuit</span>
+<span class="n">simulator</span> <span class="o">=</span> <span class="n">circuit</span><span class="o">.</span><span class="n">simulator</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">nominal_temperature</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">analysis</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">transient</span><span class="p">(</span><span class="n">step_time</span><span class="o">=</span><span class="mf">0.01</span><span class="nd">@u_s</span><span class="p">,</span> <span class="n">end_time</span><span class="o">=</span><span class="mi">15</span><span class="nd">@u_s</span><span class="p">)</span>
+
+<span class="c1"># Calculate the voltage across the resistor</span>
+<span class="n">voltage</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">analysis</span><span class="p">[</span><span class="s1">&#39;n1&#39;</span><span class="p">])</span>
+
+<span class="c1"># Calculate the current through the resistor (Ohm&#39;s Law: I = V/R)</span>
+<span class="n">current</span> <span class="o">=</span> <span class="n">voltage</span> <span class="o">/</span> <span class="mi">1</span>  <span class="c1"># Resistor value is 1 ohm</span>
+
+<span class="c1"># Calculate the instantaneous power (P = V * I)</span>
+<span class="n">power</span> <span class="o">=</span> <span class="n">voltage</span> <span class="o">*</span> <span class="n">current</span>
+
+<span class="c1"># Calculate the average power</span>
+<span class="n">average_power</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">power</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Average Power: </span><span class="si">{</span><span class="n">average_power</span><span class="si">:</span><span class="s1">.2e</span><span class="si">}</span><span class="s1"> W&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">OSError</span><span class="g g-Whitespace">                                   </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">23</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="n">circuit</span><span class="o">.</span><span class="n">R</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;n1&#39;</span><span class="p">,</span> <span class="n">circuit</span><span class="o">.</span><span class="n">gnd</span><span class="p">,</span> <span class="mi">1</span><span class="nd">@u_Ω</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="c1"># Simulate the circuit</span>
+<span class="ne">---&gt; </span><span class="mi">23</span> <span class="n">simulator</span> <span class="o">=</span> <span class="n">circuit</span><span class="o">.</span><span class="n">simulator</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">nominal_temperature</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="n">analysis</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">transient</span><span class="p">(</span><span class="n">step_time</span><span class="o">=</span><span class="mf">0.01</span><span class="nd">@u_s</span><span class="p">,</span> <span class="n">end_time</span><span class="o">=</span><span class="mi">15</span><span class="nd">@u_s</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="c1"># Calculate the voltage across the resistor</span>
+
+<span class="nn">File H:\HadiSadoghiYazdi\Circuit\Lib\site-packages\PySpice\Spice\Netlist.py:1292,</span> in <span class="ni">Circuit.simulator</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1291</span> <span class="k">def</span> <span class="nf">simulator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">1292</span>     <span class="k">return</span> <span class="n">CircuitSimulator</span><span class="o">.</span><span class="n">factory</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File H:\HadiSadoghiYazdi\Circuit\Lib\site-packages\PySpice\Spice\Simulation.py:1167,</span> in <span class="ni">CircuitSimulator.factory</span><span class="nt">(cls, circuit, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1164</span>         <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;parallel&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="g g-Whitespace">   </span><span class="mi">1166</span> <span class="k">if</span> <span class="n">sub_cls</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1167</span>     <span class="k">return</span> <span class="n">sub_cls</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1168</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1169</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Unknown simulator type&#39;</span><span class="p">)</span>
+
+<span class="nn">File H:\HadiSadoghiYazdi\Circuit\Lib\site-packages\PySpice\Spice\NgSpice\Simulation.py:99,</span> in <span class="ni">NgSpiceSharedCircuitSimulator.__init__</span><span class="nt">(self, circuit, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">97</span> <span class="n">ngspice_shared</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ngspice_shared&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span> <span class="k">if</span> <span class="n">ngspice_shared</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">99</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_ngspice_shared</span> <span class="o">=</span> <span class="n">NgSpiceShared</span><span class="o">.</span><span class="n">new_instance</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">100</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">101</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_ngspice_shared</span> <span class="o">=</span> <span class="n">ngspice_shared</span>
+
+<span class="nn">File H:\HadiSadoghiYazdi\Circuit\Lib\site-packages\PySpice\Spice\NgSpice\Shared.py:449,</span> in <span class="ni">NgSpiceShared.new_instance</span><span class="nt">(cls, ngspice_id, send_data, verbose)</span>
+<span class="g g-Whitespace">    </span><span class="mi">447</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">448</span>     <span class="bp">cls</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;New instance for id </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ngspice_id</span><span class="p">))</span>
+<span class="ne">--&gt; </span><span class="mi">449</span>     <span class="n">instance</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="n">ngspice_id</span><span class="o">=</span><span class="n">ngspice_id</span><span class="p">,</span> <span class="n">send_data</span><span class="o">=</span><span class="n">send_data</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">450</span>     <span class="bp">cls</span><span class="o">.</span><span class="n">_instances</span><span class="p">[</span><span class="n">ngspice_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">instance</span>
+<span class="g g-Whitespace">    </span><span class="mi">451</span>     <span class="k">return</span> <span class="n">instance</span>
+
+<span class="nn">File H:\HadiSadoghiYazdi\Circuit\Lib\site-packages\PySpice\Spice\NgSpice\Shared.py:479,</span> in <span class="ni">NgSpiceShared.__init__</span><span class="nt">(self, ngspice_id, send_data, verbose)</span>
+<span class="g g-Whitespace">    </span><span class="mi">476</span> <span class="bp">self</span><span class="o">.</span><span class="n">_extensions</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="g g-Whitespace">    </span><span class="mi">478</span> <span class="bp">self</span><span class="o">.</span><span class="n">_library_path</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="ne">--&gt; </span><span class="mi">479</span> <span class="bp">self</span><span class="o">.</span><span class="n">_load_library</span><span class="p">(</span><span class="n">verbose</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">480</span> <span class="bp">self</span><span class="o">.</span><span class="n">_init_ngspice</span><span class="p">(</span><span class="n">send_data</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">482</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_running</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="nn">File H:\HadiSadoghiYazdi\Circuit\Lib\site-packages\PySpice\Spice\NgSpice\Shared.py:539,</span> in <span class="ni">NgSpiceShared._load_library</span><span class="nt">(self, verbose)</span>
+<span class="g g-Whitespace">    </span><span class="mi">537</span> <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">538</span>     <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">539</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ngspice_shared</span> <span class="o">=</span> <span class="n">ffi</span><span class="o">.</span><span class="n">dlopen</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">library_path</span><span class="p">)</span>
+
+<span class="nn">File H:\HadiSadoghiYazdi\Circuit\Lib\site-packages\cffi\api.py:150,</span> in <span class="ni">FFI.dlopen</span><span class="nt">(self, name, flags)</span>
+<span class="g g-Whitespace">    </span><span class="mi">147</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;dlopen(name): name must be a file name, None, &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">148</span>                     <span class="s2">&quot;or an already-opened &#39;void *&#39; handle&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">149</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lock</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">150</span>     <span class="n">lib</span><span class="p">,</span> <span class="n">function_cache</span> <span class="o">=</span> <span class="n">_make_ffi_library</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">151</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_function_caches</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">function_cache</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">152</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_libraries</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lib</span><span class="p">)</span>
+
+<span class="nn">File H:\HadiSadoghiYazdi\Circuit\Lib\site-packages\cffi\api.py:834,</span> in <span class="ni">_make_ffi_library</span><span class="nt">(ffi, libname, flags)</span>
+<span class="g g-Whitespace">    </span><span class="mi">832</span> <span class="k">def</span> <span class="nf">_make_ffi_library</span><span class="p">(</span><span class="n">ffi</span><span class="p">,</span> <span class="n">libname</span><span class="p">,</span> <span class="n">flags</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">833</span>     <span class="n">backend</span> <span class="o">=</span> <span class="n">ffi</span><span class="o">.</span><span class="n">_backend</span>
+<span class="ne">--&gt; </span><span class="mi">834</span>     <span class="n">backendlib</span> <span class="o">=</span> <span class="n">_load_backend_lib</span><span class="p">(</span><span class="n">backend</span><span class="p">,</span> <span class="n">libname</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">835</span>     <span class="c1">#</span>
+<span class="g g-Whitespace">    </span><span class="mi">836</span>     <span class="k">def</span> <span class="nf">accessor_function</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+
+<span class="nn">File H:\HadiSadoghiYazdi\Circuit\Lib\site-packages\cffi\api.py:829,</span> in <span class="ni">_load_backend_lib</span><span class="nt">(backend, name, flags)</span>
+<span class="g g-Whitespace">    </span><span class="mi">827</span>     <span class="k">if</span> <span class="n">first_error</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">828</span>         <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">.  Additionally, </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">first_error</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">829</span>     <span class="k">raise</span> <span class="ne">OSError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">830</span> <span class="k">return</span> <span class="n">backend</span><span class="o">.</span><span class="n">load_library</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span>
+
+<span class="ne">OSError</span>: cannot load library &#39;H:\HadiSadoghiYazdi\Circuit\Lib\site-packages\PySpice\Spice\NgSpice\Spice64_dll\dll-vs\ngspice.dll&#39;: error 0x7e.  Additionally, ctypes.util.find_library() did not manage to locate a library called &#39;H:\\HadiSadoghiYazdi\\Circuit\\Lib\\site-packages\\PySpice\\Spice\\NgSpice\\Spice64_dll\\dll-vs\\ngspice.dll&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="plot-with-pyspice">
+<h2><strong>Plot with PySpice</strong><a class="headerlink" href="#plot-with-pyspice" title="Link to this heading">#</a></h2>
+<p>Draw current as a function of time with Pulse Current Source</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">PySpice.Spice.Netlist</span> <span class="kn">import</span> <span class="n">Circuit</span>
+<span class="kn">from</span> <span class="nn">PySpice.Unit</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="c1"># Create a new circuit</span>
+<span class="n">circuit</span> <span class="o">=</span> <span class="n">Circuit</span><span class="p">(</span><span class="s1">&#39;Pulse Current Waveform&#39;</span><span class="p">)</span>
+
+<span class="c1"># Define the pulse current source</span>
+<span class="n">pulse_current</span> <span class="o">=</span> <span class="n">circuit</span><span class="o">.</span><span class="n">PulseCurrentSource</span><span class="p">(</span><span class="s1">&#39;pulse&#39;</span><span class="p">,</span> <span class="s1">&#39;n1&#39;</span><span class="p">,</span> <span class="n">circuit</span><span class="o">.</span><span class="n">gnd</span><span class="p">,</span> 
+                                            <span class="n">initial_value</span><span class="o">=</span><span class="mi">0</span><span class="nd">@u_A</span><span class="p">,</span>       <span class="c1"># Start at 0A</span>
+                                            <span class="n">pulsed_value</span><span class="o">=-</span><span class="mi">7</span><span class="nd">@u_A</span><span class="p">,</span>       <span class="c1"># Peak at 6A</span>
+                                            <span class="n">delay_time</span><span class="o">=</span><span class="mi">0</span><span class="nd">@u_s</span><span class="p">,</span>          <span class="c1"># No delay</span>
+                                            <span class="n">rise_time</span><span class="o">=</span><span class="mi">7</span><span class="nd">@u_s</span><span class="p">,</span>           <span class="c1"># Rise time to peak (create slope)</span>
+                                            <span class="n">fall_time</span><span class="o">=</span><span class="mi">0</span><span class="nd">@u_s</span><span class="p">,</span>         <span class="c1"># Sharp fall after peak</span>
+                                            <span class="n">pulse_width</span><span class="o">=-</span><span class="mi">1</span><span class="nd">@u_s</span><span class="p">,</span>         <span class="c1"># Width of the top of the pulse</span>
+                                            <span class="n">period</span><span class="o">=</span><span class="mi">8</span><span class="nd">@u_s</span><span class="p">)</span>              <span class="c1"># Repeat after 8 seconds</span>
+
+<span class="c1"># Define a resistor to complete the circuit</span>
+<span class="n">circuit</span><span class="o">.</span><span class="n">R</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;n1&#39;</span><span class="p">,</span> <span class="n">circuit</span><span class="o">.</span><span class="n">gnd</span><span class="p">,</span> <span class="mi">1</span><span class="nd">@u_Ω</span><span class="p">)</span>
+
+<span class="c1"># Simulate the circuit</span>
+<span class="n">simulator</span> <span class="o">=</span> <span class="n">circuit</span><span class="o">.</span><span class="n">simulator</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">nominal_temperature</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">analysis</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">transient</span><span class="p">(</span><span class="n">step_time</span><span class="o">=</span><span class="mf">0.01</span><span class="nd">@u_s</span><span class="p">,</span> <span class="n">end_time</span><span class="o">=</span><span class="mi">15</span><span class="nd">@u_s</span><span class="p">)</span>
+
+<span class="c1"># Plot the results</span>
+<span class="n">figure</span><span class="p">,</span> <span class="n">axe</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">axe</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">analysis</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">analysis</span><span class="p">[</span><span class="s1">&#39;n1&#39;</span><span class="p">])</span>
+<span class="n">axe</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Pulse Current Waveform&#39;</span><span class="p">)</span>
+<span class="n">axe</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time [s]&#39;</span><span class="p">)</span>
+<span class="n">axe</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Current [A]&#39;</span><span class="p">)</span>
+<span class="n">axe</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/2330840a15e83dac1223e1822da538e8a1ea93ad06e436512a34bd9791ad7f5a.png" src="../../_images/2330840a15e83dac1223e1822da538e8a1ea93ad06e436512a34bd9791ad7f5a.png" />
+</div>
+</div>
+</section>
+<section id="rc-circuit">
+<h2><strong>RC circuit</strong><a class="headerlink" href="#rc-circuit" title="Link to this heading">#</a></h2>
+<section id="add-resistor">
+<h3><strong>Add Resistor:</strong><a class="headerlink" href="#add-resistor" title="Link to this heading">#</a></h3>
+<p><strong>Analysis the effect of changing the resistance in current as a function of time diagram:</strong></p>
+<p>A <strong>pulse current source</strong> is <strong>independent</strong> of the resistance in the circuit. It means that the current source will always deliver the specified current waveform regardless of the resistance connected to it.</p>
+</section>
+<section id="add-capacior">
+<h3><strong>Add Capacior :</strong><a class="headerlink" href="#add-capacior" title="Link to this heading">#</a></h3>
+<p><strong>Plot the effect of capacitor on current as a function of time:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">schemdraw</span>
+<span class="kn">import</span> <span class="nn">schemdraw.elements</span> <span class="k">as</span> <span class="nn">elm</span>
+
+<span class="c1"># Create a new drawing</span>
+<span class="k">with</span> <span class="n">schemdraw</span><span class="o">.</span><span class="n">Drawing</span><span class="p">()</span> <span class="k">as</span> <span class="n">d</span><span class="p">:</span>
+
+    <span class="c1"># Add the pulse current source</span>
+    <span class="n">S</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">elm</span><span class="o">.</span><span class="n">SourcePulse</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;Pulse Current Source&#39;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">))</span>
+
+    <span class="c1"># Add a resistor in series</span>
+    <span class="n">R</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">elm</span><span class="o">.</span><span class="n">Resistor</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;2Ω&#39;</span><span class="p">))</span>
+
+    <span class="c1"># Add a line to separate elements</span>
+    <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">elm</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">down</span><span class="p">())</span>
+
+    <span class="c1"># Add a capacitor in parallel</span>
+    <span class="n">d</span><span class="o">.</span><span class="n">push</span><span class="p">()</span>  <span class="c1"># Push to a new drawing level</span>
+    <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">elm</span><span class="o">.</span><span class="n">Capacitor</span><span class="p">()</span><span class="o">.</span><span class="n">left</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;0.1F&#39;</span><span class="p">))</span>  <span class="c1"># Capacitor below</span>
+    <span class="n">d</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>  <span class="c1"># Pop back to the original level</span>
+
+    <span class="c1"># Add ground</span>
+    <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">elm</span><span class="o">.</span><span class="n">Ground</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/10175f523f22cd9e633e6fc32c05692ac80149a678142fba6af1d612ee17a1b6.svg" src="../../_images/10175f523f22cd9e633e6fc32c05692ac80149a678142fba6af1d612ee17a1b6.svg" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">PySpice.Spice.Netlist</span> <span class="kn">import</span> <span class="n">Circuit</span>
+<span class="kn">from</span> <span class="nn">PySpice.Unit</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="c1"># Create a new circuit</span>
+<span class="n">circuit</span> <span class="o">=</span> <span class="n">Circuit</span><span class="p">(</span><span class="s1">&#39;Pulse Current Waveform&#39;</span><span class="p">)</span>
+
+<span class="c1"># Define the pulse current source</span>
+<span class="n">pulse_current</span> <span class="o">=</span> <span class="n">circuit</span><span class="o">.</span><span class="n">PulseCurrentSource</span><span class="p">(</span><span class="s1">&#39;pulse&#39;</span><span class="p">,</span> <span class="s1">&#39;n1&#39;</span><span class="p">,</span> <span class="n">circuit</span><span class="o">.</span><span class="n">gnd</span><span class="p">,</span> 
+                      <span class="n">initial_value</span><span class="o">=</span><span class="mi">0</span><span class="nd">@u_A</span><span class="p">,</span>    <span class="c1"># Start at 0A</span>
+                      <span class="n">pulsed_value</span><span class="o">=-</span><span class="mi">7</span><span class="nd">@u_A</span><span class="p">,</span>    <span class="c1"># Peak at 6A</span>
+                      <span class="n">delay_time</span><span class="o">=</span><span class="mi">0</span><span class="nd">@u_s</span><span class="p">,</span>     <span class="c1"># No delay</span>
+                      <span class="n">rise_time</span><span class="o">=</span><span class="mi">7</span><span class="nd">@u_s</span><span class="p">,</span>      <span class="c1"># Rise time to peak (create slope)</span>
+                      <span class="n">fall_time</span><span class="o">=</span><span class="mi">0</span><span class="nd">@u_s</span><span class="p">,</span>     <span class="c1"># Sharp fall after peak</span>
+                      <span class="n">pulse_width</span><span class="o">=-</span><span class="mi">1</span><span class="nd">@u_s</span><span class="p">,</span>     <span class="c1"># Width of the top of the pulse</span>
+                      <span class="n">period</span><span class="o">=</span><span class="mi">8</span><span class="nd">@u_s</span><span class="p">)</span>       <span class="c1"># Repeat after 8 seconds</span>
+
+<span class="c1"># Define a resistor to complete the circuit</span>
+<span class="n">circuit</span><span class="o">.</span><span class="n">R</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;n1&#39;</span><span class="p">,</span> <span class="n">circuit</span><span class="o">.</span><span class="n">gnd</span><span class="p">,</span> <span class="mi">2</span><span class="nd">@u_Ω</span><span class="p">)</span>
+
+<span class="c1"># Add a capacitor in parallel</span>
+<span class="n">circuit</span><span class="o">.</span><span class="n">C</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;n1&#39;</span><span class="p">,</span> <span class="n">circuit</span><span class="o">.</span><span class="n">gnd</span><span class="p">,</span> <span class="mi">100000</span><span class="nd">@u_uF</span><span class="p">)</span> <span class="c1"># 0.1 farad capacitor</span>
+
+<span class="c1"># Simulate the circuit</span>
+<span class="n">simulator</span> <span class="o">=</span> <span class="n">circuit</span><span class="o">.</span><span class="n">simulator</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">nominal_temperature</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">analysis</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">transient</span><span class="p">(</span><span class="n">step_time</span><span class="o">=</span><span class="mf">0.01</span><span class="nd">@u_s</span><span class="p">,</span> <span class="n">end_time</span><span class="o">=</span><span class="mi">15</span><span class="nd">@u_s</span><span class="p">)</span>
+
+<span class="c1"># Apply the ohm&#39;s law</span>
+<span class="n">current</span> <span class="o">=</span> <span class="n">analysis</span><span class="p">[</span><span class="s1">&#39;n1&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span>
+
+<span class="c1"># Plot the results</span>
+<span class="n">figure</span><span class="p">,</span> <span class="n">axe</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">axe</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">analysis</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">current</span><span class="p">)</span>
+<span class="n">axe</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Pulse Current Waveform&#39;</span><span class="p">)</span>
+<span class="n">axe</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time [s]&#39;</span><span class="p">)</span>
+<span class="n">axe</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Current [A]&#39;</span><span class="p">)</span>
+<span class="n">axe</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/b6ed14787b5092354ad2320ad402212c29f250b6ee9647a8c46617c8217574a3.png" src="../../_images/b6ed14787b5092354ad2320ad402212c29f250b6ee9647a8c46617c8217574a3.png" />
+</div>
+</div>
+</section>
+<section id="how-a-capacitor-affects-the-circuit">
+<h3><strong>How a Capacitor Affects the Circuit</strong><a class="headerlink" href="#how-a-capacitor-affects-the-circuit" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Smoother Transition:</strong> The rising and falling edges of the pulse will be less sharp because the capacitor will “smooth out” the transitions. The rise time and fall time of the pulse will be longer.</p></li>
+<li><p><strong>Voltage Drop:</strong> The capacitor will charge up during the positive portion of the pulse, causing a voltage drop across the resistor.</p></li>
+<li><p><strong>Discharge:</strong> During the negative portion of the pulse, the capacitor will discharge, causing a voltage increase across the resistor.</p></li>
+</ul>
+</section>
+</section>
+<section id="diagram-of-power">
+<h2><strong>Diagram of power</strong><a class="headerlink" href="#diagram-of-power" title="Link to this heading">#</a></h2>
+<section id="draw-power-as-a-function-of-time-for-resistor">
+<h3><strong>Draw power as a function of time for resistor :</strong><a class="headerlink" href="#draw-power-as-a-function-of-time-for-resistor" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">PySpice.Spice.Netlist</span> <span class="kn">import</span> <span class="n">Circuit</span>
+<span class="kn">from</span> <span class="nn">PySpice.Unit</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Create a new circuit</span>
+<span class="n">circuit</span> <span class="o">=</span> <span class="n">Circuit</span><span class="p">(</span><span class="s1">&#39;Pulse Current Waveform&#39;</span><span class="p">)</span>
+
+<span class="c1"># Define the pulse current source</span>
+<span class="n">pulse_current</span> <span class="o">=</span> <span class="n">circuit</span><span class="o">.</span><span class="n">PulseCurrentSource</span><span class="p">(</span><span class="s1">&#39;pulse&#39;</span><span class="p">,</span> <span class="s1">&#39;n1&#39;</span><span class="p">,</span> <span class="n">circuit</span><span class="o">.</span><span class="n">gnd</span><span class="p">,</span> 
+           <span class="n">initial_value</span><span class="o">=</span><span class="mi">0</span><span class="nd">@u_A</span><span class="p">,</span>  <span class="c1"># Start at 0A</span>
+           <span class="n">pulsed_value</span><span class="o">=-</span><span class="mi">7</span><span class="nd">@u_A</span><span class="p">,</span>  <span class="c1"># Peak at 6A</span>
+           <span class="n">delay_time</span><span class="o">=</span><span class="mi">0</span><span class="nd">@u_s</span><span class="p">,</span>   <span class="c1"># No delay</span>
+           <span class="n">rise_time</span><span class="o">=</span><span class="mi">7</span><span class="nd">@u_s</span><span class="p">,</span>   <span class="c1"># Rise time to peak (create slope)</span>
+           <span class="n">fall_time</span><span class="o">=</span><span class="mi">0</span><span class="nd">@u_s</span><span class="p">,</span>   <span class="c1"># Sharp fall after peak</span>
+           <span class="n">pulse_width</span><span class="o">=-</span><span class="mi">1</span><span class="nd">@u_s</span><span class="p">,</span>   <span class="c1"># Width of the top of the pulse</span>
+           <span class="n">period</span><span class="o">=</span><span class="mi">8</span><span class="nd">@u_s</span><span class="p">)</span>    <span class="c1"># Repeat after 8 seconds</span>
+
+<span class="c1"># Define a resistor to complete the circuit</span>
+<span class="n">circuit</span><span class="o">.</span><span class="n">R</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;n1&#39;</span><span class="p">,</span> <span class="n">circuit</span><span class="o">.</span><span class="n">gnd</span><span class="p">,</span> <span class="mi">2</span><span class="nd">@u_Ω</span><span class="p">)</span>
+
+<span class="c1"># Simulate the circuit</span>
+<span class="n">simulator</span> <span class="o">=</span> <span class="n">circuit</span><span class="o">.</span><span class="n">simulator</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">nominal_temperature</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">analysis</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">transient</span><span class="p">(</span><span class="n">step_time</span><span class="o">=</span><span class="mf">0.01</span><span class="nd">@u_s</span><span class="p">,</span> <span class="n">end_time</span><span class="o">=</span><span class="mi">15</span><span class="nd">@u_s</span><span class="p">)</span>
+
+<span class="c1"># Calculate the current through the resistor (using Ohm&#39;s Law)</span>
+<span class="n">current</span> <span class="o">=</span> <span class="n">analysis</span><span class="p">[</span><span class="s1">&#39;n1&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="mi">2</span>
+
+<span class="c1"># Calculate the power in the resistor</span>
+<span class="c1"># P = R*I*I</span>
+<span class="n">power</span> <span class="o">=</span> <span class="n">current</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="mi">2</span>
+
+<span class="c1"># Calculate the average power</span>
+<span class="n">average_power</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">power</span><span class="p">)</span>
+
+<span class="c1"># Convert average_power to a numerical value</span>
+<span class="n">average_power_value</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">average_power</span><span class="p">)</span>
+
+<span class="c1"># Plot the power </span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">analysis</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Power&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time [s]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Power [W]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Pulse Current Waveform - Power in Resistor&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Add a horizontal line for average power</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">average_power_value</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Average Power&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Print the average power</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Average Power in the Resistor: </span><span class="si">{</span><span class="n">average_power_value</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> W&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/c6485e0362606c8f895cfa1ca712ae5c0aa09b9886816cec9eff3ea8ad55130a.png" src="../../_images/c6485e0362606c8f895cfa1ca712ae5c0aa09b9886816cec9eff3ea8ad55130a.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Average Power in the Resistor: 19.17 W
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="analyzing-the-resistance-power">
+<h3><strong>Analyzing the resistance power:</strong><a class="headerlink" href="#analyzing-the-resistance-power" title="Link to this heading">#</a></h3>
+<p>The power is directly related to the square of the current (<span class="math notranslate nohighlight">\( P=I^2\times R \)</span>). As the current increases, the power dissipation increases significantly and due to the power of two of the circuit current, a line similar to a parabola can be seen in the diagram.</p>
+</section>
+<section id="draw-power-as-a-function-of-time-for-capacitor">
+<h3><strong>Draw power as a function of time for capacitor :</strong><a class="headerlink" href="#draw-power-as-a-function-of-time-for-capacitor" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">PySpice.Spice.Netlist</span> <span class="kn">import</span> <span class="n">Circuit</span>
+<span class="kn">from</span> <span class="nn">PySpice.Unit</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Create a new circuit</span>
+<span class="n">circuit</span> <span class="o">=</span> <span class="n">Circuit</span><span class="p">(</span><span class="s1">&#39;Pulse Current Waveform&#39;</span><span class="p">)</span>
+
+<span class="c1"># Define the pulse current source</span>
+<span class="n">pulse_current</span> <span class="o">=</span> <span class="n">circuit</span><span class="o">.</span><span class="n">PulseCurrentSource</span><span class="p">(</span><span class="s1">&#39;pulse&#39;</span><span class="p">,</span> <span class="s1">&#39;n1&#39;</span><span class="p">,</span> <span class="n">circuit</span><span class="o">.</span><span class="n">gnd</span><span class="p">,</span> 
+           <span class="n">initial_value</span><span class="o">=</span><span class="mi">0</span><span class="nd">@u_A</span><span class="p">,</span>  <span class="c1"># Start at 0A</span>
+           <span class="n">pulsed_value</span><span class="o">=-</span><span class="mi">7</span><span class="nd">@u_A</span><span class="p">,</span>  <span class="c1"># Peak at 6A</span>
+           <span class="n">delay_time</span><span class="o">=</span><span class="mi">0</span><span class="nd">@u_s</span><span class="p">,</span>   <span class="c1"># No delay</span>
+           <span class="n">rise_time</span><span class="o">=</span><span class="mi">7</span><span class="nd">@u_s</span><span class="p">,</span>   <span class="c1"># Rise time to peak (create slope)</span>
+           <span class="n">fall_time</span><span class="o">=</span><span class="mi">0</span><span class="nd">@u_s</span><span class="p">,</span>   <span class="c1"># Sharp fall after peak</span>
+           <span class="n">pulse_width</span><span class="o">=-</span><span class="mi">1</span><span class="nd">@u_s</span><span class="p">,</span>   <span class="c1"># Width of the top of the pulse</span>
+           <span class="n">period</span><span class="o">=</span><span class="mi">8</span><span class="nd">@u_s</span><span class="p">)</span>    <span class="c1"># Repeat after 8 seconds</span>
+
+<span class="c1"># Define a resistor to complete the circuit</span>
+<span class="n">circuit</span><span class="o">.</span><span class="n">R</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;n1&#39;</span><span class="p">,</span> <span class="n">circuit</span><span class="o">.</span><span class="n">gnd</span><span class="p">,</span> <span class="mi">2</span><span class="nd">@u_Ω</span><span class="p">)</span>
+
+<span class="c1"># Add a capacitor in parallel</span>
+<span class="n">circuit</span><span class="o">.</span><span class="n">C</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;n1&#39;</span><span class="p">,</span> <span class="n">circuit</span><span class="o">.</span><span class="n">gnd</span><span class="p">,</span> <span class="mi">100000</span><span class="nd">@u_uF</span><span class="p">)</span> <span class="c1"># 0.1 farad capacitor</span>
+
+<span class="c1"># Simulate the circuit</span>
+<span class="n">simulator</span> <span class="o">=</span> <span class="n">circuit</span><span class="o">.</span><span class="n">simulator</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">nominal_temperature</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">analysis</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">transient</span><span class="p">(</span><span class="n">step_time</span><span class="o">=</span><span class="mf">0.01</span><span class="nd">@u_s</span><span class="p">,</span> <span class="n">end_time</span><span class="o">=</span><span class="mi">15</span><span class="nd">@u_s</span><span class="p">)</span>
+
+<span class="c1"># Calculate the voltage across the capacitor</span>
+<span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">analysis</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+<span class="n">voltage</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">analysis</span><span class="p">[</span><span class="s1">&#39;n1&#39;</span><span class="p">])</span>
+
+<span class="c1"># Calculate the current through the capacitor using numerical differentiation</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">voltage</span><span class="p">,</span> <span class="n">time</span><span class="p">)</span>
+
+<span class="c1"># Calculate the power in the capacitor</span>
+<span class="c1"># P = V*C*dV/dt</span>
+<span class="n">power</span> <span class="o">=</span> <span class="n">voltage</span> <span class="o">*</span> <span class="n">m</span> <span class="o">*</span> <span class="mf">0.1</span> <span class="c1"># Multiply by capacitance in farads</span>
+
+<span class="c1"># Calculate the average power</span>
+<span class="n">average_power</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">power</span><span class="p">)</span>
+
+<span class="c1"># Plot the power </span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Power&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time [s]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Power [W]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Pulse Current Waveform - Power in Capacitor&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Add a horizontal line for average power</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">average_power</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Average Power&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Print the average power</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Average Power in the Capacitor: </span><span class="si">{</span><span class="n">average_power</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> W&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/ab7094b19d3b8fd97344260da81331928329a7d47fcb337e9f475e10523bb343.png" src="../../_images/ab7094b19d3b8fd97344260da81331928329a7d47fcb337e9f475e10523bb343.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Average Power in the Capacitor: 0.00 W
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="analyze-power-as-a-function-of-time-for-capacitor">
+<h3><strong>Analyze power as a function of time for capacitor:</strong><a class="headerlink" href="#analyze-power-as-a-function-of-time-for-capacitor" title="Link to this heading">#</a></h3>
+<p>While a <strong>capacitor doesn’t have a “power rating” in the same way a resistor does</strong>, we do consider power aspects in these situations:</p>
+<ul class="simple">
+<li><p><strong>Charging/Discharging:</strong> The <em>rate</em> at which a capacitor charges or discharges depends on the circuit’s resistance and the capacitor’s capacitance. This rate of energy transfer relates to power, but it’s not a constant value.</p></li>
+<li><p><strong>Power Dissipation:</strong>  If a capacitor is repeatedly charged and discharged very rapidly, it might experience some power dissipation due to internal resistance (ESR) and leakage current, causing it to heat up.</p></li>
+</ul>
+<p><strong>We can see this in the plotted output:</strong></p>
+<ul class="simple">
+<li><p>Rising Current: When the current source is high, the capacitor is charging.</p></li>
+<li><p>Falling Current: When the current source is low, the capacitor is discharging.</p></li>
+<li><p>Steady-State: The capacitor will reach a steady-state charge level after a few cycles if the pulse width is long enough for the capacitor to fully charge.</p></li>
+</ul>
+<p><strong>Here’s how to calculate the power:</strong></p>
+<p>power dissipated by the capacitor during discharge and power absorbed by the capacitor during Charging is calculated with this formula :<br />
+<strong><span class="math notranslate nohighlight">\( Power (P) = V\times C\times \frac{dV}{dt} \)</span></strong></p>
+<ul class="simple">
+<li><p>C: Capacitance in Farads (F)</p></li>
+<li><p><span class="math notranslate nohighlight">\( \frac{dV}{dt}\)</span>: Rate of change of voltage across the capacitor in Volts per second <span class="math notranslate nohighlight">\( (\frac{V}{s})\)</span></p></li>
+</ul>
+<p>The same formula applies to both charging and discharging, but the voltage change will be in <strong>opposite directions</strong>.Therefore, this point justifies the negative and positive power.</p>
+<p><strong>Why average power is zero:</strong></p>
+<p>The average power in a purely capacitive circuit is zero because the energy stored in the capacitor during one part of the cycle is returned to the circuit in the next part of the cycle, resulting in no net energy consumption.</p>
+</section>
+<section id="analyze-power-as-a-function-of-time-for-current-source">
+<h3><strong>Analyze power as a function of time for current source :</strong><a class="headerlink" href="#analyze-power-as-a-function-of-time-for-current-source" title="Link to this heading">#</a></h3>
+<p>It is not completely wrong to say the  phrase ‘’power of the current source’’ but it is more appropriate to say the power <strong>delivered</strong> by the current source.</p>
+<p><strong>Here is the formula:</strong></p>
+<p><span class="math notranslate nohighlight">\( P = I²\times R \)</span></p>
+<ul class="simple">
+<li><p>I: The current provided by the source</p></li>
+<li><p>R: The resistance of the load</p></li>
+</ul>
+<p>In fact, It’s essential to understand that current sources don’t have a fixed “output power” rating. The power they deliver is determined by the load they are driving. The focus should be on the power delivered by the current source and the power dissipated in the load.<br />
+According to the above, the diagram of power as a function of time for current source is like the diagram of power as a function of time for resistor.</p>
+</section>
+</section>
+<section id="average-power-in-window-of-length-w">
+<h2><strong>Average power in window of length W</strong><a class="headerlink" href="#average-power-in-window-of-length-w" title="Link to this heading">#</a></h2>
+<section id="plot-average-power-for-the-circuit-including-resistor-and-current-source">
+<h3><strong>Plot average power for the circuit including resistor and current source</strong><a class="headerlink" href="#plot-average-power-for-the-circuit-including-resistor-and-current-source" title="Link to this heading">#</a></h3>
+<p>If we assume that W is equal to T/10 :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">PySpice.Spice.Netlist</span> <span class="kn">import</span> <span class="n">Circuit</span>
+<span class="kn">from</span> <span class="nn">PySpice.Unit</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Create a new circuit</span>
+<span class="n">circuit</span> <span class="o">=</span> <span class="n">Circuit</span><span class="p">(</span><span class="s1">&#39;Pulse Current Waveform&#39;</span><span class="p">)</span>
+
+<span class="c1"># Define the pulse current source</span>
+<span class="n">pulse_current</span> <span class="o">=</span> <span class="n">circuit</span><span class="o">.</span><span class="n">PulseCurrentSource</span><span class="p">(</span><span class="s1">&#39;pulse&#39;</span><span class="p">,</span> <span class="s1">&#39;n1&#39;</span><span class="p">,</span> <span class="n">circuit</span><span class="o">.</span><span class="n">gnd</span><span class="p">,</span> 
+                                            <span class="n">initial_value</span><span class="o">=</span><span class="mi">0</span><span class="nd">@u_A</span><span class="p">,</span>       <span class="c1"># Start at 0A</span>
+                                            <span class="n">pulsed_value</span><span class="o">=-</span><span class="mi">7</span><span class="nd">@u_A</span><span class="p">,</span>       <span class="c1"># Peak at 6A</span>
+                                            <span class="n">delay_time</span><span class="o">=</span><span class="mi">0</span><span class="nd">@u_s</span><span class="p">,</span>          <span class="c1"># No delay</span>
+                                            <span class="n">rise_time</span><span class="o">=</span><span class="mi">7</span><span class="nd">@u_s</span><span class="p">,</span>           <span class="c1"># Rise time to peak (create slope)</span>
+                                            <span class="n">fall_time</span><span class="o">=</span><span class="mi">0</span><span class="nd">@u_s</span><span class="p">,</span>         <span class="c1"># Sharp fall after peak</span>
+                                            <span class="n">pulse_width</span><span class="o">=-</span><span class="mi">1</span><span class="nd">@u_s</span><span class="p">,</span>         <span class="c1"># Width of the top of the pulse</span>
+                                            <span class="n">period</span><span class="o">=</span><span class="mi">8</span><span class="nd">@u_s</span><span class="p">)</span>              <span class="c1"># Repeat after 8 seconds</span>
+
+<span class="c1"># Define a resistor to complete the circuit</span>
+<span class="n">circuit</span><span class="o">.</span><span class="n">R</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;n1&#39;</span><span class="p">,</span> <span class="n">circuit</span><span class="o">.</span><span class="n">gnd</span><span class="p">,</span> <span class="mi">1</span><span class="nd">@u_Ω</span><span class="p">)</span>  <span class="c1"># Resistor value is 1 ohm</span>
+
+<span class="c1"># Simulate the circuit</span>
+<span class="n">simulator</span> <span class="o">=</span> <span class="n">circuit</span><span class="o">.</span><span class="n">simulator</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">nominal_temperature</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">analysis</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">transient</span><span class="p">(</span><span class="n">step_time</span><span class="o">=</span><span class="mf">0.01</span><span class="nd">@u_s</span><span class="p">,</span> <span class="n">end_time</span><span class="o">=</span><span class="mi">15</span><span class="nd">@u_s</span><span class="p">)</span>
+
+<span class="c1"># Extract data and convert to base units</span>
+<span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">analysis</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+<span class="n">voltage</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">analysis</span><span class="p">[</span><span class="s1">&#39;n1&#39;</span><span class="p">])</span>
+
+<span class="c1"># Calculate current through the resistor</span>
+<span class="n">current</span> <span class="o">=</span> <span class="n">voltage</span> <span class="o">/</span> <span class="mi">1</span>  <span class="c1"># Assuming the resistor is 1 ohm</span>
+
+<span class="c1"># Calculate power in the resistor</span>
+<span class="n">power</span> <span class="o">=</span> <span class="n">current</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="mi">1</span>  <span class="c1"># Assuming the resistor is 1 ohm</span>
+
+<span class="c1"># Define window size and calculate average power for each window</span>
+<span class="n">window_size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="nd">@u_s</span> <span class="o">/</span> <span class="mi">10</span><span class="p">)</span> <span class="c1"># Window size is T/10</span>
+<span class="n">average_powers</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">window_starts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">time</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">window_size</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">start</span> <span class="ow">in</span> <span class="n">window_starts</span><span class="p">:</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="n">window_size</span>
+    <span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">time</span> <span class="o">&gt;=</span> <span class="n">start</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">time</span> <span class="o">&lt;</span> <span class="n">end</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">indices</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># Make sure there are points in the window</span>
+        <span class="n">average_powers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">power</span><span class="p">[</span><span class="n">indices</span><span class="p">]))</span>
+
+<span class="c1"># Plot the average power</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">window_starts</span><span class="p">,</span> <span class="n">average_powers</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Average Power&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time [s]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Average Power [W]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Average Power in Resistor (Windows of T/10)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/e901bc116edd4214071a8a4532addd81ec4db8596be78e1dd0db18121544c813.png" src="../../_images/e901bc116edd4214071a8a4532addd81ec4db8596be78e1dd0db18121544c813.png" />
+</div>
+</div>
+</section>
+<section id="analyze-the-diagram-of-average-power-in-window-of-length-t-10">
+<h3><strong>Analyze the diagram of average power in window of length T/10 :</strong><a class="headerlink" href="#analyze-the-diagram-of-average-power-in-window-of-length-t-10" title="Link to this heading">#</a></h3>
+<p>The plot shows the periodic nature of the power dissipation in the resistor, with peaks corresponding to the pulse peaks and valleys corresponding to the intervals between pulses. The averaging over windows smooths out the instantaneous power variations, giving a clearer picture of the power trend over time.</p>
+</section>
+</section>
+<section id="conclusion">
+<h2><strong>Conclusion :</strong><a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<p>In this project, the concept of average power in electric circuits was discussed and its value was calculated for a circuit with a given current. Then, using the PySpice library, the current diagram was drawn. Then, how to change the shape of the current diagram in terms of time by adding the components of an RC circuit was investigated and it was observed that the resistance will not affect the shape of the diagram because the current source worked independently of the resistance, but the addition of the capacitor causes the diagram to change.We see less sudden changes and the corners of the graph will be smoother.After that, the graph of power as a function of time was drwan for resistor, current source and capacitor and we analyze each <a class="reference external" href="http://diagram.At">diagram.At</a> the end, the average power after windows of length T/10 was examined and its graph was drawn</p>
+</section>
+<section id="sources">
+<h2><strong>Sources:</strong><a class="headerlink" href="#sources" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#URL"><span class="xref myst">https://phys.libretexts.org/Bookshelves/University_Physics/University_Physics_%28OpenStax%29/University_Physics_II_-<em>Thermodynamics_Electricity_and_Magnetism</em>%28OpenStax%29/15%3A_Alternating-Current_Circuits/15.05%3A_Power_in_an_AC_Circuit</span></a></p></li>
+<li><p><a class="reference internal" href="#URL"><span class="xref myst">https://www.electronics-tutorials.ws/accircuits/power-in-ac-circuits.html</span></a></p></li>
+<li><p><a class="reference internal" href="#URL"><span class="xref myst">youtube.com/watch?v=rL8l4xZ6EL0&amp;list=PL6JL9fVjrZLcqixnvq9wUpG1xNGrIRH8j&amp;index=13&amp;t=298s</span></a></p></li>
+<li><p><a class="reference internal" href="#URL"><span class="xref myst">https://pyspice.fabrice-salvaire.fr/releases/v1.4/api/PySpice/Spice/HighLevelElement.html</span></a></p></li>
+<li><p><a class="reference internal" href="#URL"><span class="xref myst">https://www.allaboutcircuits.com/textbook/direct-current/chpt-2/voltage-current-resistance-relate/</span></a></p></li>
+<li><p><a class="reference internal" href="#URL"><span class="xref myst">https://unacademy.com/content/neet-ug/study-material/physics/what-is-average-power/#:~:text=Average%20power%20formula%20is%20P,commonly%20known%20as%20power%20only.</span></a></p></li>
+<li><p><a class="reference internal" href="#URL"><span class="xref myst">https://www.nagwa.com/en/explainers/346195931847/#:~:text=The%20power%20of%20an%20electric,%3A%20%F0%9D%91%83%20%3D%20%F0%9D%90%BC%20%C3%97%20%F0%9D%91%89%20.</span></a></p></li>
+<li><p><a class="reference internal" href="#URL"><span class="xref myst">https://eepower.com/technical-articles/the-fundamentals-of-capacitors-in-ac-circuits/</span></a></p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Circuit_Electronics\StudentEffort"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="independentcurrentandvoltagesources/miniProject.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Independent current/voltage sources</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="PassiveComponents/Passive%20Components.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Passive Components</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outline"><strong>Outline :</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description"><strong>Description</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-the-average-power"><strong>Calculate the average power</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-average-power-with-simple-mathematics"><strong>calculate average power with simple mathematics:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draw-the-circuit-with-schemdraw"><strong>Draw the circuit with schemdraw:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-average-power-with-pyspice"><strong>Calculate average power with PySpice</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-with-pyspice"><strong>Plot with PySpice</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rc-circuit"><strong>RC circuit</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-resistor"><strong>Add Resistor:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-capacior"><strong>Add Capacior :</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-a-capacitor-affects-the-circuit"><strong>How a Capacitor Affects the Circuit</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diagram-of-power"><strong>Diagram of power</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draw-power-as-a-function-of-time-for-resistor"><strong>Draw power as a function of time for resistor :</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzing-the-resistance-power"><strong>Analyzing the resistance power:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draw-power-as-a-function-of-time-for-capacitor"><strong>Draw power as a function of time for capacitor :</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze-power-as-a-function-of-time-for-capacitor"><strong>Analyze power as a function of time for capacitor:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze-power-as-a-function-of-time-for-current-source"><strong>Analyze power as a function of time for current source :</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#average-power-in-window-of-length-w"><strong>Average power in window of length W</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-average-power-for-the-circuit-including-resistor-and-current-source"><strong>Plot average power for the circuit including resistor and current source</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze-the-diagram-of-average-power-in-window-of-length-t-10"><strong>Analyze the diagram of average power in window of length T/10 :</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion"><strong>Conclusion :</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sources"><strong>Sources:</strong></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Dr.Hadi Sadoghi Yazdi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024 Pattern Recognition Lab.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1018 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Linear approximation &#8212; Dr.Hadi Sadoghi Yazdi</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Circuit_Electronics/StudentEffort/Linearization/LinearizationProject';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Battery Models" href="../batteryModel/battery_model.html" />
+    <link rel="prev" title="Passive Components" href="../PassiveComponents/Passive%20Components.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../Introduction_CircuitElectronics.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/Hadi_Sadoghi_Yazdi.png" class="logo__image only-light" alt="Dr.Hadi Sadoghi Yazdi - Home"/>
+    <img src="../../../_static/Hadi_Sadoghi_Yazdi.png" class="logo__image only-dark pst-js-only" alt="Dr.Hadi Sadoghi Yazdi - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../Introduction_CircuitElectronics.html">
+                    Introduction to Circuit and Electronics
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Sections of Circuit and Electronics course</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../BasicElements.html">Basic component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../KVL_KCL.html">Voltage , Current</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NodalMeshAnalysis.html">Basic Nodal and Mesh Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../RC_RL_RLC.html">R-C, R-L circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Diode_chapter.html">Diode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../DiodeApplication.html">Diode Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../BJT1.html">Bipolar junction transistor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../FET.html">Field Effect Transistor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../OpAmp.html">Operational Amplifier</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Teaching assistant</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../PySpice_Installation_Manual.html">PySpice Installation Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../PySpice_circuit_example1.html">Example 1: RESISTIVE DIVIDER</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../PySpice_circuit_example2.html">Example 2: DIODE CIRCUIT</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Students effort</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../DiodeCharacteristicCurve.html">Diode Characteristic Curve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../SchemdrawGuide1.html">Schemdraw Guide book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../independentcurrentandvoltagesources/miniProject.html">Independent current/voltage sources</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../AveragePower.html"><strong>Average power</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PassiveComponents/Passive%20Components.html">Passive Components</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Linear approximation</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../batteryModel/battery_model.html">Battery Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Sensitivity_analysis1.html">Sensitivity analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../WhatBias/bias1.html"><strong>Bias:</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Supermesh/Supermesh.html">Supermesh</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contact</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../Contact_Me.html">Contact Me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../About_Me.html">About Me</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/h-sadoghi/dr-sadoghi.git" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/h-sadoghi/dr-sadoghi.git/issues/new?title=Issue%20on%20page%20%2FCircuit_Electronics/StudentEffort/Linearization/LinearizationProject.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/Circuit_Electronics/StudentEffort/Linearization/LinearizationProject.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Linear approximation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#taylor-series-expansion"><strong>Taylor Series Expansion</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linearization"><strong>Linearization</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition"><strong>Definition</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-linearization"><strong>Examples of Linearization</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#find-the-linear-approximation-to-f-x-sin-x-near-x-0">Find the linear approximation to <span class="math notranslate nohighlight">\(f(x) = \sin x\)</span> near <span class="math notranslate nohighlight">\(x = 0\)</span>.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#here-is-the-code">Here is the code:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#find-the-linear-approximations-to-f-x-sqrt-x-near-x-1-and-x-4">Find the linear approximations to <span class="math notranslate nohighlight">\(f(x) = \sqrt{x}\)</span> near <span class="math notranslate nohighlight">\(x = 1\)</span> and <span class="math notranslate nohighlight">\(x = 4\)</span>.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-approximate-calculations"><strong>Example 3: Approximate calculations</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-overestimate-or-underestimate">Conclusion: Overestimate or Underestimate?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-approximation-of-functions"><strong>Example 4: Approximation of functions</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tangent-plane-approximation"><strong>Tangent Plane Approximation</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-5"><strong>Example 5:</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References:</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="linear-approximation">
+<h1><strong>Linear approximation</strong><a class="headerlink" href="#linear-approximation" title="Link to this heading">#</a></h1>
+<p>Author: Reza Farasati</p>
+<p>Contact: <a class="reference external" href="mailto:rezafarasati2004&#37;&#52;&#48;gmail&#46;com">rezafarasati2004<span>&#64;</span>gmail<span>&#46;</span>com</a></p>
+<p>In applications, we may encounter difficulties in finding exact solutions to the problems.
+Often approximate solutions are acceptable within some tolerance.
+The simplest approximation of a function is given by a linear function.
+In this section, we will study how a differentiable function may be approximated by a linear function.
+We already know that the tangent line
+goes very close to the graph of the function.
+The tangent line describes the behavior of
+the function near the point of tangency
+better than any other line.
+It makes sense to use the tangent line as
+a linear approximation to the graph.</p>
+<p><img alt="TangentLine" src="../../../_images/TangentLine.png" /></p>
+<section id="taylor-series-expansion">
+<h2><strong>Taylor Series Expansion</strong><a class="headerlink" href="#taylor-series-expansion" title="Link to this heading">#</a></h2>
+<p>For a function <span class="math notranslate nohighlight">\( f(x) \)</span>, the Taylor series expansion around a point <span class="math notranslate nohighlight">\( a \)</span> is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) \approx f(a) + f'(a)(x - a) + \frac{f''(a)}{2!}(x - a)^2 + \frac{f'''(a)}{3!}(x - a)^3 + \cdots
+\]</div>
+<p><strong>Maclaurin Series</strong></p>
+<p>If the expansion is around <span class="math notranslate nohighlight">\( a = 0 \)</span>, it is called the Maclaurin series:</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) \approx f(0) + f'(0)x + \frac{f''(0)}{2!}x^2 + \frac{f'''(0)}{3!}x^3 + \cdots
+\]</div>
+<section id="linearization">
+<h3><strong>Linearization</strong><a class="headerlink" href="#linearization" title="Link to this heading">#</a></h3>
+<p>Let <span class="math notranslate nohighlight">\( f \)</span> be a function differentiable at the point <span class="math notranslate nohighlight">\( x = a \)</span> . The equation of the tangent line
+to the graph of f at the point <span class="math notranslate nohighlight">\( x = a \)</span>  is</p>
+<p><span class="math notranslate nohighlight">\( y = f (a) + f'(a)(x − a) \)</span></p>
+<p><img alt="LinearApproximation" src="../../../_images/LinearApproximation.png" /></p>
+</section>
+<section id="definition">
+<h3><strong>Definition</strong><a class="headerlink" href="#definition" title="Link to this heading">#</a></h3>
+<p>The linearization, or linear approximation, of the function <span class="math notranslate nohighlight">\( f \)</span> near point <span class="math notranslate nohighlight">\( x = a \)</span>
+is the linear function
+<span class="math notranslate nohighlight">\( L(x) = f (a) + f'(a)(x − a) \)</span>
+<span class="math notranslate nohighlight">\( f (x) ≈ L(x) \)</span> near <span class="math notranslate nohighlight">\( x = a \)</span></p>
+</section>
+</section>
+<section id="examples-of-linearization">
+<h2><strong>Examples of Linearization</strong><a class="headerlink" href="#examples-of-linearization" title="Link to this heading">#</a></h2>
+<p><strong>Example 1:</strong></p>
+<section id="find-the-linear-approximation-to-f-x-sin-x-near-x-0">
+<h3>Find the linear approximation to <span class="math notranslate nohighlight">\(f(x) = \sin x\)</span> near <span class="math notranslate nohighlight">\(x = 0\)</span>.<a class="headerlink" href="#find-the-linear-approximation-to-f-x-sin-x-near-x-0" title="Link to this heading">#</a></h3>
+<p>The linear approximation is the function:</p>
+<div class="math notranslate nohighlight">
+\[
+L(x) = f(a) + f'(a)(x - a)
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(f(x) = \sin x\)</span> and <span class="math notranslate nohighlight">\(a = 0\)</span>.</p>
+<p>Since</p>
+<div class="math notranslate nohighlight">
+\[
+f'(0) = f'(x) \bigg|_{x=0} = \left( \sin x \right)' \bigg|_{x=0} = \cos x \bigg|_{x=0} = \cos 0 = 1
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+f(0) = \sin 0 = 0
+\]</div>
+<p>we find:</p>
+<div class="math notranslate nohighlight">
+\[
+L(x) = 0 + 1 \cdot (x - 0) \quad \Longleftrightarrow \quad L(x) = x
+\]</div>
+<p>The linear function approximating <span class="math notranslate nohighlight">\(f(x) = \sin x\)</span> near <span class="math notranslate nohighlight">\(x = 0\)</span> is <span class="math notranslate nohighlight">\(L(x) = x\)</span>.</p>
+</section>
+<section id="here-is-the-code">
+<h3>Here is the code:<a class="headerlink" href="#here-is-the-code" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Define the original function f(x) = sin(x)</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Define the linear approximation L(x) = x</span>
+<span class="k">def</span> <span class="nf">L</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span>
+
+<span class="c1"># Create an array of x values from -2 to 2 for plotting</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+
+<span class="c1"># Calculate the corresponding y values for f(x) and L(x)</span>
+<span class="n">y_f</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">y_L</span> <span class="o">=</span> <span class="n">L</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Plotting the graph</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_f</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$f(x) = \sin x$&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_L</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$L(x) = x$&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Highlight the approximation at x = 0</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$L(0) = f(0) = 0$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="c1"># Add labels and title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Linear Approximation of $f(x) = \sin x$ near $x = 0$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="c1"># Add a legend</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+
+<span class="c1"># Show grid</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Display the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/5f5fc0fdfde2ce7cfa99245c5947b34954486446e5ffca8e0c2a185c4d7a77a1.png" src="../../../_images/5f5fc0fdfde2ce7cfa99245c5947b34954486446e5ffca8e0c2a185c4d7a77a1.png" />
+</div>
+</div>
+<p><strong>Example 2:</strong></p>
+</section>
+<section id="find-the-linear-approximations-to-f-x-sqrt-x-near-x-1-and-x-4">
+<h3>Find the linear approximations to <span class="math notranslate nohighlight">\(f(x) = \sqrt{x}\)</span> near <span class="math notranslate nohighlight">\(x = 1\)</span> and <span class="math notranslate nohighlight">\(x = 4\)</span>.<a class="headerlink" href="#find-the-linear-approximations-to-f-x-sqrt-x-near-x-1-and-x-4" title="Link to this heading">#</a></h3>
+<p>The derivative of <span class="math notranslate nohighlight">\(f(x) = \sqrt{x}\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[
+f'(x) = \frac{1}{2\sqrt{x}}
+\]</div>
+<p>So,</p>
+<div class="math notranslate nohighlight">
+\[
+f'(1) = \frac{1}{2}, \quad f'(4) = \frac{1}{2\sqrt{4}} = \frac{1}{4}
+\]</div>
+<p>The linearization near <span class="math notranslate nohighlight">\(x = 1\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[
+L(x) = f(1) + f'(1)(x - 1) \quad \Longleftrightarrow \quad L(x) = 1 + \frac{1}{2}(x - 1) \quad \Longleftrightarrow \quad L(x) = \frac{x}{2} + \frac{1}{2}
+\]</div>
+<p>The linearization near <span class="math notranslate nohighlight">\(x = 4\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[
+L(x) = f(4) + f'(4)(x - 4) \quad \Longleftrightarrow \quad L(x) = 2 + \frac{1}{4}(x - 4) \quad \Longleftrightarrow \quad L(x) = \frac{x}{4} + 1
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Define the original function f(x) = sqrt(x)</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Define the linear approximations near x = 1 and x = 4</span>
+<span class="k">def</span> <span class="nf">L1</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">L4</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="c1"># Create an array of x values for plotting</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+
+<span class="c1"># Calculate the corresponding y values for f(x), L1(x), and L4(x)</span>
+<span class="n">y_f</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">y_L1</span> <span class="o">=</span> <span class="n">L1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">y_L4</span> <span class="o">=</span> <span class="n">L4</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Plotting the graph</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_f</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$f(x) = \sqrt</span><span class="si">{x}</span><span class="s1">$&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_L1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;Linearization at $x=1$: $L(x) = \frac</span><span class="si">{x}{2}</span><span class="s1"> + \frac</span><span class="si">{1}{2}</span><span class="s1">$&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_L4</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;Linearization at $x=4$: $L(x) = \frac</span><span class="si">{x}{4}</span><span class="s1"> + 1$&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Highlight the points at x = 1 and x = 4</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="sa">r</span><span class="s1">&#39;$f(1) = 1$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">4.1</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="sa">r</span><span class="s1">&#39;$f(4) = 2$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="c1"># Add labels and title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Linear Approximation of $f(x) = \sqrt</span><span class="si">{x}</span><span class="s1">$ near $x = 1$ and $x = 4$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="c1"># Add a legend</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+
+<span class="c1"># Show grid</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Display the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/c0d9da86a9607237533510cb89012ec6e7e421bf0f4d3ce7780f8b7b7f48bd6a.png" src="../../../_images/c0d9da86a9607237533510cb89012ec6e7e421bf0f4d3ce7780f8b7b7f48bd6a.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="example-3-approximate-calculations">
+<h2><strong>Example 3: Approximate calculations</strong><a class="headerlink" href="#example-3-approximate-calculations" title="Link to this heading">#</a></h2>
+<p><strong>Use linearization to find an approximate value for <span class="math notranslate nohighlight">\(\frac{1}{1.99}\)</span>. Is this approximation an overestimate or an underestimate?</strong></p>
+<p>We can easily find the value of <span class="math notranslate nohighlight">\(\frac{1}{2}\)</span>, and since <span class="math notranslate nohighlight">\(1.99\)</span> is near <span class="math notranslate nohighlight">\(2\)</span>, we may use the linear approximation:</p>
+<div class="math notranslate nohighlight">
+\[
+L(x) = f(a) + f'(a)(x - a)
+\]</div>
+<p>for <span class="math notranslate nohighlight">\(f(x) = \frac{1}{x}\)</span> and <span class="math notranslate nohighlight">\(a = 2\)</span>.</p>
+<p>We calculate the derivative:</p>
+<div class="math notranslate nohighlight">
+\[
+f'(x) = \left( \frac{1}{x} \right)' = -\frac{1}{x^2}
+\]</div>
+<p>At <span class="math notranslate nohighlight">\(x = 2\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+f'(2) = -\frac{1}{4}
+\]</div>
+<p>Since <span class="math notranslate nohighlight">\(f(2) = \frac{1}{2}\)</span>, we have:</p>
+<div class="math notranslate nohighlight">
+\[
+L(x) = \frac{1}{2} - \frac{1}{4}(x - 2)
+\]</div>
+<p>To approximate <span class="math notranslate nohighlight">\(\frac{1}{1.99}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{1}{1.99} = f(1.99) \approx L(1.99) = \frac{1}{2} - \frac{1}{4}(1.99 - 2)
+\]</div>
+<p>This simplifies to:</p>
+<div class="math notranslate nohighlight">
+\[
+L(1.99) = 0.5 + \frac{0.01}{4} = 0.5 + 0.0025 = 0.5025
+\]</div>
+</section>
+<section id="conclusion-overestimate-or-underestimate">
+<h2>Conclusion: Overestimate or Underestimate?<a class="headerlink" href="#conclusion-overestimate-or-underestimate" title="Link to this heading">#</a></h2>
+<p>Now we have to answer the question:<br />
+Is the obtained approximation an overestimate or an underestimate?<br />
+That is, is the approximation <span class="math notranslate nohighlight">\(0.5025\)</span> greater than or less than the true value of <span class="math notranslate nohighlight">\(\frac{1}{1.99}\)</span>?</p>
+<p><img alt="Example3Conclusion" src="../../../_images/Example3Conclusion.png" /></p>
+<p>Since the tangent line is below the graph of the function <span class="math notranslate nohighlight">\(f(x) = \frac{1}{x}\)</span> near <span class="math notranslate nohighlight">\(x = 2\)</span>, the approximate value, <span class="math notranslate nohighlight">\(0.5025\)</span>, is less than the actual value of <span class="math notranslate nohighlight">\(\frac{1}{1.99}\)</span>.</p>
+<p>Using a calculator:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{1}{1.99} = 0.502512...
+\]</div>
+<p>The linearization gave four correct decimals!</p>
+</section>
+<section id="example-4-approximation-of-functions">
+<h2><strong>Example 4: Approximation of functions</strong><a class="headerlink" href="#example-4-approximation-of-functions" title="Link to this heading">#</a></h2>
+<p><strong>Show that <span class="math notranslate nohighlight">\(\sqrt[5]{1 + x} \approx 1 + \frac{x}{5}\)</span> for small <span class="math notranslate nohighlight">\(x\)</span>.</strong></p>
+<p>Consider the function <span class="math notranslate nohighlight">\(f(x) = \sqrt[5]{1 + x}\)</span>. It is differentiable at <span class="math notranslate nohighlight">\(x = 0\)</span>. Therefore, by linearization:</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) \approx L(x) = f(0) + f'(0)(x - 0)
+\]</div>
+<p>for <span class="math notranslate nohighlight">\(x\)</span> near <span class="math notranslate nohighlight">\(0\)</span>.</p>
+<p>We calculate the derivative of <span class="math notranslate nohighlight">\(f(x)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+f'(x) = \frac{d}{dx} \left( (1 + x)^{\frac{1}{5}} \right) = \frac{1}{5}(1 + x)^{-\frac{4}{5}}
+\]</div>
+<p>At <span class="math notranslate nohighlight">\(x = 0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+f'(0) = \frac{1}{5}
+\]</div>
+<p>So the linearization near <span class="math notranslate nohighlight">\(x = 0\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) \approx L(x) = f(0) + f'(0)(x - 0) = 1 + \frac{x}{5}
+\]</div>
+<p>as required.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Define the original function f(x) = (1 + x)^(1/5)</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># Derivative of f(x) at x = 0 is f&#39;(0) = 1/5</span>
+<span class="k">def</span> <span class="nf">L</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># Create an array of x values for plotting</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+
+<span class="c1"># Calculate the corresponding y values for f(x) and L(x)</span>
+<span class="n">y_f</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">y_L</span> <span class="o">=</span> <span class="n">L</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Plotting the graph</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_f</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$f(x) = \sqrt[5]{1+x}$&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_L</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;Linearization: $L(x) = 1 + \frac</span><span class="si">{x}{5}</span><span class="s1">$&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Highlight the point at x = 0</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.05</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$f(0) = 1$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="c1"># Add labels and title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Linear Approximation of $f(x) = \sqrt[5]{1 + x}$ near $x = 0$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+<span class="c1"># Add a legend</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+
+<span class="c1"># Show grid</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Display the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/1af2b97442908d4def7d1842aa49e806ec2b3189ddca3f5012cb6b65870403e9.png" src="../../../_images/1af2b97442908d4def7d1842aa49e806ec2b3189ddca3f5012cb6b65870403e9.png" />
+</div>
+</div>
+<section id="tangent-plane-approximation">
+<h3><strong>Tangent Plane Approximation</strong><a class="headerlink" href="#tangent-plane-approximation" title="Link to this heading">#</a></h3>
+<p>Partial derivatives allow us to approximate functions just like ordinary derivatives do, but with a contribution from each variable. In one-dimensional calculus, we tracked the tangent line to get a linearization of a function. For functions of several variables, we track the <strong>tangent plane</strong>. The equation of the tangent plane at <span class="math notranslate nohighlight">\((a, b, f(a, b))\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[
+z = f(a, b) + (x - a) f_x(a, b) + (y - b) f_y(a, b)
+\]</div>
+<p>The <strong>Linearization</strong> of a function <span class="math notranslate nohighlight">\(f(x, y)\)</span> at <span class="math notranslate nohighlight">\((a, b)\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[
+L(x, y) = f(a, b) + (x - a) f_x(a, b) + (y - b) f_y(a, b)
+\]</div>
+<p>This is very similar to the familiar formula for functions of one variable:</p>
+<div class="math notranslate nohighlight">
+\[
+L(x) = f(a) + f'(a)(x - a)
+\]</div>
+<p>except that it has an extra term for the second variable. The corresponding formulas for functions of more than two variables are similar, with one term for each variable.</p>
+<p>Now, let’s use the linearization <span class="math notranslate nohighlight">\(L(x, y)\)</span> of <span class="math notranslate nohighlight">\(f\)</span> to estimate the change <span class="math notranslate nohighlight">\(\Delta f\)</span> in <span class="math notranslate nohighlight">\(f\)</span> near <span class="math notranslate nohighlight">\((a, b)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta f = f(x, y) - f(a, b) \approx L(x, y) - f(a, b) = f_x(a, b) \Delta x + f_y(a, b) \Delta y
+\]</div>
+<p>This is sometimes written using differentials as:</p>
+<div class="math notranslate nohighlight">
+\[
+df = f_x(a, b) \, dx + f_y(a, b) \, dy
+\]</div>
+</section>
+</section>
+<section id="example-5">
+<h2><strong>Example 5:</strong><a class="headerlink" href="#example-5" title="Link to this heading">#</a></h2>
+<p><strong>Find the Linearization, <span class="math notranslate nohighlight">\(L(x, y)\)</span>, of <span class="math notranslate nohighlight">\(z = f(x, y) = y \sqrt{x}\)</span> at the point <span class="math notranslate nohighlight">\((9, -2)\)</span>.</strong></p>
+<p>The Linearization of <span class="math notranslate nohighlight">\(f\)</span> at <span class="math notranslate nohighlight">\((a, b)\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[
+L(x, y) = f(a, b) + f_x\big|_{(a, b)}(x - a) + f_y\big|_{(a, b)}(y - b)
+\]</div>
+<p>But when <span class="math notranslate nohighlight">\(f(x, y) = y \sqrt{x}\)</span>, we have the partial derivatives:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial f}{\partial x} = \frac{y}{2 \sqrt{x}}, \quad \frac{\partial f}{\partial y} = \sqrt{x}
+\]</div>
+<p>At <span class="math notranslate nohighlight">\((9, -2)\)</span>, therefore:</p>
+<div class="math notranslate nohighlight">
+\[
+f(9, -2) = -6, \quad f_x\big|_{(9, -2)} = -\frac{1}{3}, \quad f_y\big|_{(9, -2)} = 3
+\]</div>
+<p>Thus:</p>
+<div class="math notranslate nohighlight">
+\[
+L(x, y) = -6 - \frac{1}{3}(x - 9) + 3(y + 2)
+\]</div>
+<p>which after rearrangement becomes:</p>
+<div class="math notranslate nohighlight">
+\[
+L(x, y) = 3 - \frac{1}{3}x + 3y
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
+
+<span class="c1"># Define the function f(x, y) = y * sqrt(x)</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">y</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Define the linearization L(x, y)</span>
+<span class="k">def</span> <span class="nf">L</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">3</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">y</span>
+
+<span class="c1"># Generate values for x and y</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># Compute the values for f(x, y) and the linearization L(x, y)</span>
+<span class="n">Z_f</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+<span class="n">Z_L</span> <span class="o">=</span> <span class="n">L</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+
+<span class="c1"># Plot the function and its linearization (tangent plane)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot the surface for f(x, y)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z_f</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">rstride</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">cstride</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># Plot the surface for the tangent plane L(x, y)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z_L</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;autumn&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">rstride</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">cstride</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># Plot the point of linearization</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Point of Linearization (9, -2)&quot;</span><span class="p">)</span>
+
+<span class="c1"># Labels and title</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Linearization of $f(x, y) = y </span><span class="se">\\</span><span class="s2">sqrt</span><span class="si">{x}</span><span class="s2">$ at $(9, -2)$&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;X-axis&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Y-axis&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s1">&#39;Z-axis&#39;</span><span class="p">)</span>
+
+<span class="c1"># Show the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/e0f3af41b6783de1681d99fc554f544843ac915befa4bc443fe8d81ac9353499.png" src="../../../_images/e0f3af41b6783de1681d99fc554f544843ac915befa4bc443fe8d81ac9353499.png" />
+</div>
+</div>
+<section id="references">
+<h3>References:<a class="headerlink" href="#references" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://web.ma.utexas.edu/users/m408m/Display14-4.shtml">https://web.ma.utexas.edu/users/m408m/Display14-4.shtml</a></p></li>
+<li><p><a class="reference external" href="https://www.math.stonybrook.edu/Videos/MAT131Online/Handouts/Lecture-16-Handout.pdf">https://www.math.stonybrook.edu/Videos/MAT131Online/Handouts/Lecture-16-Handout.pdf</a></p></li>
+</ol>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Circuit_Electronics\StudentEffort\Linearization"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../PassiveComponents/Passive%20Components.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Passive Components</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../batteryModel/battery_model.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Battery Models</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#taylor-series-expansion"><strong>Taylor Series Expansion</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linearization"><strong>Linearization</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition"><strong>Definition</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-linearization"><strong>Examples of Linearization</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#find-the-linear-approximation-to-f-x-sin-x-near-x-0">Find the linear approximation to <span class="math notranslate nohighlight">\(f(x) = \sin x\)</span> near <span class="math notranslate nohighlight">\(x = 0\)</span>.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#here-is-the-code">Here is the code:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#find-the-linear-approximations-to-f-x-sqrt-x-near-x-1-and-x-4">Find the linear approximations to <span class="math notranslate nohighlight">\(f(x) = \sqrt{x}\)</span> near <span class="math notranslate nohighlight">\(x = 1\)</span> and <span class="math notranslate nohighlight">\(x = 4\)</span>.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-approximate-calculations"><strong>Example 3: Approximate calculations</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-overestimate-or-underestimate">Conclusion: Overestimate or Underestimate?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-approximation-of-functions"><strong>Example 4: Approximation of functions</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tangent-plane-approximation"><strong>Tangent Plane Approximation</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-5"><strong>Example 5:</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References:</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Dr.Hadi Sadoghi Yazdi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024 Pattern Recognition Lab.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

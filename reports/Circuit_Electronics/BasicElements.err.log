@@ -1,0 +1,196 @@
+Traceback (most recent call last):
+  File "H:\HadiSadoghiYazdi\Circuit\Lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
+    executenb(
+    ~~~~~~~~~^
+        nb,
+        ^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "H:\HadiSadoghiYazdi\Circuit\Lib\site-packages\nbclient\client.py", line 1314, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "H:\HadiSadoghiYazdi\Circuit\Lib\site-packages\jupyter_core\utils\__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Program Files\Python313\Lib\asyncio\base_events.py", line 721, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "H:\HadiSadoghiYazdi\Circuit\Lib\site-packages\nbclient\client.py", line 709, in async_execute
+    await self.async_execute_cell(
+        cell, index, execution_count=self.code_cells_executed + 1
+    )
+  File "H:\HadiSadoghiYazdi\Circuit\Lib\site-packages\nbclient\client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "H:\HadiSadoghiYazdi\Circuit\Lib\site-packages\nbclient\client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+import PySpice.Logging.Logging as Logging
+logger = Logging.setup_logging()
+
+
+from PySpice.Probe.Plot import plot
+from PySpice.Spice.Netlist import Circuit
+from PySpice.Unit import *
+
+from scipy.optimize import curve_fit
+
+
+# Warning: the capacitor/inductor return current in the generator
+#  could use switches instead
+
+# Fixme: for loop makes difficult to intermix code and text !
+figure, (ax1, ax2) = plt.subplots(2, figsize=(20, 10))
+
+element_types = ('capacitor', 'inductor')
+
+for element_type in ('capacitor', 'inductor'):
+
+    circuit = Circuit(element_type.title())
+    # Fixme: compute value
+    source = circuit.PulseVoltageSource('input', 'in', circuit.gnd,
+                           initial_value=0@u_V, pulsed_value=10@u_V,
+                           pulse_width=10@u_ms, period=20@u_ms)
+    circuit.R(1, 'in', 'out', 1@u_kΩ)
+    if element_type == 'capacitor':
+        element = circuit.C
+        value = 1@u_uF
+        # tau = RC = 1 ms
+    else:
+        element = circuit.L
+        # Fixme: force component value to an Unit instance ?
+        value = 1@u_H
+        # tau = L/R = 1 ms
+    element(1, 'out', circuit.gnd, value)
+    # circuit.R(2, 'out', circuit.gnd, kilo(1)) # for debug
+
+    if element_type == 'capacitor':
+        tau = circuit['R1'].resistance * circuit['C1'].capacitance
+    else:
+        tau = circuit['L1'].inductance / circuit['R1'].resistance
+
+    simulator = circuit.simulator(temperature=25, nominal_temperature=25)
+    step_time = 10@u_us
+    analysis = simulator.transient(step_time=step_time, end_time=source.period*3)
+
+    # Let define the theoretical output voltage.
+    if element_type == 'capacitor':
+        def out_voltage(t, tau):
+            # Fixme: TypeError: only length-1 arrays can be converted to Python scalars
+            return float(source.pulsed_value) * (1 -  np.exp(-t / tau))
+    else:
+        def out_voltage(t, tau):
+            return float(source.pulsed_value) * np.exp(-t / tau)
+    # Fixme: get step_time from analysis
+    # At t = 5 tau, each circuit has nearly reached it steady state.
+    i_max = int(5 * tau / float(step_time))
+    popt, pcov = curve_fit(out_voltage, analysis.out.abscissa[:i_max], analysis.out[:i_max])
+    tau_measured = popt[0]
+
+    # Fixme: use Unit().canonise()
+    print('tau {0} = {1}'.format(element_type, tau.canonise().str_space()))
+    print('tau measured {0} = {1:.1f} ms'.format(element_type, tau_measured * 1000))
+
+    if element_type == 'capacitor':
+        ax = ax1
+        title = "Capacitor: voltage is constant"
+    else:
+        ax = ax2
+        title = "Inductor: current is constant"
+    ax.set_title(title)
+    ax.grid()
+    current_scale = 1000
+    ax.plot(analysis['in'])
+    ax.plot(analysis['out'])
+    # Fixme: resistor current, scale
+    ax.plot(((analysis['in'] - analysis.out)/circuit['R1'].resistance) * current_scale)
+    ax.axvline(x=float(tau), color='red')
+    ax.set_ylim(-11, 11)
+    ax.set_xlabel('t [s]')
+    ax.set_ylabel('[V]')
+    ax.legend(('Vin [V]', 'Vout [V]', 'I'), loc=(.8,.8))
+    #plt.tight_layout()
+    #plt.show()
+
+------------------
+
+----- stdout -----
+2024-10-23 13:47:52,889 - PySpice.Spice.Netlist.Node - Netlist.WARNING - Node name 'in' is a Python keyword
+------------------
+
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mOSError[0m                                   Traceback (most recent call last)
+Cell [1;32mIn[5], line 49[0m
+[0;32m     46[0m [38;5;28;01melse[39;00m:
+[0;32m     47[0m     tau [38;5;241m=[39m circuit[[38;5;124m'[39m[38;5;124mL1[39m[38;5;124m'[39m][38;5;241m.[39minductance [38;5;241m/[39m circuit[[38;5;124m'[39m[38;5;124mR1[39m[38;5;124m'[39m][38;5;241m.[39mresistance
+[1;32m---> 49[0m simulator [38;5;241m=[39m [43mcircuit[49m[38;5;241;43m.[39;49m[43msimulator[49m[43m([49m[43mtemperature[49m[38;5;241;43m=[39;49m[38;5;241;43m25[39;49m[43m,[49m[43m [49m[43mnominal_temperature[49m[38;5;241;43m=[39;49m[38;5;241;43m25[39;49m[43m)[49m
+[0;32m     50[0m step_time [38;5;241m=[39m [38;5;241m10[39m[38;5;129m@u_us[39m
+[0;32m     51[0m analysis [38;5;241m=[39m simulator[38;5;241m.[39mtransient(step_time[38;5;241m=[39mstep_time, end_time[38;5;241m=[39msource[38;5;241m.[39mperiod[38;5;241m*[39m[38;5;241m3[39m)
+
+File [1;32mH:\HadiSadoghiYazdi\Circuit\Lib\site-packages\PySpice\Spice\Netlist.py:1292[0m, in [0;36mCircuit.simulator[1;34m(self, *args, **kwargs)[0m
+[0;32m   1291[0m [38;5;28;01mdef[39;00m [38;5;21msimulator[39m([38;5;28mself[39m, [38;5;241m*[39margs, [38;5;241m*[39m[38;5;241m*[39mkwargs):
+[1;32m-> 1292[0m     [38;5;28;01mreturn[39;00m [43mCircuitSimulator[49m[38;5;241;43m.[39;49m[43mfactory[49m[43m([49m[38;5;28;43mself[39;49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[43margs[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+
+File [1;32mH:\HadiSadoghiYazdi\Circuit\Lib\site-packages\PySpice\Spice\Simulation.py:1167[0m, in [0;36mCircuitSimulator.factory[1;34m(cls, circuit, *args, **kwargs)[0m
+[0;32m   1164[0m         kwargs[[38;5;124m'[39m[38;5;124mparallel[39m[38;5;124m'[39m] [38;5;241m=[39m [38;5;28;01mTrue[39;00m
+[0;32m   1166[0m [38;5;28;01mif[39;00m sub_cls [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+[1;32m-> 1167[0m     [38;5;28;01mreturn[39;00m [43msub_cls[49m[43m([49m[43mcircuit[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[43margs[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+[0;32m   1168[0m [38;5;28;01melse[39;00m:
+[0;32m   1169[0m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m([38;5;124m'[39m[38;5;124mUnknown simulator type[39m[38;5;124m'[39m)
+
+File [1;32mH:\HadiSadoghiYazdi\Circuit\Lib\site-packages\PySpice\Spice\NgSpice\Simulation.py:99[0m, in [0;36mNgSpiceSharedCircuitSimulator.__init__[1;34m(self, circuit, **kwargs)[0m
+[0;32m     97[0m ngspice_shared [38;5;241m=[39m kwargs[38;5;241m.[39mget([38;5;124m'[39m[38;5;124mngspice_shared[39m[38;5;124m'[39m, [38;5;28;01mNone[39;00m)
+[0;32m     98[0m [38;5;28;01mif[39;00m ngspice_shared [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[1;32m---> 99[0m     [38;5;28mself[39m[38;5;241m.[39m_ngspice_shared [38;5;241m=[39m [43mNgSpiceShared[49m[38;5;241;43m.[39;49m[43mnew_instance[49m[43m([49m[43m)[49m
+[0;32m    100[0m [38;5;28;01melse[39;00m:
+[0;32m    101[0m     [38;5;28mself[39m[38;5;241m.[39m_ngspice_shared [38;5;241m=[39m ngspice_shared
+
+File [1;32mH:\HadiSadoghiYazdi\Circuit\Lib\site-packages\PySpice\Spice\NgSpice\Shared.py:449[0m, in [0;36mNgSpiceShared.new_instance[1;34m(cls, ngspice_id, send_data, verbose)[0m
+[0;32m    447[0m [38;5;28;01melse[39;00m:
+[0;32m    448[0m     [38;5;28mcls[39m[38;5;241m.[39m_logger[38;5;241m.[39mdebug([38;5;124m"[39m[38;5;124mNew instance for id [39m[38;5;132;01m{}[39;00m[38;5;124m"[39m[38;5;241m.[39mformat(ngspice_id))
+[1;32m--> 449[0m     instance [38;5;241m=[39m [38;5;28;43mcls[39;49m[43m([49m[43mngspice_id[49m[38;5;241;43m=[39;49m[43mngspice_id[49m[43m,[49m[43m [49m[43msend_data[49m[38;5;241;43m=[39;49m[43msend_data[49m[43m,[49m[43m [49m[43mverbose[49m[38;5;241;43m=[39;49m[43mverbose[49m[43m)[49m
+[0;32m    450[0m     [38;5;28mcls[39m[38;5;241m.[39m_instances[ngspice_id] [38;5;241m=[39m instance
+[0;32m    451[0m     [38;5;28;01mreturn[39;00m instance
+
+File [1;32mH:\HadiSadoghiYazdi\Circuit\Lib\site-packages\PySpice\Spice\NgSpice\Shared.py:479[0m, in [0;36mNgSpiceShared.__init__[1;34m(self, ngspice_id, send_data, verbose)[0m
+[0;32m    476[0m [38;5;28mself[39m[38;5;241m.[39m_extensions [38;5;241m=[39m []
+[0;32m    478[0m [38;5;28mself[39m[38;5;241m.[39m_library_path [38;5;241m=[39m [38;5;28;01mNone[39;00m
+[1;32m--> 479[0m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_load_library[49m[43m([49m[43mverbose[49m[43m)[49m
+[0;32m    480[0m [38;5;28mself[39m[38;5;241m.[39m_init_ngspice(send_data)
+[0;32m    482[0m [38;5;28mself[39m[38;5;241m.[39m_is_running [38;5;241m=[39m [38;5;28;01mFalse[39;00m
+
+File [1;32mH:\HadiSadoghiYazdi\Circuit\Lib\site-packages\PySpice\Spice\NgSpice\Shared.py:539[0m, in [0;36mNgSpiceShared._load_library[1;34m(self, verbose)[0m
+[0;32m    537[0m [38;5;28;01mif[39;00m verbose:
+[0;32m    538[0m     [38;5;28mprint[39m(message)
+[1;32m--> 539[0m [38;5;28mself[39m[38;5;241m.[39m_ngspice_shared [38;5;241m=[39m [43mffi[49m[38;5;241;43m.[39;49m[43mdlopen[49m[43m([49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mlibrary_path[49m[43m)[49m
+
+File [1;32mH:\HadiSadoghiYazdi\Circuit\Lib\site-packages\cffi\api.py:150[0m, in [0;36mFFI.dlopen[1;34m(self, name, flags)[0m
+[0;32m    147[0m     [38;5;28;01mraise[39;00m [38;5;167;01mTypeError[39;00m([38;5;124m"[39m[38;5;124mdlopen(name): name must be a file name, None, [39m[38;5;124m"[39m
+[0;32m    148[0m                     [38;5;124m"[39m[38;5;124mor an already-opened [39m[38;5;124m'[39m[38;5;124mvoid *[39m[38;5;124m'[39m[38;5;124m handle[39m[38;5;124m"[39m)
+[0;32m    149[0m [38;5;28;01mwith[39;00m [38;5;28mself[39m[38;5;241m.[39m_lock:
+[1;32m--> 150[0m     lib, function_cache [38;5;241m=[39m [43m_make_ffi_library[49m[43m([49m[38;5;28;43mself[39;49m[43m,[49m[43m [49m[43mname[49m[43m,[49m[43m [49m[43mflags[49m[43m)[49m
+[0;32m    151[0m     [38;5;28mself[39m[38;5;241m.[39m_function_caches[38;5;241m.[39mappend(function_cache)
+[0;32m    152[0m     [38;5;28mself[39m[38;5;241m.[39m_libraries[38;5;241m.[39mappend(lib)
+
+File [1;32mH:\HadiSadoghiYazdi\Circuit\Lib\site-packages\cffi\api.py:834[0m, in [0;36m_make_ffi_library[1;34m(ffi, libname, flags)[0m
+[0;32m    832[0m [38;5;28;01mdef[39;00m [38;5;21m_make_ffi_library[39m(ffi, libname, flags):
+[0;32m    833[0m     backend [38;5;241m=[39m ffi[38;5;241m.[39m_backend
+[1;32m--> 834[0m     backendlib [38;5;241m=[39m [43m_load_backend_lib[49m[43m([49m[43mbackend[49m[43m,[49m[43m [49m[43mlibname[49m[43m,[49m[43m [49m[43mflags[49m[43m)[49m
+[0;32m    835[0m     [38;5;66;03m#[39;00m
+[0;32m    836[0m     [38;5;28;01mdef[39;00m [38;5;21maccessor_function[39m(name):
+
+File [1;32mH:\HadiSadoghiYazdi\Circuit\Lib\site-packages\cffi\api.py:829[0m, in [0;36m_load_backend_lib[1;34m(backend, name, flags)[0m
+[0;32m    827[0m     [38;5;28;01mif[39;00m first_error [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+[0;32m    828[0m         msg [38;5;241m=[39m [38;5;124m"[39m[38;5;132;01m%s[39;00m[38;5;124m.  Additionally, [39m[38;5;132;01m%s[39;00m[38;5;124m"[39m [38;5;241m%[39m (first_error, msg)
+[1;32m--> 829[0m     [38;5;28;01mraise[39;00m [38;5;167;01mOSError[39;00m(msg)
+[0;32m    830[0m [38;5;28;01mreturn[39;00m backend[38;5;241m.[39mload_library(path, flags)
+
+[1;31mOSError[0m: cannot load library 'H:\HadiSadoghiYazdi\Circuit\Lib\site-packages\PySpice\Spice\NgSpice\Spice64_dll\dll-vs\ngspice.dll': error 0x7e.  Additionally, ctypes.util.find_library() did not manage to locate a library called 'H:\\HadiSadoghiYazdi\\Circuit\\Lib\\site-packages\\PySpice\\Spice\\NgSpice\\Spice64_dll\\dll-vs\\ngspice.dll'
+

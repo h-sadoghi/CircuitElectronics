@@ -1,0 +1,771 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>NTC &amp; PTC Resistors &#8212; Dr.Hadi Sadoghi Yazdi</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Circuit_Electronics/StudentEffort/NTCPTCResistors1';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../Introduction_CircuitElectronics.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/Hadi_Sadoghi_Yazdi.png" class="logo__image only-light" alt="Dr.Hadi Sadoghi Yazdi - Home"/>
+    <img src="../../_static/Hadi_Sadoghi_Yazdi.png" class="logo__image only-dark pst-js-only" alt="Dr.Hadi Sadoghi Yazdi - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../Introduction_CircuitElectronics.html">
+                    Introduction to Circuit and Electronics
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Sections of Circuit and Electronics course</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../BasicElements.html">Basic component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../KVL_KCL.html">Voltage , Current</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NodalMeshAnalysis.html">Basic Nodal and Mesh Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../RC_RL_RLC.html">R-C, R-L circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Diode_chapter.html">Diode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DiodeApplication.html">Diode Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../BJT1.html">Bipolar junction transistor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FET.html">Field Effect Transistor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../OpAmp.html">Operational Amplifier</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Teaching assistant</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../PySpice_Installation_Manual.html">PySpice Installation Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PySpice_circuit_example1.html">Example 1: RESISTIVE DIVIDER</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PySpice_circuit_example2.html">Example 2: DIODE CIRCUIT</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Students effort</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../DiodeCharacteristicCurve.html">Diode Characteristic Curve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SchemdrawGuide1.html">Schemdraw Guide book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="independentcurrentandvoltagesources/miniProject.html">Independent current/voltage sources</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="AveragePower.html"><strong>Average power</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="PassiveComponents/Passive%20Components.html">Passive Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Linearization/LinearizationProject.html"><strong>Linear approximation</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="batteryModel/battery_model.html">Battery Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sensitivity_analysis1.html">Sensitivity analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WhatBias/bias1.html"><strong>Bias:</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Supermesh/Supermesh.html">Supermesh</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contact</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Contact_Me.html">Contact Me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../About_Me.html">About Me</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/h-sadoghi/dr-sadoghi.git" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/h-sadoghi/dr-sadoghi.git/issues/new?title=Issue%20on%20page%20%2FCircuit_Electronics/StudentEffort/NTCPTCResistors1.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/Circuit_Electronics/StudentEffort/NTCPTCResistors1.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>NTC & PTC Resistors</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-an-ntc-thermistor">What Is An NTC Thermistor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ntc-thermistor-definition">NTC Thermistor Definition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristics-of-ntc-thermistors">Characteristics of NTC Thermistors</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#temperature-response">Temperature response</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-to-other-temperature-sensors">Comparison to other temperature sensors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#self-heating-effect">Self-heating effect</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#heat-capacity">Heat capacity</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#construction-and-properties-of-ntc-thermistors">Construction and Properties of NTC Thermistors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#typical-applications">Typical Applications</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bead-thermistors">Bead thermistors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disk-and-chip-thermistors">Disk and Chip thermistors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#glass-encapsulated-ntc-thermistors">Glass encapsulated NTC thermistors</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ntc-thermistor-symbol">NTC Thermistor Symbol</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ntc-thermistor-iec-standard">NTC thermistor (IEC standard)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-ptc-thermistors">What are PTC Thermistors?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ptc-thermistor-definition">PTC Thermistor Definition</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-ptc-thermistor-is-a-thermally-sensitive-resistor-for-which-the-resistance-increases-significantly-with-increasing-temperature">A PTC thermistor is a thermally sensitive resistor for which the resistance increases significantly with increasing temperature.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristics-of-ptc-thermistors">Characteristics of PTC Thermistors</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-resistance-temperature-r-t-characteristics-of-a-ptc-thermistor-and-a-silistor">The resistance-temperature (R-T) characteristics of a PTC thermistor and a silistor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transition-temperature-tc">Transition temperature (Tc)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#minimum-resistance-rmin">Minimum resistance (Rmin)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rated-resistance-r25">Rated resistance (R25)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modes-of-operation">Modes of Operation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#self-heated-mode">Self-heated mode</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sensing-zero-power-mode">Sensing (zero-power) mode</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#typical-applications-for-ptc-thermistors">Typical Applications for PTC Thermistors</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#self-regulating-heaters">Self-regulating heaters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#over-current-protection">Over-current protection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-delay">Time delay</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#motor-starting">Motor starting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#liquid-level-sensing">Liquid level sensing</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ptc-thermistor-symbol">PTC Thermistor Symbol</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ptc-thermistor-symbol-iec-standard">PTC thermistor symbol (IEC standard)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References:</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#https-eepower-com-resistor-guide-resistor-types-ntc-thermistor">https://eepower.com/resistor-guide/resistor-types/ntc-thermistor/</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#https-eepower-com-resistor-guide-resistor-types-ptc-thermistor">https://eepower.com/resistor-guide/resistor-types/ptc-thermistor/</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="ntc-ptc-resistors">
+<h1>NTC &amp; PTC Resistors<a class="headerlink" href="#ntc-ptc-resistors" title="Link to this heading">#</a></h1>
+<p>Amin Hassanzadeh
+email: <a class="reference external" href="mailto:aminhassanzadeh&#37;&#52;&#48;mail&#46;um&#46;ac&#46;ir">aminhassanzadeh<span>&#64;</span>mail<span>&#46;</span>um<span>&#46;</span>ac<span>&#46;</span>ir</a></p>
+<section id="what-is-an-ntc-thermistor">
+<h2>What Is An NTC Thermistor<a class="headerlink" href="#what-is-an-ntc-thermistor" title="Link to this heading">#</a></h2>
+<p>NTC stands for “Negative Temperature Coefficient”. NTC thermistors are resistors with a negative temperature coefficient, which means that the resistance decreases with increasing temperature. They are primarily used as resistive temperature sensors and current-limiting devices. The temperature sensitivity coefficient is about five times greater than that of silicon temperature sensors (silistors) and about ten times greater than that of resistance temperature detectors (RTDs). NTC sensors are typically used in a range from −55 to +200 °C.</p>
+<p>The non-linearity of the relationship between resistance and temperature exhibited by NTC resistors posed a great challenge when using analog circuits to accurately measure temperature. However, rapid development of digital circuits solved that problem through enabling computation of precise values by interpolating lookup tables or by solving equations which approximate a typical NTC curve.</p>
+</section>
+<section id="ntc-thermistor-definition">
+<h2>NTC Thermistor Definition<a class="headerlink" href="#ntc-thermistor-definition" title="Link to this heading">#</a></h2>
+<p>An NTC thermistor is a thermally sensitive resistor for which the resistance exhibits a large, precise and predictable decrease as the core temperature of the resistor increases over the operating temperature range.</p>
+</section>
+<section id="characteristics-of-ntc-thermistors">
+<h2>Characteristics of NTC Thermistors<a class="headerlink" href="#characteristics-of-ntc-thermistors" title="Link to this heading">#</a></h2>
+<p>Unlike RTDs (Resistance Temperature Detectors), which are made from metals, NTC thermistors are generally made of ceramics or polymers. Different materials used in the manufacture of NTC thermistors result in different temperature responses, as well as other different performance characteristics.</p>
+<section id="temperature-response">
+<h3>Temperature response<a class="headerlink" href="#temperature-response" title="Link to this heading">#</a></h3>
+<p>Most NTC thermistors are typically suitable for use within a temperature range between −55 and 200 °C, where they give their most precise readings. There are special families of NTC thermistors that can be used at temperatures approaching absolute zero (-273.15 °C) as well as those specifically designed for use above 150 °C.</p>
+<p>The temperature sensitivity of an NTC sensor is expressed as “percentage change per degree C” or “percentage change per degree K”. Depending on the materials used and the specifics of the production process, the typical values of temperature sensitivities range from -3% to -6% / °C.</p>
+<p><img alt="ntc-resistance-temperature.jpeg" src="Circuit_Electronics/StudentEffort/ntc-resistance-temperature.jpeg" /></p>
+<p>As can be seen from the figure, the NTC thermistors have a much steeper resistance-temperature slope compared to platinum alloy RTDs, which translates to better temperature sensitivity. Even so, RTDs remain the most accurate sensors with their accuracy being ±0.5 % of the measured temperature, and they are useful in the temperature range between -200 and 800 °C, a much wider range than that of NTC temperature sensors.</p>
+</section>
+<section id="comparison-to-other-temperature-sensors">
+<h3>Comparison to other temperature sensors<a class="headerlink" href="#comparison-to-other-temperature-sensors" title="Link to this heading">#</a></h3>
+<p>Compared to RTDs, the NTC thermistors have a smaller size, faster response, greater resistance to shock and vibration at a lower cost. They are slightly less precise than RTDs. The precision of NTC thermistors is similar to thermocouples. However thermocouples, can withstand very high temperatures (in the order of 600 °C) and are used in these applications instead of NTC thermistors. Even so, NTC thermistors provide greater sensitivity, stability and accuracy than thermocouples at lower temperatures and are used with less additional circuitry and therefore at a lower total cost. The cost is additionally lowered by the lack of need for signal conditioning circuits (amplifiers, level translators, etc.) that are often needed when dealing with RTDs and always needed for thermocouples.</p>
+</section>
+<section id="self-heating-effect">
+<h3>Self-heating effect<a class="headerlink" href="#self-heating-effect" title="Link to this heading">#</a></h3>
+<p>The self-heating effect is a phenomenon that takes place whenever there is a current flowing through the NTC thermistor. Since the thermistor is basically a resistor, it dissipates power as heat when there is a current flowing through it. This heat is generated in the thermistor core and affects the precision of the measurements. The extent to which this happens depends on the amount of current flowing, the environment (whether it is a liquid or a gas, whether there is any flow over the NTC sensor and so on), the temperature coefficient of the thermistor, the thermistor’s total area and so on. The fact that the resistance of the NTC sensor and therefore the current through it depends on the environment is often used in liquid presence detectors such as those found in storage tanks.</p>
+</section>
+<section id="heat-capacity">
+<h3>Heat capacity<a class="headerlink" href="#heat-capacity" title="Link to this heading">#</a></h3>
+<p>The heat capacity represents the amount of heat required to increase the temperature of the thermistor by 1 °C and is usually expressed in mJ/°C. Knowing the precise heat capacity is of great importance when using an NTC thermistor sensor as an inrush-current limiting device, as it defines the response speed of the NTC temp sensor.</p>
+</section>
+</section>
+<section id="construction-and-properties-of-ntc-thermistors">
+<h2>Construction and Properties of NTC Thermistors<a class="headerlink" href="#construction-and-properties-of-ntc-thermistors" title="Link to this heading">#</a></h2>
+<p>Materials typically involved in the fabrication of NTC resistors are platinum, nickel, cobalt, iron and oxides of silicon, used as pure elements or as ceramics and polymers. NTC thermistors can be classified into three groups, depending on the production process used.</p>
+</section>
+<section id="typical-applications">
+<h2>Typical Applications<a class="headerlink" href="#typical-applications" title="Link to this heading">#</a></h2>
+<p>NTC thermistors are used in a broad spectrum of applications. They are used to measure temperature, control temperature, and compensate for temperature. They can also be used to detect the absence or presence of a liquid, as current limiting devices in power supply circuits, for temperature monitoring in automotive applications, and in many more applications. NTC sensors can be divided into three groups, depending on the electrical characteristic exploited in an application.</p>
+<section id="bead-thermistors">
+<h3>Bead thermistors<a class="headerlink" href="#bead-thermistors" title="Link to this heading">#</a></h3>
+<p>These NTC thermistors are made from platinum alloy lead wires directly sintered into the ceramic body. They generally offer fast response times, better stability and allow operation at higher temperatures than Disk and Chip NTC sensors, however they are more fragile. It is common to seal them in glass, to protect them from mechanical damage during assembly and to improve their measurement stability. The typical sizes range from 0.075 – 5 mm in diameter.</p>
+</section>
+<section id="disk-and-chip-thermistors">
+<h3>Disk and Chip thermistors<a class="headerlink" href="#disk-and-chip-thermistors" title="Link to this heading">#</a></h3>
+<p>These NTC thermistors have metalized surface contacts. They are larger and, as a result, have slower reaction times than bead type NTC resistors. However, because of their size, they have a higher dissipation constant (power required to raise their temperature by 1 °C). Since the power dissipated by the thermistor is proportional to the square of the current, they can handle higher currents much better than bead type thermistors. Disk type thermistors are made by pressing a blend of oxide powders into a round die and then sintering at high temperatures. Chips are usually fabricated by a tape-casting process where a slurry of material is spread out as a thick film, dried and cut into shape. The typical sizes range from 0.25 to 25 mm in diameter.</p>
+</section>
+<section id="glass-encapsulated-ntc-thermistors">
+<h3>Glass encapsulated NTC thermistors<a class="headerlink" href="#glass-encapsulated-ntc-thermistors" title="Link to this heading">#</a></h3>
+<p>These are NTC temperature sensors sealed in an airtight glass bubble. They are designed for use with temperatures above 150 °C, or for printed circuit board mounting, where ruggedness is a must. Encapsulating a thermistor in glass improves the stability of the sensor and protects the sensor from the environment. They are made by hermetically sealing bead type NTC resistors into a glass container. The typical sizes range from 0.4 to 10 mm in diameter.</p>
+</section>
+</section>
+<section id="ntc-thermistor-symbol">
+<h2>NTC Thermistor Symbol<a class="headerlink" href="#ntc-thermistor-symbol" title="Link to this heading">#</a></h2>
+<p>The following symbol is used for a negative temperature coefficient thermistor, according to the IEC standard.</p>
+<p><img alt="ntc-thermistor-symbol.jpeg" src="Circuit_Electronics/StudentEffort/ntc-thermistor-symbol.jpeg" /></p>
+<section id="ntc-thermistor-iec-standard">
+<h3>NTC thermistor (IEC standard)<a class="headerlink" href="#ntc-thermistor-iec-standard" title="Link to this heading">#</a></h3>
+</section>
+</section>
+<section id="what-are-ptc-thermistors">
+<h2>What are PTC Thermistors?<a class="headerlink" href="#what-are-ptc-thermistors" title="Link to this heading">#</a></h2>
+<p>PTC stands for “Positive Temperature Coefficient”. PTC thermistors are resistors with a positive temperature coefficient, which means that the resistance increases with increasing temperature.</p>
+<p>PTC thermistors are divided into two groups based on the materials used, their structure, and the manufacturing process. The first group of PTC thermistors is comprised of silistors, which use silicon as the semiconducting material. They are used as PTC temperature sensors for their linear characteristic.</p>
+<p>The second group is the switching type PTC thermistor. The switching type PTC thermistor has a highly nonlinear resistance-temperature curve. When the switching type PTC thermistor is heated, the resistance starts to decrease at first, until a certain critical temperature is reached. As the temperature is further increased above that critical value, the resistance increases dramatically. This type of PTC thermistors is widely used in PTC heaters, sensors etc. Polymer PTC thermistors, made of a special plastic, are part of this second group and are often used as resettable fuses.</p>
+</section>
+<section id="ptc-thermistor-definition">
+<h2>PTC Thermistor Definition<a class="headerlink" href="#ptc-thermistor-definition" title="Link to this heading">#</a></h2>
+<section id="a-ptc-thermistor-is-a-thermally-sensitive-resistor-for-which-the-resistance-increases-significantly-with-increasing-temperature">
+<h3>A PTC thermistor is a thermally sensitive resistor for which the resistance increases significantly with increasing temperature.<a class="headerlink" href="#a-ptc-thermistor-is-a-thermally-sensitive-resistor-for-which-the-resistance-increases-significantly-with-increasing-temperature" title="Link to this heading">#</a></h3>
+</section>
+</section>
+<section id="characteristics-of-ptc-thermistors">
+<h2>Characteristics of PTC Thermistors<a class="headerlink" href="#characteristics-of-ptc-thermistors" title="Link to this heading">#</a></h2>
+<p>Silistors have a linear resistance-temperature characteristic, with a slope that is relatively small through most of their operational range. They may exhibit a negative temperature coefficient at temperatures above 150 °C. Silistors have temperature coefﬁcients of resistance of about 0.7 to 0.8% / °C.</p>
+<p>Switching PTC thermistors are usually made of polycrystalline ceramic materials that are highly resistive in their original state and are made semi-conductive by the addition of dopants. They are mostly used as PTC self-regulating heaters. The transition temperature of most switched PTC thermistors is between 60 and 120 °C. However, there are special application devices manufactured that can switch as low as 0 °C or as high as 200 °C.</p>
+<p><img alt="ptc-thermistor_r-t_characteristic.jpeg" src="Circuit_Electronics/StudentEffort/ptc-thermistor_r-t_characteristic.jpeg" /></p>
+<section id="the-resistance-temperature-r-t-characteristics-of-a-ptc-thermistor-and-a-silistor">
+<h3>The resistance-temperature (R-T) characteristics of a PTC thermistor and a silistor<a class="headerlink" href="#the-resistance-temperature-r-t-characteristics-of-a-ptc-thermistor-and-a-silistor" title="Link to this heading">#</a></h3>
+</section>
+<section id="transition-temperature-tc">
+<h3>Transition temperature (Tc)<a class="headerlink" href="#transition-temperature-tc" title="Link to this heading">#</a></h3>
+<p>As can be seen from the figure, switching PTC thermistors have a slightly negative temperature coefficient up to the point of minimum resistance. Above this point, it experiences a slightly positive coefficient up to the moment it reaches its transition temperature (TC). This temperature is also sometimes referred to as the switch or Curie temperature. The switch temperature is the temperature at which the resistance of switching type PTC thermistors starts to rise rapidly. The Curie temperature is most of the time defined as the temperature at which the resistance is twice the value of the minimum resistance.</p>
+</section>
+<section id="minimum-resistance-rmin">
+<h3>Minimum resistance (Rmin)<a class="headerlink" href="#minimum-resistance-rmin" title="Link to this heading">#</a></h3>
+<p>The minimum resistance of a PTC thermistor is the lowest resistance that can be measured on a switched type PTC thermistor, as seen on the R-T curve. It is the point on the curve after which the temperature coefficient turns positive.</p>
+</section>
+<section id="rated-resistance-r25">
+<h3>Rated resistance (R25)<a class="headerlink" href="#rated-resistance-r25" title="Link to this heading">#</a></h3>
+<p>The rated PTC resistance is normally defined as the resistance at 25 °C. It serves to classify the thermistors according to their resistance value. It is measured with a low current that does not heat the thermistor enough to affect the measurement.</p>
+</section>
+</section>
+<section id="modes-of-operation">
+<h2>Modes of Operation<a class="headerlink" href="#modes-of-operation" title="Link to this heading">#</a></h2>
+<p>Depending on the application, PTC thermistors can be used in two modes of operation; self-heated and sensing (also called zero-power).</p>
+<section id="self-heated-mode">
+<h3>Self-heated mode<a class="headerlink" href="#self-heated-mode" title="Link to this heading">#</a></h3>
+<p>Self-heated applications exploit the fact that when a voltage is applied to a thermistor and sufficient current flows through it, its temperature increases. As the Curie temperature is approached, the resistance increases dramatically, allowing much less current to flow. This behavior can be seen from the figure on the left. The resistance change near the Curie temperature can be several orders of magnitude within a temperature span of only a few degrees. If the voltage remains constant, the current will stabilize at a certain value as the thermistor reaches thermal equilibrium. The equilibrium temperature depends on the voltage applied, as well as the thermal dissipation factor of the thermistor. This mode of operation is often utilized when designing temperature dependent time delay circuits.</p>
+</section>
+<section id="sensing-zero-power-mode">
+<h3>Sensing (zero-power) mode<a class="headerlink" href="#sensing-zero-power-mode" title="Link to this heading">#</a></h3>
+<p>In this mode of operation, the power consumption of the thermistor is so small that it has a negligible effect on the thermistor’s temperature and therefore resistance, in contrast to the self-heated mode. The sensing mode is usually used when measuring temperature using the R-T curve as a reference.</p>
+</section>
+</section>
+<section id="typical-applications-for-ptc-thermistors">
+<h2>Typical Applications for PTC Thermistors<a class="headerlink" href="#typical-applications-for-ptc-thermistors" title="Link to this heading">#</a></h2>
+<section id="self-regulating-heaters">
+<h3>Self-regulating heaters<a class="headerlink" href="#self-regulating-heaters" title="Link to this heading">#</a></h3>
+<p>If there is a current running through a switching PTC thermistor, it will auto-stabilize at a certain temperature. It means that if the temperature is decreased, the resistance will decrease as well, allowing more current to flow and thus heating the device. Similarly, if the temperature is increased, the resistance is increased as well, limiting the current passing through the device, thus cooling it down. The PTC thermistor has then reached a point where the power consumed is practically independent of the voltage over a relatively wide voltage range. These PTC thermistors are often made of ceramics in various shapes and sizes and because of their design flexibility, PTC ceramic heaters are a great choice for providing controlled electrical heat. For increased heat transfer, the ceramic heating elements can be mounted on aluminum heat sinks or grids. There are also printed PTC heater inks that can be screen-printed onto polymer substrates to create PTC heaters.</p>
+</section>
+<section id="over-current-protection">
+<h3>Over-current protection<a class="headerlink" href="#over-current-protection" title="Link to this heading">#</a></h3>
+<p>Switched PTC thermistors are used as over-current limiters or resettable fuses in various circuits. In the case of an over-current situation, the thermistor body temperature rises and quickly reaches the transition temperature. This results in the resistance of the PTC thermistor sharply rising, limiting current in the circuit. When the over-current or short-circuit situation is solved and the thermistor is cooled down again, the circuit will function as normal again. In this way it acts as a automatic resettable fuse. Normally polymer PTC thermistors are used for this application. They are known under different trade names such as polyfuse, polyswitch, and multifuse.</p>
+</section>
+<section id="time-delay">
+<h3>Time delay<a class="headerlink" href="#time-delay" title="Link to this heading">#</a></h3>
+<p>A time delay in a circuit can be provided using the time needed for a PTC thermistor to heat up enough to switch from its low resistance state to a high resistance state, and vice versa. The time delay is dependent upon the size, ambient temperature and the voltage it is connected to, as well as the circuit it is utilized in. An example of time delay use for PTC thermistors is their use in fluorescent lamps. When power is first applied, the thermistor is in a cold state (room temperature). The lamp voltage is below the ignition voltage and the current flowing through the circuit heats up the electrodes and the PTC at the same time. When the Curie temperature is reached, the PTC will switch, the voltage across the lamp will exceed the ignition voltage and the lamp will begin normal operation. Preheating of the electrodes extends lamp life significantly, which is why PTC thermistors are used in such circuits.</p>
+</section>
+<section id="motor-starting">
+<h3>Motor starting<a class="headerlink" href="#motor-starting" title="Link to this heading">#</a></h3>
+<p>Some electrical motors have a separate startup winding which needs to be powered only during motor startup. In such cases, the self-heating effect of a PTC thermistor can be used in a series connection with such a winding. When the circuit is turned on, the PTC thermistor has a low resistance, allowing current to pass through the startup winding. As the motor starts, the PTC thermistor heats up and at one point switches to a high resistance state. The time needed for this to occur is calculated based on the required motor startup time. Once heated up, the current through the PTC thermistor becomes negligible, and this shuts off the startup winding current.</p>
+</section>
+<section id="liquid-level-sensing">
+<h3>Liquid level sensing<a class="headerlink" href="#liquid-level-sensing" title="Link to this heading">#</a></h3>
+<p>These applications rely on the change in the dissipation constant when the conduction and convection heat transfer are increased. An increase in the dissipation constant, resulting from the contact between the device and a liquid or an increased air flow over the device will lower the thermistor’s operating temperature and increase the amount of power needed to maintain a given body temperature. The power increase can be measured and indicates to the system that the thermistor is, for example, immersed in a liquid.</p>
+</section>
+</section>
+<section id="ptc-thermistor-symbol">
+<h2>PTC Thermistor Symbol<a class="headerlink" href="#ptc-thermistor-symbol" title="Link to this heading">#</a></h2>
+<p>The following symbol is used for a positive temperature coefficient thermistor, according to the IEC standard.</p>
+<p><img alt="ptc-thermistor-symbol.jpeg" src="Circuit_Electronics/StudentEffort/ptc-thermistor-symbol.jpeg" /></p>
+<section id="ptc-thermistor-symbol-iec-standard">
+<h3>PTC thermistor symbol (IEC standard)<a class="headerlink" href="#ptc-thermistor-symbol-iec-standard" title="Link to this heading">#</a></h3>
+<section id="references">
+<h4>References:<a class="headerlink" href="#references" title="Link to this heading">#</a></h4>
+<section id="https-eepower-com-resistor-guide-resistor-types-ntc-thermistor">
+<h5><a class="reference external" href="https://eepower.com/resistor-guide/resistor-types/ntc-thermistor/">https://eepower.com/resistor-guide/resistor-types/ntc-thermistor/</a><a class="headerlink" href="#https-eepower-com-resistor-guide-resistor-types-ntc-thermistor" title="Link to this heading">#</a></h5>
+</section>
+<section id="https-eepower-com-resistor-guide-resistor-types-ptc-thermistor">
+<h5><a class="reference external" href="https://eepower.com/resistor-guide/resistor-types/ptc-thermistor/">https://eepower.com/resistor-guide/resistor-types/ptc-thermistor/</a><a class="headerlink" href="#https-eepower-com-resistor-guide-resistor-types-ptc-thermistor" title="Link to this heading">#</a></h5>
+</section>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Circuit_Electronics\StudentEffort"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-an-ntc-thermistor">What Is An NTC Thermistor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ntc-thermistor-definition">NTC Thermistor Definition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristics-of-ntc-thermistors">Characteristics of NTC Thermistors</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#temperature-response">Temperature response</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-to-other-temperature-sensors">Comparison to other temperature sensors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#self-heating-effect">Self-heating effect</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#heat-capacity">Heat capacity</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#construction-and-properties-of-ntc-thermistors">Construction and Properties of NTC Thermistors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#typical-applications">Typical Applications</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bead-thermistors">Bead thermistors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disk-and-chip-thermistors">Disk and Chip thermistors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#glass-encapsulated-ntc-thermistors">Glass encapsulated NTC thermistors</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ntc-thermistor-symbol">NTC Thermistor Symbol</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ntc-thermistor-iec-standard">NTC thermistor (IEC standard)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-ptc-thermistors">What are PTC Thermistors?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ptc-thermistor-definition">PTC Thermistor Definition</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-ptc-thermistor-is-a-thermally-sensitive-resistor-for-which-the-resistance-increases-significantly-with-increasing-temperature">A PTC thermistor is a thermally sensitive resistor for which the resistance increases significantly with increasing temperature.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristics-of-ptc-thermistors">Characteristics of PTC Thermistors</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-resistance-temperature-r-t-characteristics-of-a-ptc-thermistor-and-a-silistor">The resistance-temperature (R-T) characteristics of a PTC thermistor and a silistor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transition-temperature-tc">Transition temperature (Tc)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#minimum-resistance-rmin">Minimum resistance (Rmin)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rated-resistance-r25">Rated resistance (R25)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modes-of-operation">Modes of Operation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#self-heated-mode">Self-heated mode</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sensing-zero-power-mode">Sensing (zero-power) mode</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#typical-applications-for-ptc-thermistors">Typical Applications for PTC Thermistors</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#self-regulating-heaters">Self-regulating heaters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#over-current-protection">Over-current protection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-delay">Time delay</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#motor-starting">Motor starting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#liquid-level-sensing">Liquid level sensing</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ptc-thermistor-symbol">PTC Thermistor Symbol</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ptc-thermistor-symbol-iec-standard">PTC thermistor symbol (IEC standard)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References:</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#https-eepower-com-resistor-guide-resistor-types-ntc-thermistor">https://eepower.com/resistor-guide/resistor-types/ntc-thermistor/</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#https-eepower-com-resistor-guide-resistor-types-ptc-thermistor">https://eepower.com/resistor-guide/resistor-types/ptc-thermistor/</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Dr.Hadi Sadoghi Yazdi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024 Pattern Recognition Lab.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

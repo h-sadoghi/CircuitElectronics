@@ -1,0 +1,1087 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Sensitivity analysis &#8212; Dr.Hadi Sadoghi Yazdi</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Circuit_Electronics/StudentEffort/Sensitivity_analysis1';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Bias:" href="WhatBias/bias1.html" />
+    <link rel="prev" title="Battery Models" href="batteryModel/battery_model.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../Introduction_CircuitElectronics.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/Hadi_Sadoghi_Yazdi.png" class="logo__image only-light" alt="Dr.Hadi Sadoghi Yazdi - Home"/>
+    <img src="../../_static/Hadi_Sadoghi_Yazdi.png" class="logo__image only-dark pst-js-only" alt="Dr.Hadi Sadoghi Yazdi - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../Introduction_CircuitElectronics.html">
+                    Introduction to Circuit and Electronics
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Sections of Circuit and Electronics course</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../BasicElements.html">Basic component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../KVL_KCL.html">Voltage , Current</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NodalMeshAnalysis.html">Basic Nodal and Mesh Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../RC_RL_RLC.html">R-C, R-L circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Diode_chapter.html">Diode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DiodeApplication.html">Diode Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../BJT1.html">Bipolar junction transistor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FET.html">Field Effect Transistor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../OpAmp.html">Operational Amplifier</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Teaching assistant</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../PySpice_Installation_Manual.html">PySpice Installation Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PySpice_circuit_example1.html">Example 1: RESISTIVE DIVIDER</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PySpice_circuit_example2.html">Example 2: DIODE CIRCUIT</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Students effort</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../DiodeCharacteristicCurve.html">Diode Characteristic Curve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SchemdrawGuide1.html">Schemdraw Guide book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="independentcurrentandvoltagesources/miniProject.html">Independent current/voltage sources</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="AveragePower.html"><strong>Average power</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="PassiveComponents/Passive%20Components.html">Passive Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Linearization/LinearizationProject.html"><strong>Linear approximation</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="batteryModel/battery_model.html">Battery Models</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Sensitivity analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WhatBias/bias1.html"><strong>Bias:</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Supermesh/Supermesh.html">Supermesh</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contact</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Contact_Me.html">Contact Me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../About_Me.html">About Me</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/h-sadoghi/dr-sadoghi.git" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/h-sadoghi/dr-sadoghi.git/issues/new?title=Issue%20on%20page%20%2FCircuit_Electronics/StudentEffort/Sensitivity_analysis1.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/Circuit_Electronics/StudentEffort/Sensitivity_analysis1.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Sensitivity analysis</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-overview">Project overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-sensitivity-analysis">What is sensitivity analysis?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-sensitivity-analysis">Why use sensitivity analysis?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-perform-sensitivity-analysis">How to perform sensitivity analysis?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-show-sensitivity-analysis-results">How to show sensitivity analysis results?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-sensitivity-in-general">Computing sensitivity in general:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivity-analysis-in-circuits">Sensitivity Analysis in Circuits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#determining-sensitivity">Determining sensitivity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivity-analysis-for-a-resistive-circuit"><strong>Sensitivity analysis for a resistive circuit</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drawing-a-resistive-circuit-using-schemedraw">Drawing a resistive circuit using schemedraw</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivity-analysis-in-a-resistive-circuit-with-pyspice">Sensitivity analysis in a resistive circuit with PySpice</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chart-explination">Chart explination</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#determinig-circuit-sensitivity">Determinig circuit sensitivity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivity-analysis-for-a-voltage-divider"><strong>Sensitivity analysis for a voltage divider</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drawing-a-simple-voltage-divider-using-schemedraw">Drawing a simple voltage divider using schemedraw</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivity-analysis-in-a-voltage-divider-with-pyspice">Sensitivity analysis in a voltage divider with PySpice</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chart-decription">Chart decription</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-diffrent-angle-for-sensitivity-analysis-in-the-voltage-divider">A diffrent angle for Sensitivity analysis in the voltage divider:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chart-description">Chart description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Determining sensitivity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#refrences">Refrences:</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="sensitivity-analysis">
+<h1>Sensitivity analysis<a class="headerlink" href="#sensitivity-analysis" title="Link to this heading">#</a></h1>
+<p><strong>Author</strong> : Saman Hooshvar</p>
+<p>Contact : <a class="reference external" href="mailto:saman&#46;hooshvarfeyzabadi&#37;&#52;&#48;mail&#46;um&#46;ac&#46;ir">saman<span>&#46;</span>hooshvarfeyzabadi<span>&#64;</span>mail<span>&#46;</span>um<span>&#46;</span>ac<span>&#46;</span>ir</a></p>
+<section id="project-overview">
+<h2>Project overview<a class="headerlink" href="#project-overview" title="Link to this heading">#</a></h2>
+<p>1 - Introduction</p>
+<p>2 - WHAT IS SENSITIVITY ANALYSIS?</p>
+<p>3 -  Why use sensitivity analysis?</p>
+<p>4 - How to perform sensitivity analysis?</p>
+<p>5 - How to show sensitivity analysis results?</p>
+<p>6 - Sensitivity Analysis in Circuits.</p>
+<p>7 - Computing sensitivity in general.</p>
+<p>8 - Sensitivity Analysis in Circuits.</p>
+<p>9 - Determining sensitivity.</p>
+<p>10 - Sensitivity analysis for a <strong>resistive circuit</strong>.</p>
+<ul class="simple">
+<li><p>Drawing a resistive circuit using schemedraw</p></li>
+<li><p>Sensitivity analysis in a resistive circuit with PySpice</p></li>
+<li><p>Chart description</p></li>
+<li><p>Determinig circuit sensitivity</p></li>
+</ul>
+<p>11 - Sesitivity analysis for a <strong>voltage divider</strong>.</p>
+<ul class="simple">
+<li><p>Drawing a simple voltage divider using schemedraw</p></li>
+<li><p>Sensitivity analysis in a voltage divider with PySpice</p></li>
+<li><p>Chart description</p></li>
+</ul>
+<p>12 - A diffrent angle for Sensitivity analysis in the voltage divider:
+- Chart description</p>
+<p>13 - Determining sensitivty</p>
+<p>14 - Conclusion</p>
+<p>15 - Refrences</p>
+</section>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>Sensitivity analysis is very important especially in the fields
+of electrical and electronics engineering due to the fact
+that circuits practically have <strong>tolerance</strong>.</p>
+<p>In reality, there is no such
+thing as a “perfect” component, and each element in an
+electric circuit will always have tolerance values, specifically
+minimum and maximum values.</p>
+<p>For example, if we consider a
+simple <span class="math notranslate nohighlight">\( 100Ω \)</span> resistor, it will always have a tolerance value
+of, for example, five percent (5%). Thus, the minimum and
+maximum values of this electric component are <span class="math notranslate nohighlight">\( 95Ω \)</span> and
+<span class="math notranslate nohighlight">\( 105 Ω \)</span>, respectively, without also considering temperature
+effects. Even the most precise electric components available in
+the market have their own tolerances. Thus, there is a need to
+understand the basics of sensitivity and its application to
+electric circuit analysis.</p>
+</section>
+<section id="what-is-sensitivity-analysis">
+<h2>What is sensitivity analysis?<a class="headerlink" href="#what-is-sensitivity-analysis" title="Link to this heading">#</a></h2>
+<p>Sensitivity analysis is the process of calculating how much the output or response of a system changes due to a small change in an input or parameter.</p>
+<p>For example, if you have a voltage divider circuit, you can use sensitivity analysis to find out how the output voltage changes when you change the resistance values of the resistors. Sensitivity analysis can help you understand how your circuit behaves under different conditions, and how sensitive it is to variations or uncertainties in the components or parameters.</p>
+<p>Sensitivity Analysis is the process of studying how sensitive a system is. If we use math and science to analyze how the output voltage of our voltage divider changes when we change one resistor, we are conducting a sensitivity analysis.</p>
+<p>In simple words, sensitivity can be described as the ratio of the change in a measured value to the change in a specific parameter. If a small change in a parameter leads to only a tiny change in the value, we say the system has <strong>low sensitivity</strong>. Conversely, if even a small change in a parameter results in a large change in the measured value, we say the system has <strong>high sensitivity</strong>.</p>
+<p>In even simpler words we can say <em>“by what %(percentages) will y change if I change x by some %”</em>.</p>
+</section>
+<section id="why-use-sensitivity-analysis">
+<h2>Why use sensitivity analysis?<a class="headerlink" href="#why-use-sensitivity-analysis" title="Link to this heading">#</a></h2>
+<p>Sensitivity analysis can help you optimize your circuit design in several ways.</p>
+<p>1- it can help you identify the critical components or parameters that have the most impact on your circuit performance. By knowing which components or parameters affect your output the most, <strong>you can focus on improving their accuracy, stability, or quality.</strong></p>
+<p>2- it can help you improve the reliability of your circuit by reducing the effects of variations or uncertainties. By knowing how your output varies due to changes in the components or parameters, <strong>you can design your circuit to be more robust or tolerant to those changes.</strong></p>
+<p>3- it can help you reduce the cost of your circuit by eliminating unnecessary or redundant components or parameters. By knowing how your output depends on the components or parameters, <strong>you can simplify your circuit or use cheaper alternatives without compromising your performance.</strong></p>
+</section>
+<section id="how-to-perform-sensitivity-analysis">
+<h2>How to perform sensitivity analysis?<a class="headerlink" href="#how-to-perform-sensitivity-analysis" title="Link to this heading">#</a></h2>
+<p>When performing sensitivity analysis, the complexity and type of your circuit, as well as the desired output or response, will determine the method that we will use to perform the sensitivity analysis.</p>
+<p><strong>Nominal value analysis</strong> is the simplest method, where you calculate the output or response using the expected values of components or parameters. This gives you a baseline to compare with other values.</p>
+<p><strong>worst-case analysis</strong> is a conservative approach which uses the worst-case values of components or parameters to calculate the output or response. This gives you an upper or lower bound of the range.</p>
+<p><strong>Monte Carlo analysis</strong> is a probabilistic method that utilizes random values that follow a certain distribution or probability function. This provides a statistical description of the output or response such as mean, standard deviation, or confidence interval.</p>
+<p>In this project we use the <strong>nominal value</strong> analysis because its easier to calculate and demonstrate.</p>
+</section>
+<section id="how-to-show-sensitivity-analysis-results">
+<h2>How to show sensitivity analysis results?<a class="headerlink" href="#how-to-show-sensitivity-analysis-results" title="Link to this heading">#</a></h2>
+<p>Sensitivity analysis results can be expressed in various ways, such as through sensitivity coefficients, <strong>plots(which we will demonstrate later in this project)</strong> , and histograms.</p>
+<p><strong>Sensitivity plot</strong> is a graphical representation of how the output or response varies with an input or parameter. For instance, a sensitivity plot of the output voltage versus the resistance value can illustrate the shape and slope of their relationship.</p>
+<p><strong>Sensitivity histogram</strong> is a graphical representation of the frequency or probability of the output or response values. For example, a sensitivity histogram of the output voltage can display its distribution or spread.</p>
+</section>
+<section id="computing-sensitivity-in-general">
+<h2>Computing sensitivity in general:<a class="headerlink" href="#computing-sensitivity-in-general" title="Link to this heading">#</a></h2>
+<p>The sensitivity S of a variable Y (like current I) with respect to a parameter X (like resistance R) can be defined as:</p>
+<p><span class="math notranslate nohighlight">\( S(_X^Y) = \frac{∂Y}{∂X}\frac{X}{Y} \)</span></p>
+<p>This formula gives a dimensionless measure of how sensitive Y is to changes in X.</p>
+<p>If the changes are small we can simplify the equation to:</p>
+<p><span class="math notranslate nohighlight">\( S(_X^Y) = \frac{Δy/y}{Δx/x} \)</span></p>
+</section>
+<section id="sensitivity-analysis-in-circuits">
+<h2>Sensitivity Analysis in Circuits<a class="headerlink" href="#sensitivity-analysis-in-circuits" title="Link to this heading">#</a></h2>
+<p>Sensitivity Analysis measures how the variation in the output of a circuit can be attributed to different variations in its input parameters. This is crucial for understanding how robust a circuit design is against component <strong>tolerances</strong>.</p>
+<p>or in other words , Sensitivity analysis in circuits refers to studying how variations in circuit parameters (like resistance, capacitance, etc.) affect the output (like current or voltage).</p>
+<p>For example in the below circuit we can change any X element in the circuit and then compute any Y output and and then see the changes we writes that as  <span class="math notranslate nohighlight">\( S(_X^Y)\)</span>.</p>
+<p>or if you want a more precise example we can change the R1 value and compute the output voltage in that case <strong>the sensitivity of output voltage wuth respect to R1 is written as: <span class="math notranslate nohighlight">\( S(_{R_1}^V)\)</span> .</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">schemdraw</span>
+<span class="kn">from</span> <span class="nn">schemdraw</span> <span class="kn">import</span> <span class="n">elements</span> <span class="k">as</span> <span class="n">elm</span>
+
+<span class="k">with</span> <span class="n">schemdraw</span><span class="o">.</span><span class="n">Drawing</span><span class="p">()</span> <span class="k">as</span> <span class="n">d</span><span class="p">:</span>
+    <span class="n">d</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">d</span><span class="o">.</span><span class="n">push</span><span class="p">()</span>
+    <span class="n">R1</span> <span class="o">=</span> <span class="n">elm</span><span class="o">.</span><span class="n">Resistor</span><span class="p">()</span><span class="o">.</span><span class="n">down</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;R1&#39;</span><span class="p">)</span>
+    <span class="n">V1</span> <span class="o">=</span> <span class="n">elm</span><span class="o">.</span><span class="n">SourceV</span><span class="p">()</span><span class="o">.</span><span class="n">down</span><span class="p">()</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;V1&#39;</span><span class="p">)</span>
+    <span class="n">elm</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">()</span>
+    <span class="n">d</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+    <span class="n">elm</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">()</span>
+    <span class="n">elm</span><span class="o">.</span><span class="n">SourceV</span><span class="p">()</span><span class="o">.</span><span class="n">down</span><span class="p">()</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;V2&#39;</span><span class="p">)</span>
+    <span class="n">elm</span><span class="o">.</span><span class="n">Resistor</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;R2&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">()</span>
+    <span class="n">elm</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">()</span>
+    <span class="n">elm</span><span class="o">.</span><span class="n">SourceI</span><span class="p">()</span><span class="o">.</span><span class="n">up</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;I1&#39;</span><span class="p">)</span>
+    <span class="n">elm</span><span class="o">.</span><span class="n">Resistor</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;R3&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">()</span>
+    <span class="n">elm</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">hold</span><span class="p">()</span>
+    <span class="n">elm</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">()</span>
+    <span class="n">R6</span> <span class="o">=</span> <span class="n">elm</span><span class="o">.</span><span class="n">Resistor</span><span class="p">()</span><span class="o">.</span><span class="n">toy</span><span class="p">(</span><span class="n">V1</span><span class="o">.</span><span class="n">end</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;R4&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">()</span>
+    <span class="n">elm</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">hold</span><span class="p">()</span>
+    <span class="n">elm</span><span class="o">.</span><span class="n">Resistor</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">R6</span><span class="o">.</span><span class="n">start</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;R5&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="nb">open</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;right&#39;</span><span class="p">)</span>
+    <span class="n">elm</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">R6</span><span class="o">.</span><span class="n">end</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="nb">open</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;right&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/533821ffab768fd243d5b204014fb4240fe9e028b32a2ff2734ab93cfa9e5392.svg" src="../../_images/533821ffab768fd243d5b204014fb4240fe9e028b32a2ff2734ab93cfa9e5392.svg" />
+</div>
+</div>
+</section>
+<section id="determining-sensitivity">
+<h2>Determining sensitivity<a class="headerlink" href="#determining-sensitivity" title="Link to this heading">#</a></h2>
+<p>To determine whether this voltage divider is sensitive or not, we can look at the size of these derivatives.</p>
+<ul class="simple">
+<li><p>If <span class="math notranslate nohighlight">\( S(_X^Y)\)</span> is large, then the Y element is considered sensitive with respect to the X element.</p></li>
+<li><p>Otherwise, if these values are small, it indicates that changes in X have little effect on the Y.</p></li>
+</ul>
+</section>
+<section id="sensitivity-analysis-for-a-resistive-circuit">
+<h2><strong>Sensitivity analysis for a resistive circuit</strong><a class="headerlink" href="#sensitivity-analysis-for-a-resistive-circuit" title="Link to this heading">#</a></h2>
+<p>For a simple resistive circuit, you can use Ohm’s Law:</p>
+<p><span class="math notranslate nohighlight">\( I = \frac{V}{R} \)</span></p>
+<p>To find the sensitivity of <strong>current</strong>(I) with respect to <strong>resistance</strong>(R):</p>
+<p><span class="math notranslate nohighlight">\( S(_R^I) = \frac{∂I}{∂R} \frac{R}{I} \)</span></p>
+<p>Calculating the partial derivative:</p>
+<p><span class="math notranslate nohighlight">\( \frac{∂I}{∂R} = -\frac{V}{R^2}\)</span></p>
+<p>So,</p>
+<p><span class="math notranslate nohighlight">\( S(_R^I) = -\frac{V}{R^2} \frac{R}{I} = -\frac{V}{R} I \)</span></p>
+<p>Now to calculate it based on the elements in our resistive curcuit.
+The source voltage is 10V and the value of R changes beetwen 0 to 100 in order to see the changes in the output current.</p>
+</section>
+<section id="drawing-a-resistive-circuit-using-schemedraw">
+<h2>Drawing a resistive circuit using schemedraw<a class="headerlink" href="#drawing-a-resistive-circuit-using-schemedraw" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">schemdraw</span>
+<span class="kn">from</span> <span class="nn">schemdraw</span> <span class="kn">import</span> <span class="n">elements</span> <span class="k">as</span> <span class="n">elm</span>
+
+<span class="k">with</span> <span class="n">schemdraw</span><span class="o">.</span><span class="n">Drawing</span><span class="p">():</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="n">elm</span><span class="o">.</span><span class="n">Resistor</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">)</span>
+    <span class="n">elm</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">down</span><span class="p">()</span>
+
+    <span class="n">elm</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">tox</span><span class="p">(</span><span class="n">C</span><span class="o">.</span><span class="n">start</span><span class="p">)</span>
+
+    <span class="n">elm</span><span class="o">.</span><span class="n">SourceV</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;5V&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">up</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/35ee8c8867eca7984cf82a11288d32e7bdbaab52f84e88e92f62fe57a756dd69.svg" src="../../_images/35ee8c8867eca7984cf82a11288d32e7bdbaab52f84e88e92f62fe57a756dd69.svg" />
+</div>
+</div>
+</section>
+<section id="sensitivity-analysis-in-a-resistive-circuit-with-pyspice">
+<h2>Sensitivity analysis in a resistive circuit with PySpice<a class="headerlink" href="#sensitivity-analysis-in-a-resistive-circuit-with-pyspice" title="Link to this heading">#</a></h2>
+<p>Here we want to see the changes in current while cahnging the value of R.</p>
+<p><strong>Step 1 : Defining the resistances and voltage sources ,</strong> A voltage source of 10 volts is defined And an array of resistance values is created, ranging from 1 to 100 ohms.</p>
+<p><strong>Step 2 : Calculating current</strong></p>
+<ul class="simple">
+<li><p>The current (<span class="math notranslate nohighlight">\( I\)</span>) through the resistor is calculated using Ohm’s Law: <span class="math notranslate nohighlight">\( I = \frac{V}{R} \ \)</span>.</p></li>
+<li><p>The calculated current value is stored in I_values.</p></li>
+</ul>
+<p><strong>Step 3 : Drawing Chrachteristic curve,</strong>
+a chart is generated to visualize the relationship between resistance and current.</p>
+<p><strong>Step 4 : Calculating sensitivity</strong></p>
+<p><span class="math notranslate nohighlight">\( S(_I^R) = \frac{∂I}{∂R} \frac{R}{I} \)</span>
+<span class="math notranslate nohighlight">\( = -\frac{V}{R^2}\)</span></p>
+<p>Substituting the values:</p>
+<p><span class="math notranslate nohighlight">\( S = (-\frac{V}{R^2}) ·\frac{R}{V/R} = (-\frac{V}{R^2})·\frac{R^2}{V} = -1 \)</span></p>
+<p>The sensitivity S = -1 indicates that for a 1% increase in resistance, there will be a 1% decrease in current.</p>
+<p><strong>Step 5 : plotting the results ,</strong> then we plot the results using matplotlib.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">PySpice</span>
+<span class="kn">from</span> <span class="nn">PySpice.Spice.Netlist</span> <span class="kn">import</span> <span class="n">Circuit</span>
+
+<span class="n">V_source</span> <span class="o">=</span> <span class="mi">10</span> 
+<span class="n">R_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>  
+
+<span class="n">I_values</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">R</span> <span class="ow">in</span> <span class="n">R_values</span><span class="p">:</span>
+    <span class="n">circuit</span> <span class="o">=</span> <span class="n">Circuit</span><span class="p">(</span><span class="s1">&#39;Sensitivity Analysis&#39;</span><span class="p">)</span>
+    <span class="n">circuit</span><span class="o">.</span><span class="n">V</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;input&#39;</span><span class="p">,</span> <span class="n">circuit</span><span class="o">.</span><span class="n">gnd</span><span class="p">,</span> <span class="n">V_source</span><span class="p">)</span>
+    <span class="n">circuit</span><span class="o">.</span><span class="n">R</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;input&#39;</span><span class="p">,</span> <span class="s1">&#39;output&#39;</span><span class="p">,</span> <span class="n">R</span><span class="p">)</span>
+
+    <span class="n">simulator</span> <span class="o">=</span> <span class="n">circuit</span><span class="o">.</span><span class="n">simulator</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">nominal_temperature</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+
+    <span class="n">analysis</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">operating_point</span><span class="p">()</span>
+
+    <span class="n">I</span> <span class="o">=</span> <span class="n">V_source</span> <span class="o">/</span> <span class="n">R</span>
+    <span class="n">I_values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">I</span><span class="p">)</span> 
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">R_values</span><span class="p">,</span> <span class="n">I_values</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Current vs Resistance&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Current Sensitivity Analysis&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Resistance (Ohms)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Current (Amps)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">OSError</span><span class="g g-Whitespace">                                   </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">16</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="n">circuit</span><span class="o">.</span><span class="n">V</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;input&#39;</span><span class="p">,</span> <span class="n">circuit</span><span class="o">.</span><span class="n">gnd</span><span class="p">,</span> <span class="n">V_source</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">circuit</span><span class="o">.</span><span class="n">R</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;input&#39;</span><span class="p">,</span> <span class="s1">&#39;output&#39;</span><span class="p">,</span> <span class="n">R</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">16</span> <span class="n">simulator</span> <span class="o">=</span> <span class="n">circuit</span><span class="o">.</span><span class="n">simulator</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">nominal_temperature</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="n">analysis</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">operating_point</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="n">I</span> <span class="o">=</span> <span class="n">V_source</span> <span class="o">/</span> <span class="n">R</span>
+
+<span class="nn">File H:\HadiSadoghiYazdi\Circuit\Lib\site-packages\PySpice\Spice\Netlist.py:1292,</span> in <span class="ni">Circuit.simulator</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1291</span> <span class="k">def</span> <span class="nf">simulator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">1292</span>     <span class="k">return</span> <span class="n">CircuitSimulator</span><span class="o">.</span><span class="n">factory</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File H:\HadiSadoghiYazdi\Circuit\Lib\site-packages\PySpice\Spice\Simulation.py:1167,</span> in <span class="ni">CircuitSimulator.factory</span><span class="nt">(cls, circuit, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1164</span>         <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;parallel&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="g g-Whitespace">   </span><span class="mi">1166</span> <span class="k">if</span> <span class="n">sub_cls</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1167</span>     <span class="k">return</span> <span class="n">sub_cls</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1168</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1169</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Unknown simulator type&#39;</span><span class="p">)</span>
+
+<span class="nn">File H:\HadiSadoghiYazdi\Circuit\Lib\site-packages\PySpice\Spice\NgSpice\Simulation.py:99,</span> in <span class="ni">NgSpiceSharedCircuitSimulator.__init__</span><span class="nt">(self, circuit, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">97</span> <span class="n">ngspice_shared</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ngspice_shared&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span> <span class="k">if</span> <span class="n">ngspice_shared</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">99</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_ngspice_shared</span> <span class="o">=</span> <span class="n">NgSpiceShared</span><span class="o">.</span><span class="n">new_instance</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">100</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">101</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_ngspice_shared</span> <span class="o">=</span> <span class="n">ngspice_shared</span>
+
+<span class="nn">File H:\HadiSadoghiYazdi\Circuit\Lib\site-packages\PySpice\Spice\NgSpice\Shared.py:449,</span> in <span class="ni">NgSpiceShared.new_instance</span><span class="nt">(cls, ngspice_id, send_data, verbose)</span>
+<span class="g g-Whitespace">    </span><span class="mi">447</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">448</span>     <span class="bp">cls</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;New instance for id </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ngspice_id</span><span class="p">))</span>
+<span class="ne">--&gt; </span><span class="mi">449</span>     <span class="n">instance</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="n">ngspice_id</span><span class="o">=</span><span class="n">ngspice_id</span><span class="p">,</span> <span class="n">send_data</span><span class="o">=</span><span class="n">send_data</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">450</span>     <span class="bp">cls</span><span class="o">.</span><span class="n">_instances</span><span class="p">[</span><span class="n">ngspice_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">instance</span>
+<span class="g g-Whitespace">    </span><span class="mi">451</span>     <span class="k">return</span> <span class="n">instance</span>
+
+<span class="nn">File H:\HadiSadoghiYazdi\Circuit\Lib\site-packages\PySpice\Spice\NgSpice\Shared.py:479,</span> in <span class="ni">NgSpiceShared.__init__</span><span class="nt">(self, ngspice_id, send_data, verbose)</span>
+<span class="g g-Whitespace">    </span><span class="mi">476</span> <span class="bp">self</span><span class="o">.</span><span class="n">_extensions</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="g g-Whitespace">    </span><span class="mi">478</span> <span class="bp">self</span><span class="o">.</span><span class="n">_library_path</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="ne">--&gt; </span><span class="mi">479</span> <span class="bp">self</span><span class="o">.</span><span class="n">_load_library</span><span class="p">(</span><span class="n">verbose</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">480</span> <span class="bp">self</span><span class="o">.</span><span class="n">_init_ngspice</span><span class="p">(</span><span class="n">send_data</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">482</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_running</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="nn">File H:\HadiSadoghiYazdi\Circuit\Lib\site-packages\PySpice\Spice\NgSpice\Shared.py:539,</span> in <span class="ni">NgSpiceShared._load_library</span><span class="nt">(self, verbose)</span>
+<span class="g g-Whitespace">    </span><span class="mi">537</span> <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">538</span>     <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">539</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ngspice_shared</span> <span class="o">=</span> <span class="n">ffi</span><span class="o">.</span><span class="n">dlopen</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">library_path</span><span class="p">)</span>
+
+<span class="nn">File H:\HadiSadoghiYazdi\Circuit\Lib\site-packages\cffi\api.py:150,</span> in <span class="ni">FFI.dlopen</span><span class="nt">(self, name, flags)</span>
+<span class="g g-Whitespace">    </span><span class="mi">147</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;dlopen(name): name must be a file name, None, &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">148</span>                     <span class="s2">&quot;or an already-opened &#39;void *&#39; handle&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">149</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lock</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">150</span>     <span class="n">lib</span><span class="p">,</span> <span class="n">function_cache</span> <span class="o">=</span> <span class="n">_make_ffi_library</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">151</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_function_caches</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">function_cache</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">152</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_libraries</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lib</span><span class="p">)</span>
+
+<span class="nn">File H:\HadiSadoghiYazdi\Circuit\Lib\site-packages\cffi\api.py:834,</span> in <span class="ni">_make_ffi_library</span><span class="nt">(ffi, libname, flags)</span>
+<span class="g g-Whitespace">    </span><span class="mi">832</span> <span class="k">def</span> <span class="nf">_make_ffi_library</span><span class="p">(</span><span class="n">ffi</span><span class="p">,</span> <span class="n">libname</span><span class="p">,</span> <span class="n">flags</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">833</span>     <span class="n">backend</span> <span class="o">=</span> <span class="n">ffi</span><span class="o">.</span><span class="n">_backend</span>
+<span class="ne">--&gt; </span><span class="mi">834</span>     <span class="n">backendlib</span> <span class="o">=</span> <span class="n">_load_backend_lib</span><span class="p">(</span><span class="n">backend</span><span class="p">,</span> <span class="n">libname</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">835</span>     <span class="c1">#</span>
+<span class="g g-Whitespace">    </span><span class="mi">836</span>     <span class="k">def</span> <span class="nf">accessor_function</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+
+<span class="nn">File H:\HadiSadoghiYazdi\Circuit\Lib\site-packages\cffi\api.py:829,</span> in <span class="ni">_load_backend_lib</span><span class="nt">(backend, name, flags)</span>
+<span class="g g-Whitespace">    </span><span class="mi">827</span>     <span class="k">if</span> <span class="n">first_error</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">828</span>         <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">.  Additionally, </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">first_error</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">829</span>     <span class="k">raise</span> <span class="ne">OSError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">830</span> <span class="k">return</span> <span class="n">backend</span><span class="o">.</span><span class="n">load_library</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span>
+
+<span class="ne">OSError</span>: cannot load library &#39;H:\HadiSadoghiYazdi\Circuit\Lib\site-packages\PySpice\Spice\NgSpice\Spice64_dll\dll-vs\ngspice.dll&#39;: error 0x7e.  Additionally, ctypes.util.find_library() did not manage to locate a library called &#39;H:\\HadiSadoghiYazdi\\Circuit\\Lib\\site-packages\\PySpice\\Spice\\NgSpice\\Spice64_dll\\dll-vs\\ngspice.dll&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="chart-explination">
+<h2>Chart explination<a class="headerlink" href="#chart-explination" title="Link to this heading">#</a></h2>
+<p>The <strong>x-axis</strong> represents resistance values, while the <strong>y-axis</strong> represents current values. The absolute value of sensitivity is 1, which indicates a direct relationship between changes in resistance and changes in current. and as you can see for each 1% increase in resistance we have 1% decrease in current.</p>
+</section>
+<section id="determinig-circuit-sensitivity">
+<h2>Determinig circuit sensitivity<a class="headerlink" href="#determinig-circuit-sensitivity" title="Link to this heading">#</a></h2>
+<p>Since a small change in R leads to a proportional change in I, we can conclude that the circuit is sensitive to changes in resistance.
+this means that if you were to change the resistance by a small amount, you would observe a significant change in the current flowing through the circuit. Thus, <strong>the circuit can be considered sensitive</strong>.</p>
+</section>
+<section id="sensitivity-analysis-for-a-voltage-divider">
+<h2><strong>Sensitivity analysis for a voltage divider</strong><a class="headerlink" href="#sensitivity-analysis-for-a-voltage-divider" title="Link to this heading">#</a></h2>
+<p>Consider a voltage divider circuit shown in the code below. The circuit
+is composed of a constant dc voltage source and two resistors
+in series. The output is the voltage across the 100-ohm
+resistor, while the input is a <span class="math notranslate nohighlight">\( 5V \)</span> dc voltage source. The
+value of the series resistance is 50 ohms with a tolerance of
+5%, while the 100-ohm resistor has a tolerance of 2%. Thus, if
+the 50-ohm resistor has a 5% tolerance, then its value can vary
+from 47.5 to 52.5 ohms. On other hand, if the 100-ohm
+resistor has a 2% tolerance, then its value can vary from 98 to
+102 ohms.</p>
+</section>
+<section id="drawing-a-simple-voltage-divider-using-schemedraw">
+<h2>Drawing a simple voltage divider using schemedraw<a class="headerlink" href="#drawing-a-simple-voltage-divider-using-schemedraw" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">schemdraw</span>
+<span class="kn">from</span> <span class="nn">schemdraw</span> <span class="kn">import</span> <span class="n">elements</span> <span class="k">as</span> <span class="n">elm</span>
+
+<span class="k">with</span> <span class="n">schemdraw</span><span class="o">.</span><span class="n">Drawing</span><span class="p">()</span> <span class="k">as</span> <span class="n">d</span><span class="p">:</span>
+    <span class="n">d</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">inches_per_unit</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">V</span> <span class="o">=</span> <span class="n">elm</span><span class="o">.</span><span class="n">SourceV</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;v_i = 5V&#39;</span><span class="p">)</span>
+    <span class="n">d</span> <span class="o">+=</span> <span class="n">elm</span><span class="o">.</span><span class="n">Resistor</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;R1 = 50 ± 5% Ω&#39;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">)</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="n">elm</span><span class="o">.</span><span class="n">Resistor</span><span class="p">()</span><span class="o">.</span><span class="n">down</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;R2 = 100 ± 2% Ω&#39;</span><span class="p">)</span>
+    <span class="n">d</span> <span class="o">+=</span> <span class="n">elm</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">V</span><span class="o">.</span><span class="n">start</span><span class="p">)</span>
+    <span class="n">elm</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">unit</span><span class="o">*</span><span class="mf">1.5</span><span class="p">)</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">D</span><span class="o">.</span><span class="n">start</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="nb">open</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">idot</span><span class="p">()</span>
+    <span class="n">elm</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">unit</span><span class="o">*</span><span class="mf">1.5</span><span class="p">)</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">D</span><span class="o">.</span><span class="n">end</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="nb">open</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">idot</span><span class="p">()</span>
+    <span class="n">G</span> <span class="o">=</span> <span class="n">elm</span><span class="o">.</span><span class="n">Gap</span><span class="p">()</span><span class="o">.</span><span class="n">toy</span><span class="p">(</span><span class="n">D</span><span class="o">.</span><span class="n">start</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">([</span><span class="s1">&#39;–&#39;</span><span class="p">,</span> <span class="s1">&#39;V0&#39;</span><span class="p">,</span> <span class="s1">&#39;+&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/3bf29f1c2739429064d3c60aeef0933a700fc9a395b59589adcf85cb18b8e697.svg" src="../../_images/3bf29f1c2739429064d3c60aeef0933a700fc9a395b59589adcf85cb18b8e697.svg" />
+</div>
+</div>
+</section>
+<section id="sensitivity-analysis-in-a-voltage-divider-with-pyspice">
+<h2>Sensitivity analysis in a voltage divider with PySpice<a class="headerlink" href="#sensitivity-analysis-in-a-voltage-divider-with-pyspice" title="Link to this heading">#</a></h2>
+<p><strong>Step 1 : defining voltage and resistances</strong></p>
+<ul class="simple">
+<li><p>we take two resistances (<span class="math notranslate nohighlight">\( R1 \)</span> and <span class="math notranslate nohighlight">\( R2 \)</span>) and an optional input voltage <span class="math notranslate nohighlight">\( V_{in} \)</span>, which in this example is <span class="math notranslate nohighlight">\( 5V\)</span>.</p></li>
+</ul>
+<p><strong>Step 2 : calculating output volatage ,</strong> It calculates the output voltage (<span class="math notranslate nohighlight">\( V_{out} \)</span>) using the voltage divider formula:</p>
+<p><span class="math notranslate nohighlight">\(V_{out} = V_{in} \frac{R2}{R1 + R2}\ \)</span></p>
+<p><strong>Step 3 : Definng Ranges ,</strong> in this step we define the ranges of resistances which for <span class="math notranslate nohighlight">\(R1 \)</span> it can change from 47.5 to 52.5 and for <span class="math notranslate nohighlight">\( R2\)</span> it can change from 98 to 102.</p>
+<p><strong>Step 4 : sensitivity matrix ,</strong> A matrix is created to store output voltages for each combination of <span class="math notranslate nohighlight">\( R1\)</span> and <span class="math notranslate nohighlight">\( R2\)</span>.</p>
+<p><strong>Step 5 : Calculating Sensitivity ,</strong> For each combination, we compute the output voltage using the formula that was mentioned earlier and store it in the sensitivity_matrix.</p>
+<p><strong>Step 6 : plotting the results ,</strong> then we plot the results using matplotlib.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">PySpice</span>
+<span class="kn">from</span> <span class="nn">PySpice.Spice.Netlist</span> <span class="kn">import</span> <span class="n">Circuit</span>
+
+<span class="k">def</span> <span class="nf">simulate_circuit</span><span class="p">(</span><span class="n">R1</span><span class="p">,</span> <span class="n">R2</span><span class="p">,</span> <span class="n">Vin</span><span class="o">=</span><span class="mf">5.0</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">R1</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">R2</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+    <span class="n">V_out</span> <span class="o">=</span> <span class="n">Vin</span> <span class="o">*</span> <span class="p">(</span><span class="n">R2</span> <span class="o">/</span> <span class="p">(</span><span class="n">R1</span> <span class="o">+</span> <span class="n">R2</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">V_out</span>
+
+<span class="n">R1_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">47.5</span><span class="p">,</span> <span class="mf">52.5</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>  
+<span class="n">R2_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">98</span><span class="p">,</span> <span class="mi">102</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> 
+
+<span class="n">sensitivity_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">R1_values</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">R2_values</span><span class="p">)))</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">R1_val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">R1_values</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">R2_val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">R2_values</span><span class="p">):</span>
+        <span class="n">output_voltage</span> <span class="o">=</span> <span class="n">simulate_circuit</span><span class="p">(</span><span class="n">R1_val</span><span class="p">,</span> <span class="n">R2_val</span><span class="p">)</span>
+        <span class="n">sensitivity_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">output_voltage</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+
+<span class="n">fixed_R1_indices</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">99</span><span class="p">]</span>  
+<span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">fixed_R1_indices</span><span class="p">:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">R2_values</span><span class="p">,</span> <span class="n">sensitivity_matrix</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;R1 = </span><span class="si">{</span><span class="n">R1_values</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> Ohms&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Resistance R2 (Ohms)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Output Voltage (V_out)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Output Voltage vs Resistance R2 for Fixed R1 Values&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/a1ce544b3cd9b9933d096cf25a1d5c0229ace80550f58877d7e5c97e21df3358.png" src="../../_images/a1ce544b3cd9b9933d096cf25a1d5c0229ace80550f58877d7e5c97e21df3358.png" />
+</div>
+</div>
+</section>
+<section id="chart-decription">
+<h2>Chart decription<a class="headerlink" href="#chart-decription" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>X-axis (Resistance <span class="math notranslate nohighlight">\( R2\)</span>)</strong>: This axis represents the varying resistance <span class="math notranslate nohighlight">\( R2\)</span> values, ranging from 98 to 102 ohms.</p></li>
+<li><p><strong>Y-axis (Output Voltage (<span class="math notranslate nohighlight">\(V_{out} \)</span>))</strong>: This axis shows the calculated output voltage for each combination of <span class="math notranslate nohighlight">\( R1\)</span> and <span class="math notranslate nohighlight">\( R2\)</span>.</p></li>
+<li><p><strong>Lines</strong>: Each line is a fixed value of <span class="math notranslate nohighlight">\( R1\)</span> (47.5, 50.0, and 52.5 ohms). The lines show how the output voltage changes as <span class="math notranslate nohighlight">\(R \)</span> varies.</p></li>
+</ul>
+</section>
+<section id="a-diffrent-angle-for-sensitivity-analysis-in-the-voltage-divider">
+<h2>A diffrent angle for Sensitivity analysis in the voltage divider:<a class="headerlink" href="#a-diffrent-angle-for-sensitivity-analysis-in-the-voltage-divider" title="Link to this heading">#</a></h2>
+<p>In this section we want to calcute the sensitivty itself using the formula that was mentioned earlier and plot the result based on that.</p>
+<p><strong>Step 1 : defining voltage and resistances</strong></p>
+<ul class="simple">
+<li><p>we take two resistances (<span class="math notranslate nohighlight">\( R1 \)</span> and <span class="math notranslate nohighlight">\( R2 \)</span>) and an optional input voltage <span class="math notranslate nohighlight">\( V_{in} \)</span>, which in this example is <span class="math notranslate nohighlight">\( 5V\)</span>.</p></li>
+</ul>
+<p><strong>Step 2 : calculating output volatage ,</strong> It calculates the output voltage (<span class="math notranslate nohighlight">\( V_{out} \)</span>) using the voltage divider formula:</p>
+<p><span class="math notranslate nohighlight">\(V_{out} = V_{in} \frac{R2}{R1 + R2}\ \)</span></p>
+<p><strong>Step 3 : Definng Ranges ,</strong> in this step we define the ranges of resistances which for <span class="math notranslate nohighlight">\(R1 \)</span> it can change from 47.5 to 52.5 and for <span class="math notranslate nohighlight">\( R2\)</span> it can change from 98 to 102.</p>
+<p><strong>Step 4 : sensitivity matrix ,</strong> A matrix is created to store output voltages for each combination of <span class="math notranslate nohighlight">\( R1\)</span> and <span class="math notranslate nohighlight">\( R2\)</span>.</p>
+<p>(<em>the 4 first steps were similar to the last section</em>)</p>
+<p><strong>Step 5 : Calculate Sensitivity ,</strong> For each combination, it calculates the output voltage <span class="math notranslate nohighlight">\( V_{out}\)</span>.
+If <span class="math notranslate nohighlight">\( V_{out}\)</span> is valid, it computes  <span class="math notranslate nohighlight">\( \frac{dV}{dR_2}\)</span> of <span class="math notranslate nohighlight">\(V_{out} \)</span> with respect to <span class="math notranslate nohighlight">\( R2\)</span>:</p>
+<p><span class="math notranslate nohighlight">\( \frac{dV}{dR_2} = \frac{V_{in}  R1}{(R1 + R2)^2} \)</span></p>
+<ul>
+<li><p>This equation shows how much the output voltage changes with a small change in <span class="math notranslate nohighlight">\( R2\)</span>.</p></li>
+<li><p>The sensitivity is then calculated as:</p>
+<p><span class="math notranslate nohighlight">\( S(_R^V) = \frac{V_{in}  R1}{(R1 + R2)^2} \frac{R_2}{V_{out}} \)</span></p>
+</li>
+</ul>
+<p><strong>Step 6 : The Sensitivity Matrix ,</strong> This section creates a plot showing the sensitivity of the output voltage with respect to <span class="math notranslate nohighlight">\(R2 \)</span> for selected fixed values of <span class="math notranslate nohighlight">\( R1\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">PySpice</span> 
+
+<span class="k">def</span> <span class="nf">simulate_circuit</span><span class="p">(</span><span class="n">R1</span><span class="p">,</span> <span class="n">R2</span><span class="p">,</span> <span class="n">Vin</span><span class="o">=</span><span class="mf">5.0</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">R1</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">R2</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span> 
+    <span class="n">V_out</span> <span class="o">=</span> <span class="n">Vin</span> <span class="o">*</span> <span class="p">(</span><span class="n">R2</span> <span class="o">/</span> <span class="p">(</span><span class="n">R1</span> <span class="o">+</span> <span class="n">R2</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">V_out</span>
+
+
+<span class="n">R1_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">47.5</span><span class="p">,</span> <span class="mf">52.5</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">R2_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">98</span><span class="p">,</span> <span class="mi">102</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="n">sensitivity_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">R1_values</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">R2_values</span><span class="p">)))</span>
+
+<span class="n">Vin</span> <span class="o">=</span> <span class="mf">5.0</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">R1_val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">R1_values</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">R2_val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">R2_values</span><span class="p">):</span>
+        <span class="n">V_out</span> <span class="o">=</span> <span class="n">simulate_circuit</span><span class="p">(</span><span class="n">R1_val</span><span class="p">,</span> <span class="n">R2_val</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">V_out</span><span class="p">):</span>  
+            <span class="n">dV_dR2</span> <span class="o">=</span> <span class="n">Vin</span> <span class="o">*</span> <span class="p">(</span><span class="n">R1_val</span> <span class="o">/</span> <span class="p">(</span><span class="n">R1_val</span> <span class="o">+</span> <span class="n">R2_val</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">sensitivity_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">dV_dR2</span> <span class="o">*</span> <span class="p">(</span><span class="n">R2_val</span> <span class="o">/</span> <span class="n">V_out</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">sensitivity_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>  
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="n">fixed_R1_indices</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">99</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">fixed_R1_indices</span><span class="p">:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">R2_values</span><span class="p">,</span> <span class="n">sensitivity_matrix</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;R1 = </span><span class="si">{</span><span class="n">R1_values</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> Ohms&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Resistance R2 (Ohms)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Sensitivity of Output Voltage w.r.t. R2&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Sensitivity of Output Voltage vs Resistance R2 for Fixed R1 Values&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/5f0d870f6505a779f7a232198763e26fdcd457beb1906e518e9a57b451f8d26c.png" src="../../_images/5f0d870f6505a779f7a232198763e26fdcd457beb1906e518e9a57b451f8d26c.png" />
+</div>
+</div>
+</section>
+<section id="chart-description">
+<h2>Chart description<a class="headerlink" href="#chart-description" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>X-axis (Resistance <span class="math notranslate nohighlight">\( R2\)</span>)</strong>: This axis represents the varying resistance <span class="math notranslate nohighlight">\( R2\)</span> values, ranging from 98 to 102 ohms.</p></li>
+<li><p><strong>Y-axis (Sensitivity)</strong>: This axis shows the calculated sensitivity using the original formula for each combination of <span class="math notranslate nohighlight">\( R1\)</span> and <span class="math notranslate nohighlight">\( R2\)</span>.</p></li>
+<li><p><strong>Lines</strong>: Each line is a fixed value of <span class="math notranslate nohighlight">\( R1\)</span> (47.5, 50.0, and 52.5 ohms). The lines show how the output voltage changes as <span class="math notranslate nohighlight">\(R \)</span> varies.</p></li>
+</ul>
+</section>
+<section id="id1">
+<h2>Determining sensitivity<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>As we saw in the first plot we tried to show the output voltage and it could be seen from the charts that:</p>
+<ul class="simple">
+<li><p><strong>The output voltage</strong> is quite sensitive to changes in both resistances, especially when <span class="math notranslate nohighlight">\( R1\)</span> and <span class="math notranslate nohighlight">\(R2 \)</span> are close in value, as seen in the plot where small changes in <span class="math notranslate nohighlight">\( R2\)</span> lead to noticeable changes in <span class="math notranslate nohighlight">\(V_{out} \)</span>.</p></li>
+<li><p><strong>The sensitivity analysis</strong> shows that increasing <span class="math notranslate nohighlight">\(R2 \)</span> will increase <span class="math notranslate nohighlight">\(V_{out} \)</span>, while increasing <span class="math notranslate nohighlight">\(R1 \)</span> will decrease it. The actual sensitivity will depend on specific values of <span class="math notranslate nohighlight">\( R1\)</span> and <span class="math notranslate nohighlight">\(R2 \)</span>.</p></li>
+</ul>
+<p>this means that if precise control over output voltage is required, careful consideration must be given to changes in both resistances, we can consider the circuit in this  example <strong>sensitive</strong>.</p>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<p>In conclusion, this sensitivity analysis mini-project has provided valuable insights into the behavior of our system under varying conditions. By systematically examining the impact of changes in key parameters, It provides insights into how design choices regarding resistances can impact circuit performance, which is critical in applications where precision is necessary.critical factors were identified that significantly influence the output. Furthermore, we analayzed the sensitivity of a resistor circuit and a voltage divider as an example to realize the importance of sensitivity analysis.</p>
+</section>
+<section id="refrences">
+<h2>Refrences:<a class="headerlink" href="#refrences" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://www.google.com/url?sa=t&amp;amp;source=web&amp;amp;rct=j&amp;amp;opi=89978449&amp;amp;url=https://corporatefinanceinstitute.com/resources/financial-modeling/what-is-sensitivity-analysis/&amp;amp;ved=2ahUKEwiJ6bah14GJAxVj9LsIHRW_CTIQFnoECEAQAQ&amp;amp;usg=AOvVaw0gS-q97jG-1-Y8nURiUnZf">https://www.google.com/url?sa=t&amp;source=web&amp;rct=j&amp;opi=89978449&amp;url=https://corporatefinanceinstitute.com/resources/financial-modeling/what-is-sensitivity-analysis/&amp;ved=2ahUKEwiJ6bah14GJAxVj9LsIHRW_CTIQFnoECEAQAQ&amp;usg=AOvVaw0gS-q97jG-1-Y8nURiUnZf</a></p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Sensitivity_analysis">https://en.wikipedia.org/wiki/Sensitivity_analysis</a></p>
+<p>ENGINEERING CIRCUIT ANALYSIS(William H. Hayt, Jr. (deceased))</p>
+<p>Linear circuits(Reymond A. Decarlo)</p>
+<p><a class="reference external" href="https://www.google.com/url?sa=t&amp;amp;source=web&amp;amp;rct=j&amp;amp;opi=89978449&amp;amp;url=https://www.investopedia.com/terms/s/sensitivityanalysis.asp&amp;amp;ved=2ahUKEwin2dmn3oGJAxXpa_EDHe9IG9sQFnoECBcQAQ&amp;amp;usg=AOvVaw3-eFkCZ1ViTWwXP51hRM9r">https://www.google.com/url?sa=t&amp;source=web&amp;rct=j&amp;opi=89978449&amp;url=https://www.investopedia.com/terms/s/sensitivityanalysis.asp&amp;ved=2ahUKEwin2dmn3oGJAxXpa_EDHe9IG9sQFnoECBcQAQ&amp;usg=AOvVaw3-eFkCZ1ViTWwXP51hRM9r</a></p>
+<p><a class="reference external" href="https://www.ti.com/lit/an/slva481/slva481.pdf?ts=1728543180256">https://www.ti.com/lit/an/slva481/slva481.pdf?ts=1728543180256</a></p>
+<p><a class="reference external" href="https://www.linkedin.com/advice/0/how-can-you-use-sensitivity-analysis-optimize-rf7pc">https://www.linkedin.com/advice/0/how-can-you-use-sensitivity-analysis-optimize-rf7pc</a></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Circuit_Electronics\StudentEffort"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="batteryModel/battery_model.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Battery Models</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="WhatBias/bias1.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><strong>Bias:</strong></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-overview">Project overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-sensitivity-analysis">What is sensitivity analysis?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-sensitivity-analysis">Why use sensitivity analysis?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-perform-sensitivity-analysis">How to perform sensitivity analysis?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-show-sensitivity-analysis-results">How to show sensitivity analysis results?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-sensitivity-in-general">Computing sensitivity in general:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivity-analysis-in-circuits">Sensitivity Analysis in Circuits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#determining-sensitivity">Determining sensitivity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivity-analysis-for-a-resistive-circuit"><strong>Sensitivity analysis for a resistive circuit</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drawing-a-resistive-circuit-using-schemedraw">Drawing a resistive circuit using schemedraw</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivity-analysis-in-a-resistive-circuit-with-pyspice">Sensitivity analysis in a resistive circuit with PySpice</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chart-explination">Chart explination</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#determinig-circuit-sensitivity">Determinig circuit sensitivity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivity-analysis-for-a-voltage-divider"><strong>Sensitivity analysis for a voltage divider</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drawing-a-simple-voltage-divider-using-schemedraw">Drawing a simple voltage divider using schemedraw</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivity-analysis-in-a-voltage-divider-with-pyspice">Sensitivity analysis in a voltage divider with PySpice</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chart-decription">Chart decription</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-diffrent-angle-for-sensitivity-analysis-in-the-voltage-divider">A diffrent angle for Sensitivity analysis in the voltage divider:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chart-description">Chart description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Determining sensitivity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#refrences">Refrences:</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Dr.Hadi Sadoghi Yazdi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024 Pattern Recognition Lab.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

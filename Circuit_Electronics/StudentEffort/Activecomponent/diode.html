@@ -1,0 +1,1092 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Active components &#8212; Dr.Hadi Sadoghi Yazdi</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Circuit_Electronics/StudentEffort/Activecomponent/diode';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../Introduction_CircuitElectronics.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/Hadi_Sadoghi_Yazdi.png" class="logo__image only-light" alt="Dr.Hadi Sadoghi Yazdi - Home"/>
+    <img src="../../../_static/Hadi_Sadoghi_Yazdi.png" class="logo__image only-dark pst-js-only" alt="Dr.Hadi Sadoghi Yazdi - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../Introduction_CircuitElectronics.html">
+                    Introduction to Circuit and Electronics
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Sections of Circuit and Electronics course</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../BasicElements.html">Basic component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../KVL_KCL.html">Voltage , Current</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NodalMeshAnalysis.html">Basic Nodal and Mesh Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../RC_RL_RLC.html">R-C, R-L circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Diode_chapter.html">Diode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../DiodeApplication.html">Diode Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../BJT1.html">Bipolar junction transistor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../FET.html">Field Effect Transistor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../OpAmp.html">Operational Amplifier</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Teaching assistant</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../PySpice_Installation_Manual.html">PySpice Installation Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../PySpice_circuit_example1.html">Example 1: RESISTIVE DIVIDER</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../PySpice_circuit_example2.html">Example 2: DIODE CIRCUIT</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Students effort</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../DiodeCharacteristicCurve.html">Diode Characteristic Curve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../SchemdrawGuide1.html">Schemdraw Guide book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../independentcurrentandvoltagesources/miniProject.html">Independent current/voltage sources</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../AveragePower.html"><strong>Average power</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PassiveComponents/Passive%20Components.html">Passive Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Linearization/LinearizationProject.html"><strong>Linear approximation</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../batteryModel/battery_model.html">Battery Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Sensitivity_analysis1.html">Sensitivity analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../WhatBias/bias1.html"><strong>Bias:</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Supermesh/Supermesh.html">Supermesh</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contact</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../Contact_Me.html">Contact Me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../About_Me.html">About Me</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/h-sadoghi/dr-sadoghi.git" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/h-sadoghi/dr-sadoghi.git/issues/new?title=Issue%20on%20page%20%2FCircuit_Electronics/StudentEffort/Activecomponent/diode.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/Circuit_Electronics/StudentEffort/Activecomponent/diode.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Active components</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-active-components">What are active components?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#difference-between-active-and-passive-component">Difference Between Active and Passive Component</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diode">Diode</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-explanation-about-diode">Basic explanation about Diode</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formation-of-diode">Formation of Diode</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#biasing-of-diode">Biasing of Diode</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#forward-bias">Forward Bias</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#circuits-under-forward-bias">Circuits under Forward Bias</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reverse-bias">Reverse Bias</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#circuits-under-reverse-bias">Circuits under Reverse Bias</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose-of-diode">Purpose of Diode</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-diode">Types of Diode</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#small-signal-diode">Small Signal Diode</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#zener-diode">Zener Diode</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#zener-characteristics-curve-with-pyspice">Zener Characteristics curve with Pyspice</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#chart-description">Chart description:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#light-emitting-diode-led">Light Emitting Diode (LED)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#schottky-diode">Schottky Diode</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#constant-current-diode">Constant Current Diode</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-recovery-diode">Step Recovery Diode</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#varactor-diode">Varactor Diode</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draw-the-circuit-with-schemdraw">Draw the circuit with schemdraw</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diode-recovery-time-with-pyspice">Diode recovery time with Pyspice</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transistor">Transistor</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-explanation-about-transistor">Basic explanation about Transistor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-transistors">Types of Transistors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#npn-transistors">NPN Transistors</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#working-principle-of-npn-transistors">Working Principle of NPN Transistors</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pnp-transistor">PNP Transistor</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#working-principle-of-pnp-transistors">Working Principle of PNP Transistors</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-npn-and-pnp-transistors">Comparing NPN and PNP Transistors</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#refrences">Refrences:</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="active-components">
+<h1>Active components<a class="headerlink" href="#active-components" title="Link to this heading">#</a></h1>
+<p><strong>Autor: Amirhossein Abolfazli Esfahani</strong></p>
+<section id="what-are-active-components">
+<h2>What are active components?<a class="headerlink" href="#what-are-active-components" title="Link to this heading">#</a></h2>
+<p>Active components are semiconductor devices consisting of semiconductor materials. Typical electronic devices are diodes and transistors, for performing “active” operations such as amplifying, rectifying, or converting supplied current (signal).
+Semiconductors are substances (silicon, germanium and their compound, etc.) having a resistance rate somewhere between a conductor (iron, copper, gold, silver, etc.) and an insulator (rubber, ceramic, etc.). Semiconductor devices can be classified into single-function discrete (diode, transistor), optical semiconductors such as light-emitting devices (LED, laser) and light-receiving devices (photodiode, image pickup element), sensors capable of detecting temperature, pressure, acceleration, magnetism, and integrated circuit (IC) loaded with multiple functions. This article describes diodes and transistors as the most basic element and integrated circuits (ICs), which have become more important in recent years.</p>
+<p><img alt="RC1_charging" src="../../../_images/tech47-05_en.png" /></p>
+</section>
+<section id="difference-between-active-and-passive-component">
+<h2>Difference Between Active and Passive Component<a class="headerlink" href="#difference-between-active-and-passive-component" title="Link to this heading">#</a></h2>
+<p>the electrical component can be an Active Component or Passive Component the power delivering and absorbing nature.
+An active Component is a component that delivers power to an electric circuit or components that provide energy to an electric circuit. Passive components are the components that are responsible for absorbing power or energy, components like capacitors and inductors store the energy for further use. Active and Passive components are responsible for the power or energy conservation in the circuit. Apart from this direction of the current decides the nature of the component, componentscurrent current flows outward from the component then it is an Active Component, and if the current flows towards or inwards from the component then it is a Passive Component.</p>
+</section>
+<section id="diode">
+<h2>Diode<a class="headerlink" href="#diode" title="Link to this heading">#</a></h2>
+<section id="basic-explanation-about-diode">
+<h3>Basic explanation about Diode<a class="headerlink" href="#basic-explanation-about-diode" title="Link to this heading">#</a></h3>
+<p>In the field of electronics, a diode is a two-terminal electronic component
+that conducts electric current in only one direction. This term is usually referring
+to a semiconductor diode (the most common type nowadays) which is a crystal
+of semiconductor connected to two electrical terminals, a P-N junction. Further
+discussions are made after discoursing briefly the history of diode.
+An ideal diode will have zero resistance in one direction, and infinite
+resistance in the reverse direction. Although in the real world, diodes cannot achieve zero or infinite resistance.
+Instead, a diode will have negligible resistance in one direction (to allow current
+flow), and a very high resistance in the reverse direction (to prevent current
+flow). A diode is effectively like a valve for an electrical circuit.</p>
+<p><img alt="RC1_charging" src="../../../_images/Diode.jpg" /></p>
+</section>
+<section id="formation-of-diode">
+<h3>Formation of Diode<a class="headerlink" href="#formation-of-diode" title="Link to this heading">#</a></h3>
+<p>If a P-type and an N-type material are brought close to each other, both of
+them join to form a junction.</p>
+<p><img alt="RC1_charging" src="../../../_images/Diode2.jpg" /></p>
+<p>A P-type material has holes as the majority carriers and an N-type material
+has electrons as the majority carriers. As opposite charges attract, few holes in
+P-type tend to go to n-side, whereas few electrons in N-type tend to go to Pside.
+As this region acts as a barrier between P and N type materials, this is also
+called as Barrier junction. This has another name called as Depletion region
+meaning it depletes both the regions. There occurs a potential difference VD due
+to the formation of ions, across the junction called as Potential Barrier as it
+prevents further movement of holes and electrons through the junction.</p>
+</section>
+<section id="biasing-of-diode">
+<h3>Biasing of Diode<a class="headerlink" href="#biasing-of-diode" title="Link to this heading">#</a></h3>
+<p>When a diode or any two-terminal component is connected in a circuit, it
+has two biased conditions with the given supply. They are Forward biased
+condition and Reverse biased condition.</p>
+<section id="forward-bias">
+<h4>Forward Bias<a class="headerlink" href="#forward-bias" title="Link to this heading">#</a></h4>
+<p>When a diode is connected in a circuit, with its anode to the positive
+terminal and cathode to the negative terminal of the supply, then such a
+connection is said to be forward biased condition. This kind of connection makes the circuit more and more forward
+biased and helps in more conduction. A diode conducts well in forward
+biased condition.</p>
+<p><img alt="RC1_charging" src="../../../_images/Diode3.jpg" /></p>
+<section id="circuits-under-forward-bias">
+<h5>Circuits under Forward Bias<a class="headerlink" href="#circuits-under-forward-bias" title="Link to this heading">#</a></h5>
+<p>With the repulsive force provided by positive terminal to holes
+and by negative terminal to electrons, the recombination takes
+place in the junction. The supply voltage should be such high that
+it forces the movement of electrons and holes through the barrier
+and to cross it to provide <strong>forward current</strong>.</p>
+</section>
+</section>
+<section id="reverse-bias">
+<h4>Reverse Bias<a class="headerlink" href="#reverse-bias" title="Link to this heading">#</a></h4>
+<p>When a diode is connected in a circuit, with its anode to the negative
+terminal and cathode to the positive terminal of the supply, then such a
+connection is said to be Reverse biased condition. This kind of connection makes the circuit more and more reverse
+biased and helps in minimizing and preventing the conduction. A diode
+cannot conduct in reverse biased condition.</p>
+<p><img alt="RC1_charging" src="../../../_images/Diode5.jpg" /></p>
+<section id="circuits-under-reverse-bias">
+<h5>Circuits under Reverse Bias<a class="headerlink" href="#circuits-under-reverse-bias" title="Link to this heading">#</a></h5>
+<p>When anode and cathode are connected to negative and
+positive terminals respectively, the electrons are attracted towards
+the positive terminal and holes are attracted towards the negative
+terminal. Hence both will be away from the potential barrier
+<strong>increasing the junction resistance</strong> and preventing any electron to
+cross the junction.</p>
+</section>
+</section>
+</section>
+<section id="purpose-of-diode">
+<h3>Purpose of Diode<a class="headerlink" href="#purpose-of-diode" title="Link to this heading">#</a></h3>
+<p>A diode is used to block the electric current flow in one direction, i.e. in
+forward direction and to block in reverse direction. This principle of diode makes
+it work as a <strong>Rectifier</strong>.
+For a circuit to allow the current flow in one direction but to stop in the other
+direction, the rectifier diode is the best choice. Thus the output will be DC
+removing the AC components. The circuits such as half wave and full wave
+rectifiers are made using diodes, which can be studied in Electronic Circuits
+tutorials.
+A diode is also used as a <strong>Switch</strong>. It helps a faster ON and OFF for the output
+that should occur in a quick rate.</p>
+</section>
+<section id="types-of-diode">
+<h3>Types of Diode<a class="headerlink" href="#types-of-diode" title="Link to this heading">#</a></h3>
+<section id="small-signal-diode">
+<h4>Small Signal Diode<a class="headerlink" href="#small-signal-diode" title="Link to this heading">#</a></h4>
+<p>The appearance of signal diode is very small when compared with the
+power diode. To indicate the cathode terminal one edge is marked with
+black or red in color. For the applications at high frequencies the
+performance of the small signal diode is very effective. With respect to the functional frequencies of the signal diode the
+carrying capacity of the current and power are very low which are
+maximum nearly at <strong>150mA and 500mW</strong>.</p>
+<p><img alt="RC1_charging" src="../../../_images/Diode4.jpg" /></p>
+</section>
+<section id="zener-diode">
+<h4>Zener Diode<a class="headerlink" href="#zener-diode" title="Link to this heading">#</a></h4>
+<p>It is a passive element works under the principle of zener breakdown.
+First produced by Clarence zener in <a class="reference external" href="http://1934.It">1934.It</a> is similar to normal diode in
+forward direction, it also allows current in reverse direction when the
+applied voltage reaches the breakdown voltage. It is designed to prevent
+the other semiconductor devices from momentary voltage pulses. It acts
+as voltage regulator.</p>
+<p><img alt="RC1_charging" src="../../../_images/Diode6.jpg" /></p>
+<section id="zener-characteristics-curve-with-pyspice">
+<h5>Zener Characteristics curve with Pyspice<a class="headerlink" href="#zener-characteristics-curve-with-pyspice" title="Link to this heading">#</a></h5>
+<p>The graph given underneath shows the V-I characteristics of the Zener diode.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">PySpice.Unit</span> <span class="kn">import</span> <span class="o">*</span> 
+
+<span class="c1"># Define Zener diode parameters</span>
+<span class="n">V_zener</span> <span class="o">=</span> <span class="mf">5.1</span>  <span class="c1"># Zener breakdown voltage in volts</span>
+<span class="n">R</span> <span class="o">=</span> <span class="mi">1000</span>       <span class="c1"># Series resistor in ohms</span>
+
+<span class="c1"># Input voltage range (0 to 10V)</span>
+<span class="n">V_in</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>  <span class="c1"># 200 points from 0V to 10V</span>
+
+<span class="c1"># Initialize current array</span>
+<span class="n">I_out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">V_in</span><span class="p">)</span>
+
+<span class="c1"># Calculate output current based on the input voltage</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">V_in</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">v</span> <span class="o">&lt;</span> <span class="n">V_zener</span><span class="p">:</span>
+        <span class="c1"># Below Zener breakdown voltage: no current through Zener diode</span>
+        <span class="n">I_out</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Above Zener breakdown voltage: calculate current through Zener diode</span>
+        <span class="c1"># Using a quadratic relationship for current</span>
+        <span class="n">I_out</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">v</span> <span class="o">-</span> <span class="n">V_zener</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">R</span>  <span class="c1"># Quadratic increase in current</span>
+
+<span class="c1"># Plotting the results</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">V_in</span><span class="p">,</span> <span class="n">I_out</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Zener Diode Characteristic&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">V_zener</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Zener Breakdown Voltage (5.1V)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Zener Diode Voltage-Current Characteristic Curve&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Input Voltage [V]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Current through Zener Diode [A]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>  <span class="c1"># Set x-axis limits</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">I_out</span><span class="p">)</span><span class="o">*</span><span class="mf">1.1</span><span class="p">)</span>  <span class="c1"># Adjust y-axis to fit the curve</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/b6252706dfa19748f356e696fb5bc6587fa420494edbbb75305a8c2ed51c6d61.png" src="../../../_images/b6252706dfa19748f356e696fb5bc6587fa420494edbbb75305a8c2ed51c6d61.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="chart-description">
+<h4>Chart description:<a class="headerlink" href="#chart-description" title="Link to this heading">#</a></h4>
+<p><strong>Forward Characteristics of Zener Diode:</strong>
+Forward characteristics of the Zener Diode are similar to the forward characteristics of any normal diode. It is clearly evident from the above diagram in the first quadrant that the VI forward characteristics are similar to other P-N junction diodes.</p>
+<p><strong>Reverse Characteristics of Zener Diode:</strong>
+In reverse voltage conditions a small amount of current flows through the Zener diode. This current is because of the electrons which are thermally generated in the Zener diode. As we keep increasing the reverse voltage at any particular value of reverse voltage the reverse current increases suddenly at the breakdown point this voltage is called Zener Voltage and is represented as Vz.</p>
+</section>
+<section id="light-emitting-diode-led">
+<h4>Light Emitting Diode (LED)<a class="headerlink" href="#light-emitting-diode-led" title="Link to this heading">#</a></h4>
+<p>Earlier they used in inductor lamps but now in recent applications they
+are using in environmental and task handling. Mostly used in applications
+like aviation lighting, traffic signals, camera flashes. These diodes convert
+the electrical energy in to light energy. First production started in 1968. It
+undergoes electroluminescence process in which holes and electrons are
+recombined to produce energy in the form of light in forward bias
+condition.</p>
+<p><img alt="RC1_charging" src="../../../_images/Diode7.jpg" /></p>
+</section>
+<section id="schottky-diode">
+<h4>Schottky Diode<a class="headerlink" href="#schottky-diode" title="Link to this heading">#</a></h4>
+<p>In this type of diode the junction is formed by contacting the
+semiconductor material with metal. Due to this the forward voltage drop
+is decreased to min. The semiconductor material is N-type silicon which
+acts as an anode and the metal acts as a cathode whose materials are
+chromium, platinum, tungsten etc.
+Due to the metal junction these diodes have high current conducting
+capability thus the switching time reduces. So, Schottky has greater use
+in switching applications. Mainly because of the metal- semiconductor
+junction the voltage drop is low which in turn increase the diode
+performance and reduces power loss. So, these are used in high frequency
+rectifier applications.</p>
+<p><img alt="RC1_charging" src="../../../_images/Diode8.jpg" /></p>
+</section>
+<section id="constant-current-diode">
+<h4>Constant Current Diode<a class="headerlink" href="#constant-current-diode" title="Link to this heading">#</a></h4>
+<p>It is also known as current-regulating diode or constant current diode
+or current-limiting diode or diode-connected transistor. The function of the
+diode is regulating the voltage at a particular current.
+It functions as a two terminal current limiter. In this JFET acts as
+current limiter to achieve high output impedance. The constant current
+diode symbol is shown below.</p>
+<p><img alt="RC1_charging" src="../../../_images/Diode9.jpg" /></p>
+</section>
+<section id="step-recovery-diode">
+<h4>Step Recovery Diode<a class="headerlink" href="#step-recovery-diode" title="Link to this heading">#</a></h4>
+<p>It is also called as snap-off diode or charge-storage diode. These are
+the special type of diodes which stores the charge from positive pulse and
+uses in the negative pulse of the sinusoidal signals. The rise time of the
+current pulse is equal to the snap time. Due to this phenomenon it has
+speed recovery pulses.The applications of these diodes are in higher order multipliers and in
+pulse shaper circuits. The cut-off frequency of these diodes is very high
+which are nearly at Giga hertz order.</p>
+<p><img alt="RC1_charging" src="../../../_images/Diode10.jpg" /></p>
+</section>
+<section id="varactor-diode">
+<h4>Varactor Diode<a class="headerlink" href="#varactor-diode" title="Link to this heading">#</a></h4>
+<p>These are also known as Varicap diodes. It acts like the variable
+capacitor. Operations are performed mainly at reverse bias state only.
+These diodes are very famous due to its capability of changing the
+capacitance ranges within the circuit in the presence of constant voltage
+flow.
+They can able to vary capacitance up to high values. In varactor diode
+by changing the reverse bias voltage we can decrease or increase the
+depletion layer. These diodes have many applications as voltage controlled
+oscillator for cell phones, satellite pre-filters etc. The symbol of varactor
+diode is given below.</p>
+<p><img alt="RC1_charging" src="../../../_images/Diode11.jpg" /></p>
+</section>
+</section>
+<section id="draw-the-circuit-with-schemdraw">
+<h3>Draw the circuit with schemdraw<a class="headerlink" href="#draw-the-circuit-with-schemdraw" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">schemdraw</span>
+<span class="kn">import</span> <span class="nn">schemdraw.elements</span> <span class="k">as</span> <span class="nn">elm</span>
+
+<span class="k">with</span> <span class="n">schemdraw</span><span class="o">.</span><span class="n">Drawing</span><span class="p">()</span> <span class="k">as</span> <span class="n">d</span><span class="p">:</span>
+    <span class="n">d</span> <span class="o">+=</span> <span class="n">elm</span><span class="o">.</span><span class="n">BatteryCell</span><span class="p">()</span><span class="o">.</span><span class="n">up</span><span class="p">()</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">([</span><span class="s2">&quot;_&quot;</span><span class="p">,</span><span class="s2">&quot;+&quot;</span><span class="p">],</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;bot&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">Res1</span> <span class="o">=</span> <span class="n">elm</span><span class="o">.</span><span class="n">Resistor</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s2">&quot;40Ω&quot;</span><span class="p">)</span>
+    <span class="n">d</span><span class="o">+=</span><span class="n">elm</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span>
+    <span class="n">d</span><span class="o">+=</span><span class="n">elm</span><span class="o">.</span><span class="n">Diode</span><span class="p">()</span><span class="o">.</span><span class="n">down</span><span class="p">()</span>
+    <span class="n">Res2</span> <span class="o">=</span> <span class="n">elm</span><span class="o">.</span><span class="n">Resistor</span><span class="p">()</span><span class="o">.</span><span class="n">left</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s2">&quot;50Ω&quot;</span><span class="p">)</span>
+    <span class="n">d</span><span class="o">+=</span><span class="n">elm</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span>
+    <span class="n">Res3</span> <span class="o">=</span> <span class="n">elm</span><span class="o">.</span><span class="n">Resistor</span><span class="p">()</span><span class="o">.</span><span class="n">endpoints</span><span class="p">(</span><span class="n">Res1</span><span class="o">.</span><span class="n">end</span> <span class="p">,</span> <span class="n">Res2</span><span class="o">.</span><span class="n">end</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s2">&quot;50Ω&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/ffb6aa6634551a66dcb9a2af16b7b2fdde9940b7fd7fc2926f2789e312de55d3.svg" src="../../../_images/ffb6aa6634551a66dcb9a2af16b7b2fdde9940b7fd7fc2926f2789e312de55d3.svg" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">schemdraw</span>
+<span class="kn">import</span> <span class="nn">schemdraw.elements</span> <span class="k">as</span> <span class="nn">elm</span>
+
+<span class="k">with</span> <span class="n">schemdraw</span><span class="o">.</span><span class="n">Drawing</span><span class="p">()</span> <span class="k">as</span> <span class="n">d</span><span class="p">:</span>
+    <span class="n">Bat</span> <span class="o">=</span> <span class="n">elm</span><span class="o">.</span><span class="n">BatteryCell</span><span class="p">()</span><span class="o">.</span><span class="n">up</span><span class="p">()</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s2">&quot;15V&quot;</span><span class="p">,</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;bot&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">d</span> <span class="o">+=</span> <span class="n">elm</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span>
+    <span class="c1"># l2 = elm.Line().right()</span>
+    <span class="n">Res1</span> <span class="o">=</span> <span class="n">elm</span><span class="o">.</span><span class="n">Resistor</span><span class="p">()</span><span class="o">.</span><span class="n">down</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s2">&quot;10Ω&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">Res2</span> <span class="o">=</span> <span class="n">elm</span><span class="o">.</span><span class="n">Resistor</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s2">&quot;20Ω&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">d</span> <span class="o">+=</span> <span class="n">elm</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">left</span><span class="p">()</span>
+    <span class="n">d</span> <span class="o">+=</span> <span class="n">elm</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">up</span><span class="p">()</span>
+    <span class="n">Res3</span> <span class="o">=</span> <span class="n">elm</span><span class="o">.</span><span class="n">Resistor</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s2">&quot;40Ω&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="n">elm</span><span class="o">.</span><span class="n">Diode</span><span class="p">()</span>
+    <span class="n">Res4</span> <span class="o">=</span> <span class="n">elm</span><span class="o">.</span><span class="n">Resistor</span><span class="p">()</span><span class="o">.</span><span class="n">up</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s2">&quot;20Ω&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">Res5</span> <span class="o">=</span> <span class="n">elm</span><span class="o">.</span><span class="n">Resistor</span><span class="p">()</span><span class="o">.</span><span class="n">left</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s2">&quot;50Ω&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">Res6</span> <span class="o">=</span> <span class="n">elm</span><span class="o">.</span><span class="n">Resistor</span><span class="p">()</span><span class="o">.</span><span class="n">endpoints</span><span class="p">(</span><span class="n">Res4</span><span class="o">.</span><span class="n">start</span><span class="p">,</span><span class="n">Res2</span><span class="o">.</span><span class="n">end</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s2">&quot;35Ω&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">d</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+    
+    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/262c16b7e7503ba1558c81c0b92a684ab4528156d29c6decef8f551bac313ac8.svg" src="../../../_images/262c16b7e7503ba1558c81c0b92a684ab4528156d29c6decef8f551bac313ac8.svg" />
+</div>
+</div>
+</section>
+<section id="diode-recovery-time-with-pyspice">
+<h3>Diode recovery time with Pyspice<a class="headerlink" href="#diode-recovery-time-with-pyspice" title="Link to this heading">#</a></h3>
+<p>Diode recovery time refers to the duration it takes for a diode to stop conducting current after the voltage across it has switched from forward bias (conducting state) to reverse bias (non-conducting state).</p>
+<p>When a diode is conducting in the forward direction, it allows current to flow. Upon switching to reverse bias, the diode does not immediately cease conduction due to the presence of stored charge carriers in the depletion region. The recovery time is the period during which the diode continues to conduct before it fully transitions to its blocking state.</p>
+<p>This parameter is crucial in applications involving high-speed switching, such as power converters and rectifiers, as it affects the overall efficiency and performance of the circuit. A shorter recovery time is generally desirable, as it leads to reduced switching losses and better performance in high-frequency applications</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">PySpice.Probe.Plot</span> <span class="kn">import</span> <span class="n">plot</span>
+<span class="kn">from</span> <span class="nn">PySpice.Spice.Netlist</span> <span class="kn">import</span> <span class="n">Circuit</span>
+<span class="kn">from</span> <span class="nn">PySpice.Unit</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="c1"># Define the circuit</span>
+<span class="n">circuit</span> <span class="o">=</span> <span class="n">Circuit</span><span class="p">(</span><span class="s1">&#39;Diode Recovery Time Simulation&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add a pulse voltage source (simulates forward and reverse switching)</span>
+<span class="n">circuit</span><span class="o">.</span><span class="n">V</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;input&#39;</span><span class="p">,</span> <span class="n">circuit</span><span class="o">.</span><span class="n">gnd</span><span class="p">,</span> <span class="s1">&#39;pulse(0 5 0 1n 1n 50n 100n)&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add a series resistor to limit the current</span>
+<span class="n">circuit</span><span class="o">.</span><span class="n">R</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;input&#39;</span><span class="p">,</span> <span class="s1">&#39;n1&#39;</span><span class="p">,</span> <span class="mi">1</span> <span class="o">@</span> <span class="n">u_Ohm</span><span class="p">)</span>
+
+<span class="c1"># Add a diode in the circuit from node &#39;n1&#39; to ground</span>
+<span class="n">circuit</span><span class="o">.</span><span class="n">D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;n1&#39;</span><span class="p">,</span> <span class="n">circuit</span><span class="o">.</span><span class="n">gnd</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">)</span>
+
+<span class="c1"># Define a diode model with standard parameters (generic diode model)</span>
+<span class="n">circuit</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="n">IS</span><span class="o">=</span><span class="mf">1e-14</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">TT</span><span class="o">=</span><span class="mf">5e-9</span><span class="p">)</span>
+
+<span class="c1"># Create a simulator object for transient analysis</span>
+<span class="n">simulator</span> <span class="o">=</span> <span class="n">circuit</span><span class="o">.</span><span class="n">simulator</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">nominal_temperature</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+
+<span class="c1"># Perform a transient simulation without importing Transient directly</span>
+<span class="n">analysis</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">transient</span><span class="p">(</span><span class="n">step_time</span><span class="o">=</span><span class="mi">1</span> <span class="o">@</span> <span class="n">u_ns</span><span class="p">,</span> <span class="n">end_time</span><span class="o">=</span><span class="mi">200</span> <span class="o">@</span> <span class="n">u_ns</span><span class="p">)</span>
+
+<span class="c1"># Plot the results</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># Plot the voltage across the diode (node &#39;n1&#39;)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">analysis</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">analysis</span><span class="p">[</span><span class="s1">&#39;n1&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Voltage across Diode&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot the input pulse signal for reference</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">analysis</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">analysis</span><span class="p">[</span><span class="s1">&#39;input&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Input Pulse&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time [s]&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Voltage [V]&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Diode Recovery Time&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">OSError</span><span class="g g-Whitespace">                                   </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">22</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="n">circuit</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="n">IS</span><span class="o">=</span><span class="mf">1e-14</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">TT</span><span class="o">=</span><span class="mf">5e-9</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="c1"># Create a simulator object for transient analysis</span>
+<span class="ne">---&gt; </span><span class="mi">22</span> <span class="n">simulator</span> <span class="o">=</span> <span class="n">circuit</span><span class="o">.</span><span class="n">simulator</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">nominal_temperature</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="c1"># Perform a transient simulation without importing Transient directly</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span> <span class="n">analysis</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">transient</span><span class="p">(</span><span class="n">step_time</span><span class="o">=</span><span class="mi">1</span> <span class="o">@</span> <span class="n">u_ns</span><span class="p">,</span> <span class="n">end_time</span><span class="o">=</span><span class="mi">200</span> <span class="o">@</span> <span class="n">u_ns</span><span class="p">)</span>
+
+<span class="nn">File H:\HadiSadoghiYazdi\Circuit\Lib\site-packages\PySpice\Spice\Netlist.py:1292,</span> in <span class="ni">Circuit.simulator</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1291</span> <span class="k">def</span> <span class="nf">simulator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">1292</span>     <span class="k">return</span> <span class="n">CircuitSimulator</span><span class="o">.</span><span class="n">factory</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File H:\HadiSadoghiYazdi\Circuit\Lib\site-packages\PySpice\Spice\Simulation.py:1167,</span> in <span class="ni">CircuitSimulator.factory</span><span class="nt">(cls, circuit, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1164</span>         <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;parallel&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="g g-Whitespace">   </span><span class="mi">1166</span> <span class="k">if</span> <span class="n">sub_cls</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1167</span>     <span class="k">return</span> <span class="n">sub_cls</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1168</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1169</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Unknown simulator type&#39;</span><span class="p">)</span>
+
+<span class="nn">File H:\HadiSadoghiYazdi\Circuit\Lib\site-packages\PySpice\Spice\NgSpice\Simulation.py:99,</span> in <span class="ni">NgSpiceSharedCircuitSimulator.__init__</span><span class="nt">(self, circuit, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">97</span> <span class="n">ngspice_shared</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ngspice_shared&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span> <span class="k">if</span> <span class="n">ngspice_shared</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">99</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_ngspice_shared</span> <span class="o">=</span> <span class="n">NgSpiceShared</span><span class="o">.</span><span class="n">new_instance</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">100</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">101</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_ngspice_shared</span> <span class="o">=</span> <span class="n">ngspice_shared</span>
+
+<span class="nn">File H:\HadiSadoghiYazdi\Circuit\Lib\site-packages\PySpice\Spice\NgSpice\Shared.py:449,</span> in <span class="ni">NgSpiceShared.new_instance</span><span class="nt">(cls, ngspice_id, send_data, verbose)</span>
+<span class="g g-Whitespace">    </span><span class="mi">447</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">448</span>     <span class="bp">cls</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;New instance for id </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ngspice_id</span><span class="p">))</span>
+<span class="ne">--&gt; </span><span class="mi">449</span>     <span class="n">instance</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="n">ngspice_id</span><span class="o">=</span><span class="n">ngspice_id</span><span class="p">,</span> <span class="n">send_data</span><span class="o">=</span><span class="n">send_data</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">450</span>     <span class="bp">cls</span><span class="o">.</span><span class="n">_instances</span><span class="p">[</span><span class="n">ngspice_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">instance</span>
+<span class="g g-Whitespace">    </span><span class="mi">451</span>     <span class="k">return</span> <span class="n">instance</span>
+
+<span class="nn">File H:\HadiSadoghiYazdi\Circuit\Lib\site-packages\PySpice\Spice\NgSpice\Shared.py:479,</span> in <span class="ni">NgSpiceShared.__init__</span><span class="nt">(self, ngspice_id, send_data, verbose)</span>
+<span class="g g-Whitespace">    </span><span class="mi">476</span> <span class="bp">self</span><span class="o">.</span><span class="n">_extensions</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="g g-Whitespace">    </span><span class="mi">478</span> <span class="bp">self</span><span class="o">.</span><span class="n">_library_path</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="ne">--&gt; </span><span class="mi">479</span> <span class="bp">self</span><span class="o">.</span><span class="n">_load_library</span><span class="p">(</span><span class="n">verbose</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">480</span> <span class="bp">self</span><span class="o">.</span><span class="n">_init_ngspice</span><span class="p">(</span><span class="n">send_data</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">482</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_running</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="nn">File H:\HadiSadoghiYazdi\Circuit\Lib\site-packages\PySpice\Spice\NgSpice\Shared.py:539,</span> in <span class="ni">NgSpiceShared._load_library</span><span class="nt">(self, verbose)</span>
+<span class="g g-Whitespace">    </span><span class="mi">537</span> <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">538</span>     <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">539</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ngspice_shared</span> <span class="o">=</span> <span class="n">ffi</span><span class="o">.</span><span class="n">dlopen</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">library_path</span><span class="p">)</span>
+
+<span class="nn">File H:\HadiSadoghiYazdi\Circuit\Lib\site-packages\cffi\api.py:150,</span> in <span class="ni">FFI.dlopen</span><span class="nt">(self, name, flags)</span>
+<span class="g g-Whitespace">    </span><span class="mi">147</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;dlopen(name): name must be a file name, None, &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">148</span>                     <span class="s2">&quot;or an already-opened &#39;void *&#39; handle&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">149</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lock</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">150</span>     <span class="n">lib</span><span class="p">,</span> <span class="n">function_cache</span> <span class="o">=</span> <span class="n">_make_ffi_library</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">151</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_function_caches</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">function_cache</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">152</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_libraries</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lib</span><span class="p">)</span>
+
+<span class="nn">File H:\HadiSadoghiYazdi\Circuit\Lib\site-packages\cffi\api.py:834,</span> in <span class="ni">_make_ffi_library</span><span class="nt">(ffi, libname, flags)</span>
+<span class="g g-Whitespace">    </span><span class="mi">832</span> <span class="k">def</span> <span class="nf">_make_ffi_library</span><span class="p">(</span><span class="n">ffi</span><span class="p">,</span> <span class="n">libname</span><span class="p">,</span> <span class="n">flags</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">833</span>     <span class="n">backend</span> <span class="o">=</span> <span class="n">ffi</span><span class="o">.</span><span class="n">_backend</span>
+<span class="ne">--&gt; </span><span class="mi">834</span>     <span class="n">backendlib</span> <span class="o">=</span> <span class="n">_load_backend_lib</span><span class="p">(</span><span class="n">backend</span><span class="p">,</span> <span class="n">libname</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">835</span>     <span class="c1">#</span>
+<span class="g g-Whitespace">    </span><span class="mi">836</span>     <span class="k">def</span> <span class="nf">accessor_function</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+
+<span class="nn">File H:\HadiSadoghiYazdi\Circuit\Lib\site-packages\cffi\api.py:829,</span> in <span class="ni">_load_backend_lib</span><span class="nt">(backend, name, flags)</span>
+<span class="g g-Whitespace">    </span><span class="mi">827</span>     <span class="k">if</span> <span class="n">first_error</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">828</span>         <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">.  Additionally, </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">first_error</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">829</span>     <span class="k">raise</span> <span class="ne">OSError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">830</span> <span class="k">return</span> <span class="n">backend</span><span class="o">.</span><span class="n">load_library</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span>
+
+<span class="ne">OSError</span>: cannot load library &#39;H:\HadiSadoghiYazdi\Circuit\Lib\site-packages\PySpice\Spice\NgSpice\Spice64_dll\dll-vs\ngspice.dll&#39;: error 0x7e.  Additionally, ctypes.util.find_library() did not manage to locate a library called &#39;H:\\HadiSadoghiYazdi\\Circuit\\Lib\\site-packages\\PySpice\\Spice\\NgSpice\\Spice64_dll\\dll-vs\\ngspice.dll&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="transistor">
+<h2>Transistor<a class="headerlink" href="#transistor" title="Link to this heading">#</a></h2>
+<section id="basic-explanation-about-transistor">
+<h3>Basic explanation about Transistor<a class="headerlink" href="#basic-explanation-about-transistor" title="Link to this heading">#</a></h3>
+<p>A transistor is a miniature semiconductor that regulates or controls current or voltage flow in addition to amplifying and generating these electrical signals and acting as a switch or gate for them. Typically, transistors consist of three layers, or terminals, of a semiconductor material, each of which can carry a current.</p>
+<p>Transistors are crucial components of modern electronics. When working as an amplifier, a transistor transforms a small input current into a bigger output current. As a switch, it can be in one of two distinct states (on or off) to control the flow of electronic signals through an electrical circuit or electronic device.</p>
+</section>
+<section id="types-of-transistors">
+<h3>Types of Transistors<a class="headerlink" href="#types-of-transistors" title="Link to this heading">#</a></h3>
+<p>Transistors are classified into different types based on their structure, functionality, and applications. The two primary types of transistors are <strong>Bipolar Junction Transistors (BJTs)</strong> and <strong>Field Effect Transistors (FETs)</strong>.</p>
+<p><strong>Bipolar Junction Transistors</strong> are further divided into <strong>NPN</strong> and <strong>PNP transistors</strong>. The <strong>NPN transistor</strong> consists of two n-type semiconductor materials separated by a thin layer of p-type. In contrast, the <strong>PNP transistor</strong> consists of two p-type semiconductors separated by a thin layer of n-type. <strong>NPN transistors</strong> are the most widely used because they provide superior performance in most electronic circuits due to the greater mobility of electrons compared to holes.</p>
+<p><strong>Field Effect Transistors</strong> are another major type of transistor, which are further divided into <strong>Junction Gate Field-Effect Transistors (JFETs)</strong> and <strong>Metal Oxide Semiconductor Field Effect Transistors (MOSFETs)</strong>. Unlike BJTs, which are current-controlled, FETs are voltage-controlled devices. This means that the output current in FETs is controlled by the input voltage. JFETs are seldom used in modern electronics, while MOSFETs are widely used due to their high input impedance and low power consumption.</p>
+</section>
+<section id="npn-transistors">
+<h3>NPN Transistors<a class="headerlink" href="#npn-transistors" title="Link to this heading">#</a></h3>
+<p>NPN transistor is a type of bipolar junction transistor (BJT) that is composed of two layers of N-type semiconductor material, with a layer of P-type material sandwiched in between. The term NPN is derived from the sequence of these semiconductor layers.</p>
+<p>The three layers of the NPN transistor correspond to three regions: the emitter, the base, and the collector. The emitter is the region on one side that emits electrons or holes (depending on the type of transistor) into the base. The base is the middle region, which is thin and lightly doped. The collector is the region on the other side that collects these charge carriers from the base.</p>
+<p>The operation of an NPN transistor is based on the movement of electrons as the majority charge carriers. When a small current is applied to the base-emitter junction (forward-biased), it allows a larger current to flow from the collector to the emitter (reverse-biased).This property of controlling a large output current with a small input current makes the NPN transistor a useful device for amplification and switching applications.</p>
+<section id="working-principle-of-npn-transistors">
+<h4>Working Principle of NPN Transistors<a class="headerlink" href="#working-principle-of-npn-transistors" title="Link to this heading">#</a></h4>
+<p>The working principle of an NPN transistor is based on the control of current flow between the emitter and collector regions by varying the base current. The NPN transistor has three terminals: the emitter (E), the base (B), and the collector (C). The emitter is made of N-type material, the base is made of P-type material, and the collector is made of N-type material.</p>
+<p><img alt="RC1_charging" src="../../../_images/Transistor1.jpg" /></p>
+<p>When a small positive voltage is applied to the base-emitter junction, the junction becomes forward-biased, allowing electrons to flow from the emitter to the base. Since the base region is thin and lightly doped, only a small fraction of these electrons recombine with holes in the base. The majority of the electrons continue to flow through the base and reach the collector, which is reverse-biased.</p>
+<p>The reverse-biased base-collector junction creates an electric field that repels the electrons away from the base and attracts them toward the collector. As a result, a large current flows from the collector to the emitter, which is controlled by the smaller base current. The ratio of the collector current to the base current is known as the current gain of the transistor.</p>
+</section>
+</section>
+<section id="pnp-transistor">
+<h3>PNP Transistor<a class="headerlink" href="#pnp-transistor" title="Link to this heading">#</a></h3>
+<p>A PNP transistor is another type of bipolar junction transistor (BJT), which is essentially the mirror image of the NPN transistor. It consists of two layers of P-type semiconductor material with a layer of N-type material sandwiched in between. The term PNP comes from the sequence of these semiconductor layers.</p>
+<p>The three layers of the PNP transistor correspond to three regions: the emitter, the base, and the collector. The emitter is the region on one side that emits holes into the base. The base is the middle region, which is thin and lightly doped. The collector is the region on the other side that collects these charge carriers from the base.</p>
+<p>The operation of a PNP transistor is similar to that of an NPN transistor, but with the roles of the electrons and holes reversed. When a small current is applied to the base-emitter junction (reverse-biased), it allows a larger current to flow from the emitter to the collector (forward-biased). This property of controlling a large output current with a small input current makes the PNP transistor a useful device for amplification and switching applications</p>
+<section id="working-principle-of-pnp-transistors">
+<h4>Working Principle of PNP Transistors<a class="headerlink" href="#working-principle-of-pnp-transistors" title="Link to this heading">#</a></h4>
+<p>The working principle of a PNP transistor, like its NPN counterpart, is based on the control of current flow between the emitter and collector regions by varying the base current. However, the PNP transistor operates with holes as the majority charge carriers, which is the opposite of the NPN transistor that operates with electrons as the majority charge carriers.</p>
+<p><img alt="RC1_charging" src="../../../_images/Transistor2.jpg" /></p>
+<p>In a PNP transistor, when a small negative voltage is applied to the base-emitter junction, the junction becomes forward-biased. [5] This allows holes to flow from the emitter, which is made of P-type material, to the base, which is made of N-type material. Since the base region is thin and lightly doped, only a small fraction of these holes recombine with electrons in the base. The majority of the holes continue to flow through the base and reach the collector, which is reverse-biased.</p>
+<p>The reverse-biased base-collector junction creates an electric field that repels the holes away from the base and attracts them toward the collector. As a result, a large current flows from the emitter to the collector, which is controlled by the smaller base current. The ratio of the collector current to the base current is known as the current gain of the transistor.</p>
+</section>
+</section>
+<section id="comparing-npn-and-pnp-transistors">
+<h3>Comparing NPN and PNP Transistors<a class="headerlink" href="#comparing-npn-and-pnp-transistors" title="Link to this heading">#</a></h3>
+<p>The main difference between NPN vs PNP transistors is their polarity. NPN transistors are N-type semiconductors, while PNP transistors are P-type semiconductors. This means that NPN transistors have a negative terminal and a positive terminal, while PNP transistors have a positive terminal and a negative terminal. As a result, NPN vs PNP transistors have opposite polarities and therefore work in opposite ways.</p>
+<p>In summary, NPN and PNP transistors are the two main types of transistors used in PLCs. NPN transistors are more commonly used, and are known for their ability to switch quickly and handle high current loads. PNP transistors, on the other hand, are less commonly used but have the advantage of being able to handle high voltage loads and provide a higher level of isolation between the input and output terminals. The main difference between the two is their polarity, with NPN transistors having a negative terminal and a positive terminal, while PNP transistors have a positive terminal and a negative terminal.</p>
+</section>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<p>Active components, particularly diodes and transistors, play a crucial role in modern electronics, enabling a wide range of applications from signal amplification to rectification and switching. Understanding the fundamental principles of these semiconductor devices, including their construction, operating conditions, and types, is essential for designing efficient electronic circuits.</p>
+<p>Diodes serve as essential elements in controlling current flow, effectively acting as one-way valves in electrical circuits. Their diverse types, including Zener, Schottky, and Light Emitting Diodes (LEDs), each provide unique functionalities suited for specific applications, such as voltage regulation, high-speed switching, and illumination.</p>
+<p>Transistors, classified into Bipolar Junction Transistors (BJTs) and Field Effect Transistors (FETs), are critical for amplifying and switching electronic signals. The NPN and PNP transistors, as the primary forms of BJTs, allow for effective control of current flow with minimal input, making them invaluable in amplification and digital logic applications.</p>
+</section>
+<section id="refrences">
+<h2>Refrences:<a class="headerlink" href="#refrences" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.automationreadypanels.com/electrical-components/npn-vs-pnp/#:~:text=The%20main%20difference%20between%20NPN,terminal%20and%20a%20negative%20terminal">https://www.automationreadypanels.com/electrical-components/npn-vs-pnp/#:~:text=The main difference between NPN,terminal and a negative terminal</a></p></li>
+<li><p><a class="reference external" href="https://www.studysmarter.co.uk/explanations/physics/electromagnetism/bipolar-junction-transistor/">https://www.studysmarter.co.uk/explanations/physics/electromagnetism/bipolar-junction-transistor/</a></p></li>
+<li><p><a class="reference external" href="https://www.wevolver.com/article/npn-vs-pnp-bjt-transistor-understanding-the-basics">https://www.wevolver.com/article/npn-vs-pnp-bjt-transistor-understanding-the-basics</a></p></li>
+<li><p><a class="reference external" href="https://byjus.com/jee/transistor/">https://byjus.com/jee/transistor/</a></p></li>
+<li><p><a class="reference external" href="https://www.geeksforgeeks.org/zener-diode/">https://www.geeksforgeeks.org/zener-diode/</a></p></li>
+<li><p><a class="reference external" href="https://www.techtarget.com/whatis/definition/transistor">https://www.techtarget.com/whatis/definition/transistor</a></p></li>
+<li><p><a class="reference external" href="http://www.juliantrubin.com/encyclopedia/electronics/diode.html">http://www.juliantrubin.com/encyclopedia/electronics/diode.html</a></p></li>
+<li><p><a class="reference external" href="https://learn.sparkfun.com/tutorials/diodes">https://learn.sparkfun.com/tutorials/diodes</a></p></li>
+<li><p><a class="reference external" href="https://pyspice.fabrice-salvaire.fr/">https://pyspice.fabrice-salvaire.fr/</a></p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Circuit_Electronics\StudentEffort\Activecomponent"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-active-components">What are active components?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#difference-between-active-and-passive-component">Difference Between Active and Passive Component</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diode">Diode</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-explanation-about-diode">Basic explanation about Diode</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formation-of-diode">Formation of Diode</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#biasing-of-diode">Biasing of Diode</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#forward-bias">Forward Bias</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#circuits-under-forward-bias">Circuits under Forward Bias</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reverse-bias">Reverse Bias</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#circuits-under-reverse-bias">Circuits under Reverse Bias</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose-of-diode">Purpose of Diode</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-diode">Types of Diode</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#small-signal-diode">Small Signal Diode</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#zener-diode">Zener Diode</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#zener-characteristics-curve-with-pyspice">Zener Characteristics curve with Pyspice</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#chart-description">Chart description:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#light-emitting-diode-led">Light Emitting Diode (LED)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#schottky-diode">Schottky Diode</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#constant-current-diode">Constant Current Diode</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-recovery-diode">Step Recovery Diode</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#varactor-diode">Varactor Diode</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draw-the-circuit-with-schemdraw">Draw the circuit with schemdraw</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diode-recovery-time-with-pyspice">Diode recovery time with Pyspice</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transistor">Transistor</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-explanation-about-transistor">Basic explanation about Transistor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-transistors">Types of Transistors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#npn-transistors">NPN Transistors</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#working-principle-of-npn-transistors">Working Principle of NPN Transistors</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pnp-transistor">PNP Transistor</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#working-principle-of-pnp-transistors">Working Principle of PNP Transistors</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-npn-and-pnp-transistors">Comparing NPN and PNP Transistors</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#refrences">Refrences:</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Dr.Hadi Sadoghi Yazdi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024 Pattern Recognition Lab.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
